@@ -290,3 +290,27 @@ UNFOLD = {
         ],
     },
 }
+
+# Stripe Configuration - Environment variables required for production
+import os
+STRIPE_PUBLISHABLE_KEY = os.getenv('STRIPE_PUBLISHABLE_KEY')
+STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY')
+STRIPE_WEBHOOK_SECRET = os.getenv('STRIPE_WEBHOOK_SECRET', '')
+STRIPE_HORTUS_ACCOUNT_ID = os.getenv('STRIPE_HORTUS_ACCOUNT_ID')
+
+# Validate required Stripe settings in production
+if not DEBUG:
+    required_stripe_settings = [
+        ('STRIPE_PUBLISHABLE_KEY', STRIPE_PUBLISHABLE_KEY),
+        ('STRIPE_SECRET_KEY', STRIPE_SECRET_KEY),
+        ('STRIPE_HORTUS_ACCOUNT_ID', STRIPE_HORTUS_ACCOUNT_ID),
+    ]
+    
+    missing_settings = [name for name, value in required_stripe_settings if not value]
+    if missing_settings:
+        raise ValueError(f"Missing required Stripe environment variables: {', '.join(missing_settings)}")
+
+# Payment Configuration
+PAYMENT_CURRENCY = 'gbp'
+PAYMENT_SUCCESS_URL = '/payment/success/'
+PAYMENT_CANCEL_URL = '/payment/cancel/'

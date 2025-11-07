@@ -1,0 +1,182 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Contact Us - Hortus Cognitor{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <div class="hero-logo">
+        <img src="{% static 'images/CARROTFIST_white.png' %}" alt="Hortus Cognitor Logo">
+    </div>
+    <div class="container">
+        <div class="hero-content">
+            <h1>CONTACT US</h1>
+            <p class="hero-subheading">Get in touch to start your journey</p>
+        </div>
+    </div>
+</section>
+
+<section class="section-white" style="padding: 3rem 20px; margin: 0; background: #ffffff;">
+    <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+        <p class="key-statement" style="font-size: 1.3rem; line-height: 1.8; margin-bottom: 2rem; color: #333;">
+            We'd love to hear from you. Whether you have questions about our courses, want to collaborate, or are interested in hosting a workshop, we're here to connect.
+        </p>
+    </div>
+</section>
+
+<section class="section-black" style="background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%); padding: 3rem 0; margin: 0;">
+    <div class="container">
+        <h2 style="font-family: 'hey-eloise', 'Kalam', 'Patrick Hand', 'Caveat', cursive; color: #ADA228; font-size: 2.5rem; text-align: center; margin-bottom: 3rem;">Get in Touch</h2>
+        
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-top: 3rem;">
+                <!-- Contact Information -->
+                <div style="background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                    <h3 style="color: #ADA228; margin-bottom: 2rem; font-size: 2rem; text-align: center;">Contact Information</h3>
+                    
+                    <div style="margin-bottom: 2rem;">
+                        <h4 style="color: #333; margin-bottom: 0.5rem; font-size: 1.2rem;">Email</h4>
+                        <p style="color: #666; font-size: 1.1rem; margin: 0;">
+                            <a href="mailto:info@hortuscognitor.com" style="color: #ADA228; text-decoration: none;">info@hortuscognitor.com</a>
+                        </p>
+                    </div>
+                    
+                    <div style="margin-bottom: 2rem;">
+                        <h4 style="color: #333; margin-bottom: 0.5rem; font-size: 1.2rem;">Main Contact</h4>
+                        <p style="color: #666; font-size: 1.1rem; margin: 0;">
+                            Hannah Watkins
+                        </p>
+                    </div>
+                    
+                    <div style="margin-bottom: 2rem;">
+                        <h4 style="color: #333; margin-bottom: 0.5rem; font-size: 1.2rem;">Location</h4>
+                        <p style="color: #666; font-size: 1.1rem; margin: 0;">
+                            Based in the UK<br>
+                            Courses run in various locations
+                        </p>
+                    </div>
+                    
+                    <div>
+                        <h4 style="color: #333; margin-bottom: 0.5rem; font-size: 1.2rem;">Response Time</h4>
+                        <p style="color: #666; font-size: 1.1rem; margin: 0;">
+                            We aim to respond within 24-48 hours
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Contact Form -->
+                <div style="background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                    <h3 style="color: #ADA228; margin-bottom: 2rem; font-size: 2rem; text-align: center;">Send us a Message</h3>
+                    
+                    {% if messages %}
+                        {% for message in messages %}
+                        <div style="background: {% if message.tags == 'success' %}#d4edda; border: 1px solid #c3e6cb; color: #155724;{% else %}#f8d7da; border: 1px solid #f5c6cb; color: #721c24;{% endif %} padding: 1rem; border-radius: 4px; margin-bottom: 1rem;">
+                            {{ message }}
+                        </div>
+                        {% endfor %}
+                    {% endif %}
+                    
+                    <form method="post" action="{% url 'contact' %}">
+                        {% csrf_token %}
+                        
+                        <div style="margin-bottom: 1.5rem;">
+                            <label for="name" style="display: block; margin-bottom: 0.5rem; font-weight: 500; color: #333;">Your Name *</label>
+                            <input type="text" id="name" name="name" required style="width: 100%; padding: 0.75rem; border: 3px solid #ADA228; border-radius: 4px; font-size: 1rem;">
+                        </div>
+                        
+                        <div style="margin-bottom: 1.5rem;">
+                            <label for="email" style="display: block; margin-bottom: 0.5rem; font-weight: 500; color: #333;">Email Address *</label>
+                            <input type="email" id="email" name="email" required style="width: 100%; padding: 0.75rem; border: 3px solid #ADA228; border-radius: 4px; font-size: 1rem;">
+                        </div>
+                        
+                        <div style="margin-bottom: 1.5rem;">
+                            <label for="phone" style="display: block; margin-bottom: 0.5rem; font-weight: 500; color: #333;">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" style="width: 100%; padding: 0.75rem; border: 3px solid #ADA228; border-radius: 4px; font-size: 1rem;">
+                        </div>
+                        
+                        <div style="margin-bottom: 1.5rem;">
+                            <label for="subject" style="display: block; margin-bottom: 0.5rem; font-weight: 500; color: #333;">Subject *</label>
+                            <select id="subject" name="subject" required style="width: 100%; padding: 0.75rem; border: 3px solid #ADA228; border-radius: 4px; font-size: 1rem;">
+                                <option value="">Please select a subject</option>
+                                <option value="course_enquiry">Course Enquiry</option>
+                                <option value="booking_question">Booking Question</option>
+                                <option value="workshop_request">Workshop Request</option>
+                                <option value="collaboration">Collaboration</option>
+                                <option value="general">General Question</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div style="margin-bottom: 2rem;">
+                            <label for="message" style="display: block; margin-bottom: 0.5rem; font-weight: 500; color: #333;">Message *</label>
+                            <textarea id="message" name="message" rows="6" required style="width: 100%; padding: 0.75rem; border: 3px solid #ADA228; border-radius: 4px; font-size: 1rem; resize: vertical;" placeholder="Tell us about your interest in regenerative growing, any specific questions, or how we can help you..."></textarea>
+                        </div>
+                        
+                        <div style="text-align: center;">
+                            <button type="submit" class="btn" style="background: #ADA228; color: white; padding: 1rem 2rem; font-size: 1.1rem; border: none; cursor: pointer;">
+                                Send Message
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section-black" style="padding: 3rem 20px; margin: 0; background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);">
+    <h2 style="font-family: 'hey-eloise', 'Kalam', 'Patrick Hand', 'Caveat', cursive; color: #ADA228; font-size: 2.5rem; text-align: center; margin-bottom: 3rem;">Frequently Asked Questions</h2>
+    
+    <div style="max-width: 900px; margin-left: auto; margin-right: auto; margin-top: 0; margin-bottom: 0; background: #000000; padding: 3rem; border-radius: 8px; box-shadow: 0 5px 20px rgba(0,0,0,0.3);">
+        
+        <div style="text-align: left; margin-bottom: 2rem;">
+            <h4 style="color: #ADA228; font-size: 1.3rem; margin-bottom: 1rem;">Do I need previous experience with gardening or farming?</h4>
+            <p style="color: #ffffff; line-height: 1.6;">No previous experience is necessary. Our courses are designed to welcome people at all levels, from complete beginners to those with some background in growing.</p>
+        </div>
+        
+        <div style="text-align: left; margin-bottom: 2rem;">
+            <h4 style="color: #ADA228; font-size: 1.3rem; margin-bottom: 1rem;">Where do the courses take place?</h4>
+            <p style="color: #ffffff; line-height: 1.6;">Our courses run at various locations across the UK, including working farms, community gardens, and regenerative growing spaces. Specific locations are shared upon booking.</p>
+        </div>
+        
+        <div style="text-align: left; margin-bottom: 2rem;">
+            <h4 style="color: #ADA228; font-size: 1.3rem; margin-bottom: 1rem;">What should I bring to a course?</h4>
+            <p style="color: #ffffff; line-height: 1.6;">We'll send you a detailed packing list upon booking, but generally: weather-appropriate clothing, sturdy shoes, a notebook, and an open mind. All tools and materials are provided.</p>
+        </div>
+        
+        <div style="text-align: left; margin-bottom: 2rem;">
+            <h4 style="color: #ADA228; font-size: 1.3rem; margin-bottom: 1rem;">Can you bring courses to our organization or community?</h4>
+            <p style="color: #ffffff; line-height: 1.6;">Yes! We offer bespoke workshops and courses for organizations, schools, and communities. Get in touch to discuss your needs and we can create something tailored for your group.</p>
+        </div>
+        
+        <div style="text-align: left;">
+            <h4 style="color: #ADA228; font-size: 1.3rem; margin-bottom: 1rem;">What's included in the course fee?</h4>
+            <p style="color: #ffffff; line-height: 1.6;">Course fees include all instruction, materials, tools, and resources. Some courses may include meals - this will be specified in the course description. Accommodation is not typically included unless stated.</p>
+        </div>
+    </div>
+</section>
+
+<section class="section-black" style="padding: 4rem 20px; text-align: center; background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%); margin: 0; max-width: 100%;">
+    <h2 style="font-family: 'hey-eloise', 'Kalam', 'Patrick Hand', 'Caveat', cursive; color: #ADA228; font-size: 2.5rem; margin-bottom: 2rem;">Ready to Get Started?</h2>
+    
+    <p style="color: #ffffff; font-size: 1.2rem; margin-bottom: 2rem;">
+        Join our community of regenerative growers and change makers
+    </p>
+    
+    <p style="color: #ffffff; font-size: 1.15rem; margin-bottom: 3rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+        Explore our courses and discover how working with the land can transform your understanding of food systems, community, and yourself.
+    </p>
+    
+    <a href="/courses/" class="btn" style="font-size: 1.5rem; padding: 1.5rem 3rem;">
+        View Our Courses
+    </a>
+</section>
+
+<style>
+@media (max-width: 768px) {
+    div[style*="grid-template-columns: 1fr 1fr"] {
+        grid-template-columns: 1fr !important;
+    }
+}
+</style>
+{% endblock %}

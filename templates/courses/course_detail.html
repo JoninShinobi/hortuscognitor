@@ -58,12 +58,30 @@
         <div class="course-sidebar">
             <!-- White background section with pricing -->
             <div style="background: white; padding: 2rem; border-radius: 8px; margin-bottom: 2rem;">
-                <p style="font-size: 2rem; color: #ADA228; font-weight: 500; font-family: 'Georgia', serif; margin-bottom: 1rem; text-align: center;">£{{ course.price }}</p>
-                <p style="font-size: 0.9rem; color: #666; margin-bottom: 0; text-align: center;">Limited to {{ course.max_participants }} participants</p>
+                <h4 style="font-family: 'hey-eloise', cursive; color: #ADA228; font-size: 1.5rem; margin-bottom: 1rem; text-align: center;">Three-Tier Pricing</h4>
+                <p style="color: #666; font-size: 0.9rem; text-align: center; margin-bottom: 1.5rem;">Choose what feels right for your situation</p>
+                
+                <div style="text-align: center; margin-bottom: 1rem;">
+                    <div style="margin-bottom: 0.5rem;">
+                        <strong style="color: #ADA228;">£225 - £475</strong>
+                    </div>
+                    <div style="font-size: 0.85rem; color: #666;">
+                        Based on your financial situation
+                    </div>
+                </div>
+                
+                <p style="font-size: 0.9rem; color: #666; margin-bottom: 1.5rem; text-align: center;">Limited to {{ course.max_participants }} participants</p>
+                
+                <div style="text-align: center;">
+                    <a href="{% url 'payment_selection' course.slug %}" class="btn" style="background: #ADA228; color: white; text-decoration: none; padding: 1rem 2rem; display: inline-block; border-radius: 4px; font-size: 1.1rem; margin-bottom: 1rem;">
+                        View Pricing & Book
+                    </a>
+                </div>
             </div>
             
             <div class="booking-form">
-                <h3 style="font-family: 'hey-eloise', 'Kalam', 'Patrick Hand', 'Caveat', cursive; color: #ADA228; font-size: 1.8rem; margin-bottom: 1.5rem;">Book Your Place</h3>
+                <h3 style="font-family: 'hey-eloise', 'Kalam', 'Patrick Hand', 'Caveat', cursive; color: #ADA228; font-size: 1.8rem; margin-bottom: 1.5rem;">Quick Enquiry</h3>
+                <p style="color: #666; font-size: 0.9rem; margin-bottom: 1.5rem;">Have questions? Send us a message first</p>
                 
                 {% if messages %}
                     {% for message in messages %}
@@ -95,7 +113,7 @@
                         {{ booking_form.message }}
                     </div>
                     
-                    <button type="submit" class="btn" style="width: 100%;">Book Now</button>
+                    <button type="submit" class="btn btn-secondary" style="width: 100%;">Send Enquiry</button>
                 </form>
             </div>
         </div>

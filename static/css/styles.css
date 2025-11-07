@@ -61,14 +61,14 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    padding-left: 0 !important;
+    margin-left: 0;
+    max-width: none;
 }
 
 .nav-brand {
     margin-right: auto;
-}
-
-.nav-menu {
-    margin-left: auto;
+    padding-left: 20px;
 }
 
 .nav-brand .logo {
@@ -81,13 +81,15 @@ h1, h2, h3, h4, h5, h6 {
     list-style: none;
     gap: 2rem;
     align-items: center;
+    margin-left: auto;
+    padding-right: 160px;
 }
 
 .nav-menu a {
     font-family: 'hey-eloise', 'Kalam', 'Patrick Hand', 'Caveat', cursive;
     color: var(--primary-color);
     text-decoration: none;
-    font-size: 1.2rem;
+    font-size: 1.7rem;
     transition: opacity 0.3s ease;
 }
 
@@ -115,7 +117,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(rgba(26, 26, 26, 0.7), rgba(42, 42, 42, 0.7)), url('../images/Poster_Image_Hannah.png');
+    background: linear-gradient(rgba(26, 26, 26, 0.7), rgba(42, 42, 42, 0.7)), url('../images/Poster_Image_Hannah_optimized.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;

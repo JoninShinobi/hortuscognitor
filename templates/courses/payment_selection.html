@@ -1,0 +1,310 @@
+{% extends 'base.html' %}
+{% load static %}
+{% csrf_token %}
+
+{% block title %}{{ course.title }} - Payment Options{% endblock %}
+
+{% block content %}
+<section class="hero course-hero">
+    <div class="container">
+        <div class="hero-content">
+            <h1>{{ course.title }}</h1>
+            <p class="hero-subheading">Choose Your Investment</p>
+        </div>
+    </div>
+</section>
+
+<section style="background: #ffffff; padding: 3rem 0; margin: 0;">
+    <div class="container">
+        <div style="max-width: 800px; margin: 0 auto; text-align: center; margin-bottom: 3rem;">
+            <h2 style="font-family: 'hey-eloise', cursive; color: #ADA228; font-size: 2.5rem; margin-bottom: 1rem;">The Investment</h2>
+            <p style="font-size: 1.2rem; line-height: 1.6; color: #333; margin-bottom: 2rem;">
+                Please read the descriptions and decide which price is appropriate for you. Everyone gets the same access, no matter what they pay.
+            </p>
+        </div>
+
+        <!-- Pricing Tiers -->
+        <div style="max-width: 900px; margin: 0 auto;">
+            {% for tier in pricing_tiers %}
+            <div class="pricing-tier-card" data-tier-id="{{ tier.id }}" style="background: #000000; border-left: 5px solid #ADA228; padding: 2rem; margin-bottom: 2rem; border-radius: 8px; cursor: pointer; transition: all 0.3s ease;">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
+                    <div>
+                        <h3 style="font-family: 'hey-eloise', cursive; color: #ADA228; font-size: 1.8rem; margin-bottom: 0.5rem;">
+                            £{{ tier.price }} for {{ tier.sessions }} sessions
+                        </h3>
+                        <p style="color: #ffffff; font-size: 1rem; margin: 0;">
+                            (£{{ tier.price_per_session|floatformat:0 }} per session)
+                        </p>
+                    </div>
+                    <div class="tier-radio" style="margin-left: 1rem;">
+                        <input type="radio" name="pricing_tier" value="{{ tier.id }}" id="tier_{{ tier.id }}" style="transform: scale(1.5);">
+                    </div>
+                </div>
+                <div style="color: #ffffff; line-height: 1.6;">
+                    {{ tier.description|linebreaks }}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <!-- Payment Plan Selection -->
+        <div style="max-width: 700px; margin: 3rem auto 0;">
+            <h3 style="font-family: 'hey-eloise', cursive; color: #ADA228; font-size: 2rem; text-align: center; margin-bottom: 2rem;">Payment Options</h3>
+            
+            {% for plan in payment_plans %}
+            <div class="payment-plan-card" data-plan-id="{{ plan.id }}" style="background: #000000; border: 2px solid #ADA228; padding: 2rem; margin-bottom: 1rem; border-radius: 8px; cursor: pointer; transition: all 0.3s ease;">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <div>
+                        <h4 style="font-family: 'hey-eloise', cursive; color: #ADA228; font-size: 1.4rem; margin-bottom: 0.5rem;">
+                            {{ plan.get_name_display }}
+                        </h4>
+                        {% if plan.name == 'full' %}
+                        <p style="color: #ffffff; margin: 0;">Course bookings close and payments must be made in full by {{ plan.deposit_deadline|date:"jS M Y" }}.</p>
+                        {% else %}
+                        <p style="color: #ffffff; margin: 0;">
+                            50% non-refundable deposit by {{ plan.deposit_deadline|date:"jS M Y" }}<br>
+                            Pay remaining 50% by {{ plan.final_payment_deadline|date:"jS M Y" }}
+                        </p>
+                        {% endif %}
+                    </div>
+                    <div>
+                        <input type="radio" name="payment_plan" value="{{ plan.id }}" id="plan_{{ plan.id }}" style="transform: scale(1.5);">
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <!-- Customer Details Form -->
+        <div style="max-width: 600px; margin: 3rem auto 0; background: #f8f8f8; padding: 2rem; border-radius: 8px;">
+            <h3 style="font-family: 'hey-eloise', cursive; color: #ADA228; font-size: 1.8rem; text-align: center; margin-bottom: 2rem;">Your Details</h3>
+            
+            <form id="customer-form">
+                <div style="margin-bottom: 1.5rem;">
+                    <label for="full_name" style="display: block; margin-bottom: 0.5rem; font-weight: 500; color: #333;">Full Name *</label>
+                    <input type="text" id="full_name" name="full_name" required style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 4px; font-size: 1rem;">
+                </div>
+                
+                <div style="margin-bottom: 1.5rem;">
+                    <label for="email" style="display: block; margin-bottom: 0.5rem; font-weight: 500; color: #333;">Email Address *</label>
+                    <input type="email" id="email" name="email" required style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 4px; font-size: 1rem;">
+                </div>
+                
+                <div style="margin-bottom: 1.5rem;">
+                    <label for="phone" style="display: block; margin-bottom: 0.5rem; font-weight: 500; color: #333;">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 4px; font-size: 1rem;">
+                </div>
+                
+                <div style="margin-bottom: 2rem;">
+                    <label for="message" style="display: block; margin-bottom: 0.5rem; font-weight: 500; color: #333;">Message (Optional)</label>
+                    <textarea id="message" name="message" rows="4" style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 4px; font-size: 1rem; resize: vertical;"></textarea>
+                </div>
+            </form>
+        </div>
+
+        <!-- Important Notice -->
+        <div style="max-width: 700px; margin: 2rem auto; background: #fff3cd; border: 1px solid #ffeaa7; padding: 1.5rem; border-radius: 8px;">
+            <h4 style="color: #856404; margin-bottom: 1rem;">Important Notice</h4>
+            <p style="color: #856404; margin: 0; line-height: 1.6;">
+                <strong>Course starts:</strong> 17th January 2026<br>
+                <strong>Refund Policy:</strong> If you pay in installments and do not pay the remaining 50% by 9th January 2026, your 50% deposit will not be refunded.
+            </p>
+        </div>
+
+        <!-- Proceed to Payment Button -->
+        <div style="text-align: center; margin-top: 3rem;">
+            <button id="proceed-payment" class="btn" disabled style="background: #ccc; font-size: 1.2rem; padding: 1rem 3rem;">
+                Proceed to Payment
+            </button>
+            <p style="color: #666; margin-top: 1rem; font-size: 0.9rem;">
+                Please select a pricing tier and payment plan to continue
+            </p>
+        </div>
+    </div>
+</section>
+
+<script src="https://js.stripe.com/v3/"></script>
+<script>
+// Initialize Stripe
+const stripe = Stripe('{{ stripe_publishable_key }}');
+
+// Form validation and interactivity
+document.addEventListener('DOMContentLoaded', function() {
+    const tierCards = document.querySelectorAll('.pricing-tier-card');
+    const planCards = document.querySelectorAll('.payment-plan-card');
+    const proceedButton = document.getElementById('proceed-payment');
+    const customerForm = document.getElementById('customer-form');
+    
+    // Handle tier selection
+    tierCards.forEach(card => {
+        card.addEventListener('click', function() {
+            // Remove previous selections
+            tierCards.forEach(c => {
+                c.style.borderLeft = '5px solid #ADA228';
+                c.style.background = '#000000';
+            });
+            
+            // Select this tier
+            this.style.borderLeft = '5px solid #ffffff';
+            this.style.background = '#1a1a1a';
+            this.querySelector('input[type="radio"]').checked = true;
+            
+            validateForm();
+        });
+    });
+    
+    // Handle plan selection
+    planCards.forEach(card => {
+        card.addEventListener('click', function() {
+            // Remove previous selections
+            planCards.forEach(c => {
+                c.style.border = '2px solid #ADA228';
+                c.style.background = '#000000';
+            });
+            
+            // Select this plan
+            this.style.border = '2px solid #ffffff';
+            this.style.background = '#1a1a1a';
+            this.querySelector('input[type="radio"]').checked = true;
+            
+            validateForm();
+        });
+    });
+    
+    // Form validation
+    function validateForm() {
+        const tierSelected = document.querySelector('input[name="pricing_tier"]:checked');
+        const planSelected = document.querySelector('input[name="payment_plan"]:checked');
+        const nameField = document.getElementById('full_name');
+        const emailField = document.getElementById('email');
+        
+        if (tierSelected && planSelected && nameField.value.trim() && emailField.value.trim()) {
+            proceedButton.disabled = false;
+            proceedButton.style.background = '#ADA228';
+            proceedButton.style.cursor = 'pointer';
+        } else {
+            proceedButton.disabled = true;
+            proceedButton.style.background = '#ccc';
+            proceedButton.style.cursor = 'not-allowed';
+        }
+    }
+    
+    // Listen for form changes
+    customerForm.addEventListener('input', validateForm);
+    
+    // Handle proceed to payment
+    proceedButton.addEventListener('click', async function() {
+        if (this.disabled) return;
+        
+        const tierSelected = document.querySelector('input[name="pricing_tier"]:checked');
+        const planSelected = document.querySelector('input[name="payment_plan"]:checked');
+        
+        const customerDetails = {
+            full_name: document.getElementById('full_name').value.trim(),
+            email: document.getElementById('email').value.trim(),
+            phone: document.getElementById('phone').value.trim(),
+            message: document.getElementById('message').value.trim()
+        };
+        
+        // Show loading state
+        this.innerHTML = 'Creating Payment Session...';
+        this.disabled = true;
+        
+        try {
+            // Create checkout session
+            const response = await fetch('{% url "create_checkout_session" %}', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': getCsrfToken()
+                },
+                body: JSON.stringify({
+                    course_id: {{ course.id }},
+                    pricing_tier_id: tierSelected.value,
+                    payment_plan_id: planSelected.value,
+                    customer_details: customerDetails
+                })
+            });
+            
+            const data = await response.json();
+            
+            if (data.checkout_url) {
+                // Redirect to Stripe Checkout
+                window.location.href = data.checkout_url;
+            } else {
+                throw new Error(data.error || 'Failed to create payment session');
+            }
+            
+        } catch (error) {
+            alert('Error: ' + error.message);
+            this.innerHTML = 'Proceed to Payment';
+            this.disabled = false;
+        }
+    });
+    
+    // Get CSRF token
+    function getCsrfToken() {
+        // First try Django template token
+        const token = '{{ csrf_token|escapejs }}';
+        if (token && token !== '') {
+            return token;
+        }
+        
+        // Try cookies
+        const cookies = document.cookie.split(';');
+        for (let cookie of cookies) {
+            const [name, value] = cookie.trim().split('=');
+            if (name === 'csrftoken') {
+                return value;
+            }
+        }
+        
+        // Try meta tag
+        const metaTag = document.querySelector('meta[name="csrf-token"]');
+        if (metaTag) {
+            return metaTag.getAttribute('content');
+        }
+        
+        // Try form input
+        const formToken = document.querySelector('[name=csrfmiddlewaretoken]');
+        if (formToken) {
+            return formToken.value;
+        }
+        
+        return '';
+    }
+});
+</script>
+
+<style>
+.pricing-tier-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.payment-plan-card:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed !important;
+}
+
+@media (max-width: 768px) {
+    .pricing-tier-card, .payment-plan-card {
+        padding: 1.5rem;
+    }
+    
+    .pricing-tier-card div[style*="display: flex"] {
+        display: block !important;
+    }
+    
+    .tier-radio {
+        margin: 1rem 0 0 0 !important;
+        text-align: center;
+    }
+}
+</style>
+{% endblock %}

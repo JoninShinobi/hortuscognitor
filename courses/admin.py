@@ -1,6 +1,6 @@
 from django.contrib import admin
-from unfold.admin import ModelAdmin
-from .models import Course, Instructor, Booking
+from unfold.admin import ModelAdmin, TabularInline
+from .models import Course, Instructor, Booking, PricingTier, PaymentPlan, CoursePayment, StripePaymentRecord
 
 @admin.register(Course)
 class CourseAdmin(ModelAdmin):
@@ -89,5 +89,113 @@ class BookingAdmin(ModelAdmin):
         }),
         ('Booking Details', {
             'fields': ('course', 'message', 'created_at')
+        })
+    )
+
+
+class PricingTierInline(TabularInline):
+    model = PricingTier
+    extra = 0
+    fields = ['tier', 'price', 'sessions', 'description']
+    readonly_fields = []
+
+
+@admin.register(PricingTier)
+class PricingTierAdmin(ModelAdmin):
+    list_display = ['course', 'tier', 'price', 'price_per_session', 'sessions']
+    list_filter = ['tier', 'course']
+    search_fields = ['course__title', 'description']
+    
+    fieldsets = (
+        ('Basic Information', {
+            'fields': ('course', 'tier', 'price', 'sessions')
+        }),
+        ('Description', {
+            'fields': ('description',),
+            'description': 'Detailed description explaining who this pricing tier is for.'
+        })
+    )
+
+
+@admin.register(PaymentPlan)
+class PaymentPlanAdmin(ModelAdmin):
+    list_display = ['name', 'deposit_percentage', 'deposit_deadline', 'final_payment_deadline', 'is_active']
+    list_filter = ['name', 'is_active']
+    
+    fieldsets = (
+        ('Plan Details', {
+            'fields': ('name', 'deposit_percentage', 'is_active')
+        }),
+        ('Payment Deadlines', {
+            'fields': ('deposit_deadline', 'final_payment_deadline'),
+            'description': 'Set the deadlines for deposit and final payments.'
+        })
+    )
+
+
+class StripePaymentRecordInline(TabularInline):
+    model = StripePaymentRecord
+    extra = 0
+    readonly_fields = ['payment_type', 'stripe_payment_intent_id', 'amount', 'currency', 'status', 'created_at', 'processed_at']
+    can_delete = False
+
+
+@admin.register(CoursePayment)
+class CoursePaymentAdmin(ModelAdmin):
+    list_display = ['booking', 'pricing_tier', 'payment_plan', 'status', 'total_amount', 'next_payment_due', 'is_overdue']
+    list_filter = ['status', 'pricing_tier__tier', 'payment_plan__name', 'created_at']
+    search_fields = ['booking__full_name', 'booking__email', 'booking__course__title']
+    date_hierarchy = 'created_at'
+    readonly_fields = ['total_amount', 'deposit_amount', 'final_amount', 'created_at', 'updated_at', 'is_overdue', 'next_payment_due']
+    inlines = [StripePaymentRecordInline]
+    
+    fieldsets = (
+        ('Payment Details', {
+            'fields': ('booking', 'pricing_tier', 'payment_plan', 'status')
+        }),
+        ('Stripe Integration', {
+            'fields': ('stripe_customer_id', 'stripe_payment_intent_id'),
+            'classes': ('collapse',)
+        }),
+        ('Payment Amounts', {
+            'fields': ('total_amount', 'deposit_amount', 'final_amount'),
+            'classes': ('collapse',),
+            'description': 'Amounts are automatically calculated based on pricing tier and payment plan.'
+        }),
+        ('Payment Tracking', {
+            'fields': ('deposit_paid_at', 'final_paid_at', 'created_at', 'updated_at'),
+            'classes': ('collapse',)
+        }),
+        ('Status Information', {
+            'fields': ('is_overdue', 'next_payment_due'),
+            'classes': ('collapse',),
+            'description': 'Automatically calculated status information.'
+        })
+    )
+    
+    def get_queryset(self, request):
+        queryset = super().get_queryset(request)
+        return queryset.select_related('booking', 'pricing_tier', 'payment_plan')
+
+
+@admin.register(StripePaymentRecord)
+class StripePaymentRecordAdmin(ModelAdmin):
+    list_display = ['course_payment', 'payment_type', 'amount', 'status', 'created_at']
+    list_filter = ['payment_type', 'status', 'currency', 'created_at']
+    search_fields = ['course_payment__booking__full_name', 'stripe_payment_intent_id']
+    date_hierarchy = 'created_at'
+    readonly_fields = ['created_at']
+    
+    fieldsets = (
+        ('Payment Information', {
+            'fields': ('course_payment', 'payment_type', 'amount', 'currency', 'status')
+        }),
+        ('Stripe Details', {
+            'fields': ('stripe_payment_intent_id',),
+            'classes': ('collapse',)
+        }),
+        ('Timestamps', {
+            'fields': ('created_at', 'processed_at'),
+            'classes': ('collapse',)
         })
     )

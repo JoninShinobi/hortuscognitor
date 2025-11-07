@@ -1,0 +1,135 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Payment Successful - Hortus Cognitor{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <div class="container">
+        <div class="hero-content">
+            <h1 style="color: #28a745;">Payment Successful!</h1>
+            <p class="hero-subheading">Welcome to Hortus Cognitor</p>
+        </div>
+    </div>
+</section>
+
+<section style="background: #ffffff; padding: 3rem 0; margin: 0;">
+    <div class="container">
+        <div style="max-width: 700px; margin: 0 auto; text-align: center;">
+            
+            <!-- Success Icon -->
+            <div style="margin-bottom: 2rem;">
+                <div style="background: #28a745; color: white; width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto; font-size: 2rem;">
+                    ✓
+                </div>
+            </div>
+            
+            {% if course_payment %}
+            <!-- Payment Details -->
+            <div style="background: #f8f9fa; padding: 2rem; border-radius: 8px; margin-bottom: 2rem; text-align: left;">
+                <h3 style="font-family: 'hey-eloise', cursive; color: #ADA228; font-size: 1.8rem; margin-bottom: 1.5rem; text-align: center;">Payment Details</h3>
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+                    <div>
+                        <strong>Course:</strong><br>
+                        {{ course_payment.booking.course.title }}
+                    </div>
+                    <div>
+                        <strong>Student:</strong><br>
+                        {{ course_payment.booking.full_name }}
+                    </div>
+                </div>
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+                    <div>
+                        <strong>Pricing Tier:</strong><br>
+                        {{ course_payment.pricing_tier.get_tier_display }}
+                    </div>
+                    <div>
+                        <strong>Payment Plan:</strong><br>
+                        {{ course_payment.payment_plan.get_name_display }}
+                    </div>
+                </div>
+                
+                {% if payment_type == 'deposit' %}
+                <div style="background: #fff3cd; border: 1px solid #ffeaa7; padding: 1rem; border-radius: 4px; margin-top: 1rem;">
+                    <strong style="color: #856404;">Deposit Paid: £{{ course_payment.deposit_amount }}</strong><br>
+                    <span style="color: #856404; font-size: 0.9rem;">
+                        Remaining balance of £{{ course_payment.final_amount }} due by {{ course_payment.payment_plan.final_payment_deadline|date:"jS F Y" }}
+                    </span>
+                </div>
+                {% else %}
+                <div style="background: #d4edda; border: 1px solid #c3e6cb; padding: 1rem; border-radius: 4px; margin-top: 1rem;">
+                    <strong style="color: #155724;">Full Payment Complete: £{{ course_payment.total_amount }}</strong><br>
+                    <span style="color: #155724; font-size: 0.9rem;">Your place is fully secured!</span>
+                </div>
+                {% endif %}
+            </div>
+            {% endif %}
+            
+            <!-- What Happens Next -->
+            <div style="background: #e8f5e8; padding: 2rem; border-radius: 8px; margin-bottom: 2rem; text-align: left;">
+                <h3 style="font-family: 'hey-eloise', cursive; color: #ADA228; font-size: 1.8rem; margin-bottom: 1.5rem; text-align: center;">What Happens Next</h3>
+                
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li style="padding: 0.5rem 0; border-bottom: 1px solid #ddd;">
+                        <strong>📧 Confirmation Email:</strong> You'll receive a detailed confirmation email within 5 minutes
+                    </li>
+                    <li style="padding: 0.5rem 0; border-bottom: 1px solid #ddd;">
+                        <strong>📅 Course Information:</strong> Pre-course materials and location details will be sent 1 week before
+                    </li>
+                    <li style="padding: 0.5rem 0; border-bottom: 1px solid #ddd;">
+                        <strong>🌱 Course Start:</strong> Your regenerative journey begins 17th January 2026
+                    </li>
+                    {% if payment_type == 'deposit' %}
+                    <li style="padding: 0.5rem 0;">
+                        <strong>💳 Final Payment:</strong> We'll send a reminder before {{ course_payment.payment_plan.final_payment_deadline|date:"jS F Y" }}
+                    </li>
+                    {% endif %}
+                </ul>
+            </div>
+            
+            <!-- Contact Information -->
+            <div style="background: #f8f8f8; padding: 2rem; border-radius: 8px; margin-bottom: 2rem;">
+                <h3 style="font-family: 'hey-eloise', cursive; color: #ADA228; font-size: 1.5rem; margin-bottom: 1rem;">Need Help?</h3>
+                <p style="margin: 0; color: #666; line-height: 1.6;">
+                    If you have any questions about your booking or the course, please don't hesitate to contact us.<br>
+                    We're here to support your regenerative learning journey.
+                </p>
+            </div>
+            
+            <!-- Action Buttons -->
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="{% url 'home' %}" class="btn btn-secondary" style="text-decoration: none;">
+                    Return to Home
+                </a>
+                <a href="{% url 'course_list' %}" class="btn" style="text-decoration: none;">
+                    View All Courses
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+@media (max-width: 768px) {
+    div[style*="display: grid"][style*="grid-template-columns: 1fr 1fr"] {
+        display: block !important;
+    }
+    
+    div[style*="display: grid"] > div {
+        margin-bottom: 1rem;
+    }
+    
+    div[style*="display: flex"] {
+        display: block !important;
+    }
+    
+    div[style*="display: flex"] > * {
+        display: block;
+        margin: 0.5rem auto;
+        text-align: center;
+    }
+}
+</style>
+{% endblock %}

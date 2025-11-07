@@ -7,6 +7,7 @@
     <title>{% block title %}Hortus Cognitor - Grow Real Change with the Land{% endblock %}</title>
     <link rel="stylesheet" href="https://use.typekit.net/lee7tab.css">
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="preload" as="image" href="{% static 'images/Poster_Image_Hannah_optimized.jpg' %}">
 </head>
 <body>
     <header>
@@ -26,7 +27,7 @@
                     <li><a href="{% url 'home' %}">Home</a></li>
                     <li><a href="{% url 'course_list' %}">Courses</a></li>
                     <li><a href="#about">About</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="{% url 'contact' %}">Contact</a></li>
                 </ul>
             </div>
         </nav>

@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Payment Cancelled - Hortus Cognitor{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <div class="container">
+        <div class="hero-content">
+            <h1 style="color: #ffc107;">Payment Cancelled</h1>
+            <p class="hero-subheading">No worries, you can try again anytime</p>
+        </div>
+    </div>
+</section>
+
+<section style="background: #ffffff; padding: 3rem 0; margin: 0;">
+    <div class="container">
+        <div style="max-width: 600px; margin: 0 auto; text-align: center;">
+            
+            <!-- Cancel Icon -->
+            <div style="margin-bottom: 2rem;">
+                <div style="background: #ffc107; color: white; width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto; font-size: 2rem;">
+                    ⏸
+                </div>
+            </div>
+            
+            <!-- Main Message -->
+            <div style="background: #fff3cd; border: 1px solid #ffeaa7; padding: 2rem; border-radius: 8px; margin-bottom: 2rem;">
+                <h3 style="font-family: 'hey-eloise', cursive; color: #856404; font-size: 1.8rem; margin-bottom: 1rem;">Your payment was cancelled</h3>
+                <p style="color: #856404; margin: 0; line-height: 1.6;">
+                    Don't worry - no payment has been taken and your information is safe. 
+                    You can return to try the payment process again whenever you're ready.
+                </p>
+            </div>
+            
+            <!-- Why might this happen? -->
+            <div style="background: #f8f9fa; padding: 2rem; border-radius: 8px; margin-bottom: 2rem; text-align: left;">
+                <h4 style="font-family: 'hey-eloise', cursive; color: #ADA228; font-size: 1.4rem; margin-bottom: 1rem; text-align: center;">Common reasons for cancelled payments:</h4>
+                
+                <ul style="color: #666; line-height: 1.8; margin: 0;">
+                    <li>Changed your mind about the pricing tier</li>
+                    <li>Want to discuss payment options first</li>
+                    <li>Need more time to decide</li>
+                    <li>Encountered a technical issue</li>
+                    <li>Prefer to pay via bank transfer</li>
+                </ul>
+            </div>
+            
+            <!-- Course Reminder -->
+            <div style="background: #e8f5e8; padding: 2rem; border-radius: 8px; margin-bottom: 2rem;">
+                <h4 style="font-family: 'hey-eloise', cursive; color: #ADA228; font-size: 1.4rem; margin-bottom: 1rem;">Remember</h4>
+                <p style="color: #333; margin: 0; line-height: 1.6;">
+                    <strong>Course starts:</strong> 17th January 2026<br>
+                    <strong>Payment deadline:</strong> 9th January 2026<br>
+                    <strong>Installment option:</strong> 50% deposit by 9th December 2025
+                </p>
+            </div>
+            
+            <!-- Contact Information -->
+            <div style="background: #f8f8f8; padding: 2rem; border-radius: 8px; margin-bottom: 2rem;">
+                <h4 style="font-family: 'hey-eloise', cursive; color: #ADA228; font-size: 1.4rem; margin-bottom: 1rem;">Need Help?</h4>
+                <p style="margin: 0; color: #666; line-height: 1.6;">
+                    If you're experiencing issues or have questions about payment options, 
+                    please don't hesitate to contact us. We're here to help make this process as smooth as possible.
+                </p>
+            </div>
+            
+            <!-- Action Buttons -->
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <button onclick="history.back()" class="btn" style="background: #ADA228; color: white; border: none; cursor: pointer;">
+                    Try Payment Again
+                </button>
+                <a href="{% url 'course_list' %}" class="btn btn-secondary" style="text-decoration: none;">
+                    Browse Courses
+                </a>
+                <a href="{% url 'home' %}" class="btn btn-secondary" style="text-decoration: none;">
+                    Return Home
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+@media (max-width: 768px) {
+    div[style*="display: flex"] {
+        display: block !important;
+    }
+    
+    div[style*="display: flex"] > * {
+        display: block;
+        margin: 0.5rem auto;
+        text-align: center;
+        width: 200px;
+    }
+}
+</style>
+{% endblock %}

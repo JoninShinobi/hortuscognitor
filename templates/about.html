@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}About Us - Hortus Cognitor{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <div class="hero-logo">
+        <img src="{% static 'images/CARROTFIST_white.png' %}" alt="Hortus Cognitor Logo">
+    </div>
+    <div class="container">
+        <div class="hero-content">
+            <h1>ABOUT US</h1>
+            <p class="hero-subheading">Growing Real Change with the Land</p>
+        </div>
+    </div>
+</section>
+
+<section class="section-black" style="background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%); padding: 3rem 0; margin: 0;">
+    <div class="container">
+        <h2 style="font-family: 'hey-eloise', 'Kalam', 'Patrick Hand', 'Caveat', cursive; color: #ADA228; font-size: 2.5rem; text-align: center; margin-bottom: 3rem;">Our Mission</h2>
+        
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <div style="text-align: center; margin-bottom: 3rem;">
+                <p style="font-size: 1.3rem; line-height: 1.8; margin-bottom: 2rem; color: #ffffff;">
+                    We believe that real transformation comes through connection with the land and its many inhabitants.
+                </p>
+                <p style="font-size: 1.2rem; line-height: 1.8; margin-bottom: 2rem; color: #ffffff;">
+                    Hortus Cognitor creates an engaging and immersive learning experience, that connects people to the earth and each other, fostering deep understanding of how working with the land brings about meaningful change in our own internal landscapes, our communities and the world around us.
+                </p>
+                <p style="font-size: 1.2rem; line-height: 1.8; margin-bottom: 3rem; color: #ffffff;">
+                    Through our courses, workshops, and community projects, we invite you to discover how natural principles can teach us about growing colourful, meaningful and powerful political and ecological change.
+                </p>
+            </div>
+            
+            <p style="font-size: 1.1rem; margin-bottom: 2rem; color: #ffffff; text-align: center;">
+                We offer transformative experiences that move beyond theory into lived understanding of natural systems, creating spaces where transformation isn't just a concept—it's a lived, growing reality.
+            </p>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2rem; margin-top: 3rem;">
+                <div style="background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                    <h3 style="color: #ADA228; margin-bottom: 1rem; font-size: 1.8rem; white-space: nowrap; text-align: center;">Experiential Learning</h3>
+                    <p style="text-align: center; color: #000000;">Learning through direct experience with soil, plants, and regenerative growing practices that create real, tangible results.</p>
+                </div>
+                
+                <div style="background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                    <h3 style="color: #ADA228; margin-bottom: 1rem; font-size: 1.8rem; white-space: nowrap; text-align: center;">Community Connection</h3>
+                    <p style="text-align: center; color: #000000;">Building relationships and shared understanding through collaborative work with the land and each other.</p>
+                </div>
+                
+                <div style="background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                    <h3 style="color: #ADA228; margin-bottom: 1rem; font-size: 1.8rem; white-space: nowrap; text-align: center;">Personal Transformation</h3>
+                    <p style="text-align: center; color: #000000;">Discovering how working within natural systems creates profound shifts in perspective, purpose, and personal power.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+@media (max-width: 768px) {
+    div[style*="grid-template-columns: 1fr 1fr 1fr"] {
+        grid-template-columns: 1fr !important;
+    }
+}
+</style>
+{% endblock %}

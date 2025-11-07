@@ -31,6 +31,9 @@ def home(request):
         from django.http import HttpResponse
         return HttpResponse(f"<h1>Hortus Cognitor - Django is working!</h1><p>Database issue: {str(e)}</p>")
 
+def about(request):
+    return render(request, 'about.html')
+
 def regenerative_movement_course(request):
     return render(request, 'regenerative_movement_course.html')
 

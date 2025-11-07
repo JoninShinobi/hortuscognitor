@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
-from courses.views import home, regenerative_movement_course, contact
+from courses.views import home, regenerative_movement_course, contact, about
 from django.http import HttpResponse
 
 def health_check(request):
@@ -16,6 +16,7 @@ urlpatterns = [
     path('health/', health_check, name='health_check'),
     path('test/', simple_home, name='simple_home'),
     path('', home, name='home'),
+    path('about/', about, name='about'),
     path('contact/', contact, name='contact'),
     path('regenerative-movement-course/', regenerative_movement_course, name='regenerative_movement_course'),
     path('courses/', include('courses.urls')),

@@ -1,4 +1,5 @@
 from django.core.management.base import BaseCommand
+from django.core.management import call_command
 from courses.models import Course, Instructor
 from datetime import date
 
@@ -52,3 +53,11 @@ It is fair to say that you are in safe, muddy hands with Hannah Watkins and that
         instructor.courses.add(course)
         
         self.stdout.write(self.style.SUCCESS('Sample data loaded successfully!'))
+        
+        # Now set up pricing tiers
+        self.stdout.write('Setting up pricing tiers...')
+        try:
+            call_command('setup_pricing')
+            self.stdout.write(self.style.SUCCESS('Pricing setup completed!'))
+        except Exception as e:
+            self.stdout.write(self.style.ERROR(f'Error setting up pricing: {e}'))

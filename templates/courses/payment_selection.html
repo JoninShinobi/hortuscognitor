@@ -125,8 +125,21 @@
 
 <script src="https://js.stripe.com/v3/"></script>
 <script>
-// Initialize Stripe
-const stripe = Stripe('{{ stripe_publishable_key }}');
+// Initialize Stripe with error handling
+let stripe = null;
+const stripeKey = '{{ stripe_publishable_key }}';
+
+if (stripeKey && stripeKey !== '') {
+    try {
+        stripe = Stripe(stripeKey);
+    } catch (error) {
+        console.error('Stripe initialization failed:', error);
+        alert('Payment system is currently unavailable. Please contact us directly.');
+    }
+} else {
+    console.error('Stripe publishable key is missing');
+    alert('Payment system is not configured. Please contact us at info@hortuscognitor.com');
+}
 
 // Form validation and interactivity
 document.addEventListener('DOMContentLoaded', function() {
@@ -195,6 +208,12 @@ document.addEventListener('DOMContentLoaded', function() {
     // Handle proceed to payment
     proceedButton.addEventListener('click', async function() {
         if (this.disabled) return;
+        
+        // Check if Stripe is available
+        if (!stripe) {
+            alert('Payment system is currently unavailable. Please contact us at info@hortuscognitor.com');
+            return;
+        }
         
         const tierSelected = document.querySelector('input[name="pricing_tier"]:checked');
         const planSelected = document.querySelector('input[name="payment_plan"]:checked');

@@ -1,0 +1,4291 @@
+
+
++===========================================================================================================================================================================================+
+
+
+DEPRECATED: this command (`check`) has been DEPRECATED, and will be unsupported beyond 01 June 2024.
+
+
+We highly encourage switching to the new `scan` command which is easier to use, more powerful, and can be set up to mimic the deprecated command if required.
+
+
++===========================================================================================================================================================================================+
+
+
+{
+    "report_meta": {
+        "scan_target": "environment",
+        "scanned": [
+            "/Users/aarondudfield/Library/Python/3.13/lib/python/site-packages",
+            "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages"
+        ],
+        "scanned_full_path": [
+            "/Users/aarondudfield/Library/Python/3.13/lib/python/site-packages",
+            "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages"
+        ],
+        "target_languages": [
+            "python"
+        ],
+        "policy_file": null,
+        "policy_file_source": "local",
+        "audit_and_monitor": false,
+        "api_key": false,
+        "account": "",
+        "local_database_path": null,
+        "safety_version": "3.7.0",
+        "timestamp": "2025-11-07 00:56:13",
+        "packages_found": 264,
+        "vulnerabilities_found": 2,
+        "vulnerabilities_ignored": 0,
+        "remediations_recommended": 0,
+        "telemetry": {
+            "safety_options": {
+                "json": {
+                    "--json": 1
+                }
+            },
+            "safety_version": "3.7.0",
+            "safety_source": "cli",
+            "os_type": "Darwin",
+            "os_release": "24.5.0",
+            "os_description": "macOS-15.5-arm64-arm-64bit-Mach-O",
+            "python_version": "3.13.5",
+            "safety_command": "check"
+        },
+        "git": {
+            "branch": "main",
+            "tag": "",
+            "commit": "fe48b5b88df748bc14e20ed1a482f0804c18966a",
+            "dirty": "False",
+            "origin": "https://github.com/JoninShinobi/hortuscogintor.git"
+        },
+        "project": null,
+        "json_version": "1.1",
+        "remediations_attempted": 0,
+        "remediations_completed": 0,
+        "remediation_mode": "NON_INTERACTIVE"
+    },
+    "scanned_packages": {
+        "google-generativeai": {
+            "name": "google-generativeai",
+            "version": "0.8.5",
+            "requirements": [
+                {
+                    "raw": "google-generativeai==0.8.5",
+                    "extras": [],
+                    "marker": null,
+                    "name": "google-generativeai",
+                    "specifier": "==0.8.5",
+                    "url": null,
+                    "found": "/Users/aarondudfield/Library/Python/3.13/lib/python/site-packages/google_generativeai-0.8.5.dist-info"
+                }
+            ]
+        },
+        "CacheControl": {
+            "name": "CacheControl",
+            "version": "0.14.3",
+            "requirements": [
+                {
+                    "raw": "CacheControl==0.14.3",
+                    "extras": [],
+                    "marker": null,
+                    "name": "CacheControl",
+                    "specifier": "==0.14.3",
+                    "url": null,
+                    "found": "/Users/aarondudfield/Library/Python/3.13/lib/python/site-packages/cachecontrol-0.14.3.dist-info"
+                }
+            ]
+        },
+        "coloredlogs": {
+            "name": "coloredlogs",
+            "version": "15.0.1",
+            "requirements": [
+                {
+                    "raw": "coloredlogs==15.0.1",
+                    "extras": [],
+                    "marker": null,
+                    "name": "coloredlogs",
+                    "specifier": "==15.0.1",
+                    "url": null,
+                    "found": "/Users/aarondudfield/Library/Python/3.13/lib/python/site-packages/coloredlogs-15.0.1.dist-info"
+                }
+            ]
+        },
+        "orjson": {
+            "name": "orjson",
+            "version": "3.11.2",
+            "requirements": [
+                {
+                    "raw": "orjson==3.11.2",
+                    "extras": [],
+                    "marker": null,
+                    "name": "orjson",
+                    "specifier": "==3.11.2",
+                    "url": null,
+                    "found": "/Users/aarondudfield/Library/Python/3.13/lib/python/site-packages/orjson-3.11.2.dist-info"
+                }
+            ]
+        },
+        "humanfriendly": {
+            "name": "humanfriendly",
+            "version": "10.0",
+            "requirements": [
+                {
+                    "raw": "humanfriendly==10.0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "humanfriendly",
+                    "specifier": "==10.0",
+                    "url": null,
+                    "found": "/Users/aarondudfield/Library/Python/3.13/lib/python/site-packages/humanfriendly-10.0.dist-info"
+                }
+            ]
+        },
+        "kubernetes": {
+            "name": "kubernetes",
+            "version": "33.1.0",
+            "requirements": [
+                {
+                    "raw": "kubernetes==33.1.0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "kubernetes",
+                    "specifier": "==33.1.0",
+                    "url": null,
+                    "found": "/Users/aarondudfield/Library/Python/3.13/lib/python/site-packages/kubernetes-33.1.0.dist-info"
+                }
+            ]
+        },
+        "poetry-core": {
+            "name": "poetry-core",
+            "version": "2.1.3",
+            "requirements": [
+                {
+                    "raw": "poetry-core==2.1.3",
+                    "extras": [],
+                    "marker": null,
+                    "name": "poetry-core",
+                    "specifier": "==2.1.3",
+                    "url": null,
+                    "found": "/Users/aarondudfield/Library/Python/3.13/lib/python/site-packages/poetry_core-2.1.3.dist-info"
+                }
+            ]
+        },
+        "numpy": {
+            "name": "numpy",
+            "version": "2.3.2",
+            "requirements": [
+                {
+                    "raw": "numpy==2.3.2",
+                    "extras": [],
+                    "marker": null,
+                    "name": "numpy",
+                    "specifier": "==2.3.2",
+                    "url": null,
+                    "found": "/Users/aarondudfield/Library/Python/3.13/lib/python/site-packages/numpy-2.3.2.dist-info"
+                }
+            ]
+        },
+        "findpython": {
+            "name": "findpython",
+            "version": "0.6.3",
+            "requirements": [
+                {
+                    "raw": "findpython==0.6.3",
+                    "extras": [],
+                    "marker": null,
+                    "name": "findpython",
+                    "specifier": "==0.6.3",
+                    "url": null,
+                    "found": "/Users/aarondudfield/Library/Python/3.13/lib/python/site-packages/findpython-0.6.3.dist-info"
+                }
+            ]
+        },
+        "GitPython": {
+            "name": "GitPython",
+            "version": "3.1.45",
+            "requirements": [
+                {
+                    "raw": "GitPython==3.1.45",
+                    "extras": [],
+                    "marker": null,
+                    "name": "GitPython",
+                    "specifier": "==3.1.45",
+                    "url": null,
+                    "found": "/Users/aarondudfield/Library/Python/3.13/lib/python/site-packages/gitpython-3.1.45.dist-info"
+                }
+            ]
+        },
+        "onnxruntime": {
+            "name": "onnxruntime",
+            "version": "1.22.1",
+            "requirements": [
+                {
+                    "raw": "onnxruntime==1.22.1",
+                    "extras": [],
+                    "marker": null,
+                    "name": "onnxruntime",
+                    "specifier": "==1.22.1",
+                    "url": null,
+                    "found": "/Users/aarondudfield/Library/Python/3.13/lib/python/site-packages/onnxruntime-1.22.1.dist-info"
+                }
+            ]
+        },
+        "trove-classifiers": {
+            "name": "trove-classifiers",
+            "version": "2025.8.6.13",
+            "requirements": [
+                {
+                    "raw": "trove-classifiers==2025.8.6.13",
+                    "extras": [],
+                    "marker": null,
+                    "name": "trove-classifiers",
+                    "specifier": "==2025.8.6.13",
+                    "url": null,
+                    "found": "/Users/aarondudfield/Library/Python/3.13/lib/python/site-packages/trove_classifiers-2025.8.6.13.dist-info"
+                }
+            ]
+        },
+        "langchain-text-splitters": {
+            "name": "langchain-text-splitters",
+            "version": "0.3.9",
+            "requirements": [
+                {
+                    "raw": "langchain-text-splitters==0.3.9",
+                    "extras": [],
+                    "marker": null,
+                    "name": "langchain-text-splitters",
+                    "specifier": "==0.3.9",
+                    "url": null,
+                    "found": "/Users/aarondudfield/Library/Python/3.13/lib/python/site-packages/langchain_text_splitters-0.3.9.dist-info"
+                }
+            ]
+        },
+        "jaraco.classes": {
+            "name": "jaraco.classes",
+            "version": "3.4.0",
+            "requirements": [
+                {
+                    "raw": "jaraco.classes==3.4.0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "jaraco.classes",
+                    "specifier": "==3.4.0",
+                    "url": null,
+                    "found": "/Users/aarondudfield/Library/Python/3.13/lib/python/site-packages/jaraco.classes-3.4.0.dist-info"
+                }
+            ]
+        },
+        "SQLAlchemy": {
+            "name": "SQLAlchemy",
+            "version": "2.0.43",
+            "requirements": [
+                {
+                    "raw": "SQLAlchemy==2.0.43",
+                    "extras": [],
+                    "marker": null,
+                    "name": "SQLAlchemy",
+                    "specifier": "==2.0.43",
+                    "url": null,
+                    "found": "/Users/aarondudfield/Library/Python/3.13/lib/python/site-packages/sqlalchemy-2.0.43.dist-info"
+                }
+            ]
+        },
+        "build": {
+            "name": "build",
+            "version": "1.3.0",
+            "requirements": [
+                {
+                    "raw": "build==1.3.0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "build",
+                    "specifier": "==1.3.0",
+                    "url": null,
+                    "found": "/Users/aarondudfield/Library/Python/3.13/lib/python/site-packages/build-1.3.0.dist-info"
+                }
+            ]
+        },
+        "flatbuffers": {
+            "name": "flatbuffers",
+            "version": "25.2.10",
+            "requirements": [
+                {
+                    "raw": "flatbuffers==25.2.10",
+                    "extras": [],
+                    "marker": null,
+                    "name": "flatbuffers",
+                    "specifier": "==25.2.10",
+                    "url": null,
+                    "found": "/Users/aarondudfield/Library/Python/3.13/lib/python/site-packages/flatbuffers-25.2.10.dist-info"
+                }
+            ]
+        },
+        "grpcio": {
+            "name": "grpcio",
+            "version": "1.74.0",
+            "requirements": [
+                {
+                    "raw": "grpcio==1.74.0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "grpcio",
+                    "specifier": "==1.74.0",
+                    "url": null,
+                    "found": "/Users/aarondudfield/Library/Python/3.13/lib/python/site-packages/grpcio-1.74.0.dist-info"
+                }
+            ]
+        },
+        "crashtest": {
+            "name": "crashtest",
+            "version": "0.4.1",
+            "requirements": [
+                {
+                    "raw": "crashtest==0.4.1",
+                    "extras": [],
+                    "marker": null,
+                    "name": "crashtest",
+                    "specifier": "==0.4.1",
+                    "url": null,
+                    "found": "/Users/aarondudfield/Library/Python/3.13/lib/python/site-packages/crashtest-0.4.1.dist-info"
+                }
+            ]
+        },
+        "overrides": {
+            "name": "overrides",
+            "version": "7.7.0",
+            "requirements": [
+                {
+                    "raw": "overrides==7.7.0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "overrides",
+                    "specifier": "==7.7.0",
+                    "url": null,
+                    "found": "/Users/aarondudfield/Library/Python/3.13/lib/python/site-packages/overrides-7.7.0.dist-info"
+                }
+            ]
+        },
+        "langchain": {
+            "name": "langchain",
+            "version": "0.3.27",
+            "requirements": [
+                {
+                    "raw": "langchain==0.3.27",
+                    "extras": [],
+                    "marker": null,
+                    "name": "langchain",
+                    "specifier": "==0.3.27",
+                    "url": null,
+                    "found": "/Users/aarondudfield/Library/Python/3.13/lib/python/site-packages/langchain-0.3.27.dist-info"
+                }
+            ]
+        },
+        "platformdirs": {
+            "name": "platformdirs",
+            "version": "4.3.8",
+            "requirements": [
+                {
+                    "raw": "platformdirs==4.3.8",
+                    "extras": [],
+                    "marker": null,
+                    "name": "platformdirs",
+                    "specifier": "==4.3.8",
+                    "url": null,
+                    "found": "/Users/aarondudfield/Library/Python/3.13/lib/python/site-packages/platformdirs-4.3.8.dist-info"
+                }
+            ]
+        },
+        "bcrypt": {
+            "name": "bcrypt",
+            "version": "4.3.0",
+            "requirements": [
+                {
+                    "raw": "bcrypt==4.3.0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "bcrypt",
+                    "specifier": "==4.3.0",
+                    "url": null,
+                    "found": "/Users/aarondudfield/Library/Python/3.13/lib/python/site-packages/bcrypt-4.3.0.dist-info"
+                }
+            ]
+        },
+        "redis": {
+            "name": "redis",
+            "version": "6.4.0",
+            "requirements": [
+                {
+                    "raw": "redis==6.4.0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "redis",
+                    "specifier": "==6.4.0",
+                    "url": null,
+                    "found": "/Users/aarondudfield/Library/Python/3.13/lib/python/site-packages/redis-6.4.0.dist-info"
+                }
+            ]
+        },
+        "wasmtime": {
+            "name": "wasmtime",
+            "version": "36.0.0",
+            "requirements": [
+                {
+                    "raw": "wasmtime==36.0.0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "wasmtime",
+                    "specifier": "==36.0.0",
+                    "url": null,
+                    "found": "/Users/aarondudfield/Library/Python/3.13/lib/python/site-packages/wasmtime-36.0.0.dist-info"
+                }
+            ]
+        },
+        "pbs-installer": {
+            "name": "pbs-installer",
+            "version": "2025.8.18",
+            "requirements": [
+                {
+                    "raw": "pbs-installer==2025.8.18",
+                    "extras": [],
+                    "marker": null,
+                    "name": "pbs-installer",
+                    "specifier": "==2025.8.18",
+                    "url": null,
+                    "found": "/Users/aarondudfield/Library/Python/3.13/lib/python/site-packages/pbs_installer-2025.8.18.dist-info"
+                }
+            ]
+        },
+        "hf-xet": {
+            "name": "hf-xet",
+            "version": "1.1.8",
+            "requirements": [
+                {
+                    "raw": "hf-xet==1.1.8",
+                    "extras": [],
+                    "marker": null,
+                    "name": "hf-xet",
+                    "specifier": "==1.1.8",
+                    "url": null,
+                    "found": "/Users/aarondudfield/Library/Python/3.13/lib/python/site-packages/hf_xet-1.1.8.dist-info"
+                }
+            ]
+        },
+        "google-ai-generativelanguage": {
+            "name": "google-ai-generativelanguage",
+            "version": "0.6.15",
+            "requirements": [
+                {
+                    "raw": "google-ai-generativelanguage==0.6.15",
+                    "extras": [],
+                    "marker": null,
+                    "name": "google-ai-generativelanguage",
+                    "specifier": "==0.6.15",
+                    "url": null,
+                    "found": "/Users/aarondudfield/Library/Python/3.13/lib/python/site-packages/google_ai_generativelanguage-0.6.15.dist-info"
+                }
+            ]
+        },
+        "tenacity": {
+            "name": "tenacity",
+            "version": "9.1.2",
+            "requirements": [
+                {
+                    "raw": "tenacity==9.1.2",
+                    "extras": [],
+                    "marker": null,
+                    "name": "tenacity",
+                    "specifier": "==9.1.2",
+                    "url": null,
+                    "found": "/Users/aarondudfield/Library/Python/3.13/lib/python/site-packages/tenacity-9.1.2.dist-info"
+                }
+            ]
+        },
+        "opentelemetry-exporter-otlp-proto-grpc": {
+            "name": "opentelemetry-exporter-otlp-proto-grpc",
+            "version": "1.36.0",
+            "requirements": [
+                {
+                    "raw": "opentelemetry-exporter-otlp-proto-grpc==1.36.0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "opentelemetry-exporter-otlp-proto-grpc",
+                    "specifier": "==1.36.0",
+                    "url": null,
+                    "found": "/Users/aarondudfield/Library/Python/3.13/lib/python/site-packages/opentelemetry_exporter_otlp_proto_grpc-1.36.0.dist-info"
+                }
+            ]
+        },
+        "filelock": {
+            "name": "filelock",
+            "version": "3.19.1",
+            "requirements": [
+                {
+                    "raw": "filelock==3.19.1",
+                    "extras": [],
+                    "marker": null,
+                    "name": "filelock",
+                    "specifier": "==3.19.1",
+                    "url": null,
+                    "found": "/Users/aarondudfield/Library/Python/3.13/lib/python/site-packages/filelock-3.19.1.dist-info"
+                }
+            ]
+        },
+        "protobuf": {
+            "name": "protobuf",
+            "version": "6.31.1",
+            "requirements": [
+                {
+                    "raw": "protobuf==6.31.1",
+                    "extras": [],
+                    "marker": null,
+                    "name": "protobuf",
+                    "specifier": "==6.31.1",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/protobuf-6.31.1.dist-info"
+                }
+            ]
+        },
+        "fsspec": {
+            "name": "fsspec",
+            "version": "2025.7.0",
+            "requirements": [
+                {
+                    "raw": "fsspec==2025.7.0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "fsspec",
+                    "specifier": "==2025.7.0",
+                    "url": null,
+                    "found": "/Users/aarondudfield/Library/Python/3.13/lib/python/site-packages/fsspec-2025.7.0.dist-info"
+                }
+            ]
+        },
+        "pybase64": {
+            "name": "pybase64",
+            "version": "1.4.2",
+            "requirements": [
+                {
+                    "raw": "pybase64==1.4.2",
+                    "extras": [],
+                    "marker": null,
+                    "name": "pybase64",
+                    "specifier": "==1.4.2",
+                    "url": null,
+                    "found": "/Users/aarondudfield/Library/Python/3.13/lib/python/site-packages/pybase64-1.4.2.dist-info"
+                }
+            ]
+        },
+        "chromadb": {
+            "name": "chromadb",
+            "version": "1.0.20",
+            "requirements": [
+                {
+                    "raw": "chromadb==1.0.20",
+                    "extras": [],
+                    "marker": null,
+                    "name": "chromadb",
+                    "specifier": "==1.0.20",
+                    "url": null,
+                    "found": "/Users/aarondudfield/Library/Python/3.13/lib/python/site-packages/chromadb-1.0.20.dist-info"
+                }
+            ]
+        },
+        "more-itertools": {
+            "name": "more-itertools",
+            "version": "10.7.0",
+            "requirements": [
+                {
+                    "raw": "more-itertools==10.7.0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "more-itertools",
+                    "specifier": "==10.7.0",
+                    "url": null,
+                    "found": "/Users/aarondudfield/Library/Python/3.13/lib/python/site-packages/more_itertools-10.7.0.dist-info"
+                }
+            ]
+        },
+        "keyring": {
+            "name": "keyring",
+            "version": "25.6.0",
+            "requirements": [
+                {
+                    "raw": "keyring==25.6.0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "keyring",
+                    "specifier": "==25.6.0",
+                    "url": null,
+                    "found": "/Users/aarondudfield/Library/Python/3.13/lib/python/site-packages/keyring-25.6.0.dist-info"
+                }
+            ]
+        },
+        "langsmith": {
+            "name": "langsmith",
+            "version": "0.4.16",
+            "requirements": [
+                {
+                    "raw": "langsmith==0.4.16",
+                    "extras": [],
+                    "marker": null,
+                    "name": "langsmith",
+                    "specifier": "==0.4.16",
+                    "url": null,
+                    "found": "/Users/aarondudfield/Library/Python/3.13/lib/python/site-packages/langsmith-0.4.16.dist-info"
+                }
+            ]
+        },
+        "PySocks": {
+            "name": "PySocks",
+            "version": "1.7.1",
+            "requirements": [
+                {
+                    "raw": "PySocks==1.7.1",
+                    "extras": [],
+                    "marker": null,
+                    "name": "PySocks",
+                    "specifier": "==1.7.1",
+                    "url": null,
+                    "found": "/Users/aarondudfield/Library/Python/3.13/lib/python/site-packages/PySocks-1.7.1.dist-info"
+                }
+            ]
+        },
+        "jaraco.functools": {
+            "name": "jaraco.functools",
+            "version": "4.3.0",
+            "requirements": [
+                {
+                    "raw": "jaraco.functools==4.3.0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "jaraco.functools",
+                    "specifier": "==4.3.0",
+                    "url": null,
+                    "found": "/Users/aarondudfield/Library/Python/3.13/lib/python/site-packages/jaraco_functools-4.3.0.dist-info"
+                }
+            ]
+        },
+        "distlib": {
+            "name": "distlib",
+            "version": "0.4.0",
+            "requirements": [
+                {
+                    "raw": "distlib==0.4.0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "distlib",
+                    "specifier": "==0.4.0",
+                    "url": null,
+                    "found": "/Users/aarondudfield/Library/Python/3.13/lib/python/site-packages/distlib-0.4.0.dist-info"
+                }
+            ]
+        },
+        "tqdm": {
+            "name": "tqdm",
+            "version": "4.67.1",
+            "requirements": [
+                {
+                    "raw": "tqdm==4.67.1",
+                    "extras": [],
+                    "marker": null,
+                    "name": "tqdm",
+                    "specifier": "==4.67.1",
+                    "url": null,
+                    "found": "/Users/aarondudfield/Library/Python/3.13/lib/python/site-packages/tqdm-4.67.1.dist-info"
+                }
+            ]
+        },
+        "durationpy": {
+            "name": "durationpy",
+            "version": "0.10",
+            "requirements": [
+                {
+                    "raw": "durationpy==0.10",
+                    "extras": [],
+                    "marker": null,
+                    "name": "durationpy",
+                    "specifier": "==0.10",
+                    "url": null,
+                    "found": "/Users/aarondudfield/Library/Python/3.13/lib/python/site-packages/durationpy-0.10.dist-info"
+                }
+            ]
+        },
+        "jaraco.context": {
+            "name": "jaraco.context",
+            "version": "6.0.1",
+            "requirements": [
+                {
+                    "raw": "jaraco.context==6.0.1",
+                    "extras": [],
+                    "marker": null,
+                    "name": "jaraco.context",
+                    "specifier": "==6.0.1",
+                    "url": null,
+                    "found": "/Users/aarondudfield/Library/Python/3.13/lib/python/site-packages/jaraco.context-6.0.1.dist-info"
+                }
+            ]
+        },
+        "jsonpatch": {
+            "name": "jsonpatch",
+            "version": "1.33",
+            "requirements": [
+                {
+                    "raw": "jsonpatch==1.33",
+                    "extras": [],
+                    "marker": null,
+                    "name": "jsonpatch",
+                    "specifier": "==1.33",
+                    "url": null,
+                    "found": "/Users/aarondudfield/Library/Python/3.13/lib/python/site-packages/jsonpatch-1.33.dist-info"
+                }
+            ]
+        },
+        "RapidFuzz": {
+            "name": "RapidFuzz",
+            "version": "3.13.0",
+            "requirements": [
+                {
+                    "raw": "RapidFuzz==3.13.0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "RapidFuzz",
+                    "specifier": "==3.13.0",
+                    "url": null,
+                    "found": "/Users/aarondudfield/Library/Python/3.13/lib/python/site-packages/rapidfuzz-3.13.0.dist-info"
+                }
+            ]
+        },
+        "jsonpointer": {
+            "name": "jsonpointer",
+            "version": "3.0.0",
+            "requirements": [
+                {
+                    "raw": "jsonpointer==3.0.0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "jsonpointer",
+                    "specifier": "==3.0.0",
+                    "url": null,
+                    "found": "/Users/aarondudfield/Library/Python/3.13/lib/python/site-packages/jsonpointer-3.0.0.dist-info"
+                }
+            ]
+        },
+        "grpcio-status": {
+            "name": "grpcio-status",
+            "version": "1.71.2",
+            "requirements": [
+                {
+                    "raw": "grpcio-status==1.71.2",
+                    "extras": [],
+                    "marker": null,
+                    "name": "grpcio-status",
+                    "specifier": "==1.71.2",
+                    "url": null,
+                    "found": "/Users/aarondudfield/Library/Python/3.13/lib/python/site-packages/grpcio_status-1.71.2.dist-info"
+                }
+            ]
+        },
+        "pkginfo": {
+            "name": "pkginfo",
+            "version": "1.12.1.2",
+            "requirements": [
+                {
+                    "raw": "pkginfo==1.12.1.2",
+                    "extras": [],
+                    "marker": null,
+                    "name": "pkginfo",
+                    "specifier": "==1.12.1.2",
+                    "url": null,
+                    "found": "/Users/aarondudfield/Library/Python/3.13/lib/python/site-packages/pkginfo-1.12.1.2.dist-info"
+                }
+            ]
+        },
+        "mmh3": {
+            "name": "mmh3",
+            "version": "5.2.0",
+            "requirements": [
+                {
+                    "raw": "mmh3==5.2.0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "mmh3",
+                    "specifier": "==5.2.0",
+                    "url": null,
+                    "found": "/Users/aarondudfield/Library/Python/3.13/lib/python/site-packages/mmh3-5.2.0.dist-info"
+                }
+            ]
+        },
+        "msgpack": {
+            "name": "msgpack",
+            "version": "1.1.1",
+            "requirements": [
+                {
+                    "raw": "msgpack==1.1.1",
+                    "extras": [],
+                    "marker": null,
+                    "name": "msgpack",
+                    "specifier": "==1.1.1",
+                    "url": null,
+                    "found": "/Users/aarondudfield/Library/Python/3.13/lib/python/site-packages/msgpack-1.1.1.dist-info"
+                }
+            ]
+        },
+        "langchain-google-genai": {
+            "name": "langchain-google-genai",
+            "version": "2.0.10",
+            "requirements": [
+                {
+                    "raw": "langchain-google-genai==2.0.10",
+                    "extras": [],
+                    "marker": null,
+                    "name": "langchain-google-genai",
+                    "specifier": "==2.0.10",
+                    "url": null,
+                    "found": "/Users/aarondudfield/Library/Python/3.13/lib/python/site-packages/langchain_google_genai-2.0.10.dist-info"
+                }
+            ]
+        },
+        "tomlkit": {
+            "name": "tomlkit",
+            "version": "0.13.3",
+            "requirements": [
+                {
+                    "raw": "tomlkit==0.13.3",
+                    "extras": [],
+                    "marker": null,
+                    "name": "tomlkit",
+                    "specifier": "==0.13.3",
+                    "url": null,
+                    "found": "/Users/aarondudfield/Library/Python/3.13/lib/python/site-packages/tomlkit-0.13.3.dist-info"
+                }
+            ]
+        },
+        "sympy": {
+            "name": "sympy",
+            "version": "1.14.0",
+            "requirements": [
+                {
+                    "raw": "sympy==1.14.0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "sympy",
+                    "specifier": "==1.14.0",
+                    "url": null,
+                    "found": "/Users/aarondudfield/Library/Python/3.13/lib/python/site-packages/sympy-1.14.0.dist-info"
+                }
+            ]
+        },
+        "opentelemetry-proto": {
+            "name": "opentelemetry-proto",
+            "version": "1.36.0",
+            "requirements": [
+                {
+                    "raw": "opentelemetry-proto==1.36.0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "opentelemetry-proto",
+                    "specifier": "==1.36.0",
+                    "url": null,
+                    "found": "/Users/aarondudfield/Library/Python/3.13/lib/python/site-packages/opentelemetry_proto-1.36.0.dist-info"
+                }
+            ]
+        },
+        "loguru": {
+            "name": "loguru",
+            "version": "0.7.3",
+            "requirements": [
+                {
+                    "raw": "loguru==0.7.3",
+                    "extras": [],
+                    "marker": null,
+                    "name": "loguru",
+                    "specifier": "==0.7.3",
+                    "url": null,
+                    "found": "/Users/aarondudfield/Library/Python/3.13/lib/python/site-packages/loguru-0.7.3.dist-info"
+                }
+            ]
+        },
+        "gitdb": {
+            "name": "gitdb",
+            "version": "4.0.12",
+            "requirements": [
+                {
+                    "raw": "gitdb==4.0.12",
+                    "extras": [],
+                    "marker": null,
+                    "name": "gitdb",
+                    "specifier": "==4.0.12",
+                    "url": null,
+                    "found": "/Users/aarondudfield/Library/Python/3.13/lib/python/site-packages/gitdb-4.0.12.dist-info"
+                }
+            ]
+        },
+        "nodeenv": {
+            "name": "nodeenv",
+            "version": "1.9.1",
+            "requirements": [
+                {
+                    "raw": "nodeenv==1.9.1",
+                    "extras": [],
+                    "marker": null,
+                    "name": "nodeenv",
+                    "specifier": "==1.9.1",
+                    "url": null,
+                    "found": "/Users/aarondudfield/Library/Python/3.13/lib/python/site-packages/nodeenv-1.9.1.dist-info"
+                }
+            ]
+        },
+        "huggingface-hub": {
+            "name": "huggingface-hub",
+            "version": "0.34.4",
+            "requirements": [
+                {
+                    "raw": "huggingface-hub==0.34.4",
+                    "extras": [],
+                    "marker": null,
+                    "name": "huggingface-hub",
+                    "specifier": "==0.34.4",
+                    "url": null,
+                    "found": "/Users/aarondudfield/Library/Python/3.13/lib/python/site-packages/huggingface_hub-0.34.4.dist-info"
+                }
+            ]
+        },
+        "psutil": {
+            "name": "psutil",
+            "version": "7.0.0",
+            "requirements": [
+                {
+                    "raw": "psutil==7.0.0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "psutil",
+                    "specifier": "==7.0.0",
+                    "url": null,
+                    "found": "/Users/aarondudfield/Library/Python/3.13/lib/python/site-packages/psutil-7.0.0.dist-info"
+                }
+            ]
+        },
+        "setuptools": {
+            "name": "setuptools",
+            "version": "80.9.0",
+            "requirements": [
+                {
+                    "raw": "setuptools==80.9.0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "setuptools",
+                    "specifier": "==80.9.0",
+                    "url": null,
+                    "found": "/Users/aarondudfield/Library/Python/3.13/lib/python/site-packages/setuptools-80.9.0.dist-info"
+                }
+            ]
+        },
+        "cfgv": {
+            "name": "cfgv",
+            "version": "3.4.0",
+            "requirements": [
+                {
+                    "raw": "cfgv==3.4.0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "cfgv",
+                    "specifier": "==3.4.0",
+                    "url": null,
+                    "found": "/Users/aarondudfield/Library/Python/3.13/lib/python/site-packages/cfgv-3.4.0.dist-info"
+                }
+            ]
+        },
+        "python-dateutil": {
+            "name": "python-dateutil",
+            "version": "2.9.0.post0",
+            "requirements": [
+                {
+                    "raw": "python-dateutil==2.9.0.post0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "python-dateutil",
+                    "specifier": "==2.9.0.post0",
+                    "url": null,
+                    "found": "/Users/aarondudfield/Library/Python/3.13/lib/python/site-packages/python_dateutil-2.9.0.post0.dist-info"
+                }
+            ]
+        },
+        "mpmath": {
+            "name": "mpmath",
+            "version": "1.3.0",
+            "requirements": [
+                {
+                    "raw": "mpmath==1.3.0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "mpmath",
+                    "specifier": "==1.3.0",
+                    "url": null,
+                    "found": "/Users/aarondudfield/Library/Python/3.13/lib/python/site-packages/mpmath-1.3.0.dist-info"
+                }
+            ]
+        },
+        "dulwich": {
+            "name": "dulwich",
+            "version": "0.22.8",
+            "requirements": [
+                {
+                    "raw": "dulwich==0.22.8",
+                    "extras": [],
+                    "marker": null,
+                    "name": "dulwich",
+                    "specifier": "==0.22.8",
+                    "url": null,
+                    "found": "/Users/aarondudfield/Library/Python/3.13/lib/python/site-packages/dulwich-0.22.8.dist-info"
+                }
+            ]
+        },
+        "httpie": {
+            "name": "httpie",
+            "version": "3.2.4",
+            "requirements": [
+                {
+                    "raw": "httpie==3.2.4",
+                    "extras": [],
+                    "marker": null,
+                    "name": "httpie",
+                    "specifier": "==3.2.4",
+                    "url": null,
+                    "found": "/Users/aarondudfield/Library/Python/3.13/lib/python/site-packages/httpie-3.2.4.dist-info"
+                }
+            ]
+        },
+        "pipenv": {
+            "name": "pipenv",
+            "version": "2025.0.4",
+            "requirements": [
+                {
+                    "raw": "pipenv==2025.0.4",
+                    "extras": [],
+                    "marker": null,
+                    "name": "pipenv",
+                    "specifier": "==2025.0.4",
+                    "url": null,
+                    "found": "/Users/aarondudfield/Library/Python/3.13/lib/python/site-packages/pipenv-2025.0.4.dist-info"
+                }
+            ]
+        },
+        "poetry": {
+            "name": "poetry",
+            "version": "2.1.4",
+            "requirements": [
+                {
+                    "raw": "poetry==2.1.4",
+                    "extras": [],
+                    "marker": null,
+                    "name": "poetry",
+                    "specifier": "==2.1.4",
+                    "url": null,
+                    "found": "/Users/aarondudfield/Library/Python/3.13/lib/python/site-packages/poetry-2.1.4.dist-info"
+                }
+            ]
+        },
+        "fastjsonschema": {
+            "name": "fastjsonschema",
+            "version": "2.21.2",
+            "requirements": [
+                {
+                    "raw": "fastjsonschema==2.21.2",
+                    "extras": [],
+                    "marker": null,
+                    "name": "fastjsonschema",
+                    "specifier": "==2.21.2",
+                    "url": null,
+                    "found": "/Users/aarondudfield/Library/Python/3.13/lib/python/site-packages/fastjsonschema-2.21.2.dist-info"
+                }
+            ]
+        },
+        "invoke": {
+            "name": "invoke",
+            "version": "2.2.0",
+            "requirements": [
+                {
+                    "raw": "invoke==2.2.0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "invoke",
+                    "specifier": "==2.2.0",
+                    "url": null,
+                    "found": "/Users/aarondudfield/Library/Python/3.13/lib/python/site-packages/invoke-2.2.0.dist-info"
+                }
+            ]
+        },
+        "langchain-core": {
+            "name": "langchain-core",
+            "version": "0.3.74",
+            "requirements": [
+                {
+                    "raw": "langchain-core==0.3.74",
+                    "extras": [],
+                    "marker": null,
+                    "name": "langchain-core",
+                    "specifier": "==0.3.74",
+                    "url": null,
+                    "found": "/Users/aarondudfield/Library/Python/3.13/lib/python/site-packages/langchain_core-0.3.74.dist-info"
+                }
+            ]
+        },
+        "identify": {
+            "name": "identify",
+            "version": "2.6.13",
+            "requirements": [
+                {
+                    "raw": "identify==2.6.13",
+                    "extras": [],
+                    "marker": null,
+                    "name": "identify",
+                    "specifier": "==2.6.13",
+                    "url": null,
+                    "found": "/Users/aarondudfield/Library/Python/3.13/lib/python/site-packages/identify-2.6.13.dist-info"
+                }
+            ]
+        },
+        "virtualenv": {
+            "name": "virtualenv",
+            "version": "20.32.0",
+            "requirements": [
+                {
+                    "raw": "virtualenv==20.32.0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "virtualenv",
+                    "specifier": "==20.32.0",
+                    "url": null,
+                    "found": "/Users/aarondudfield/Library/Python/3.13/lib/python/site-packages/virtualenv-20.32.0.dist-info"
+                }
+            ]
+        },
+        "distro": {
+            "name": "distro",
+            "version": "1.9.0",
+            "requirements": [
+                {
+                    "raw": "distro==1.9.0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "distro",
+                    "specifier": "==1.9.0",
+                    "url": null,
+                    "found": "/Users/aarondudfield/Library/Python/3.13/lib/python/site-packages/distro-1.9.0.dist-info"
+                }
+            ]
+        },
+        "websockets": {
+            "name": "websockets",
+            "version": "15.0.1",
+            "requirements": [
+                {
+                    "raw": "websockets==15.0.1",
+                    "extras": [],
+                    "marker": null,
+                    "name": "websockets",
+                    "specifier": "==15.0.1",
+                    "url": null,
+                    "found": "/Users/aarondudfield/Library/Python/3.13/lib/python/site-packages/websockets-15.0.1.dist-info"
+                }
+            ]
+        },
+        "requests-toolbelt": {
+            "name": "requests-toolbelt",
+            "version": "1.0.0",
+            "requirements": [
+                {
+                    "raw": "requests-toolbelt==1.0.0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "requests-toolbelt",
+                    "specifier": "==1.0.0",
+                    "url": null,
+                    "found": "/Users/aarondudfield/Library/Python/3.13/lib/python/site-packages/requests_toolbelt-1.0.0.dist-info"
+                }
+            ]
+        },
+        "watchfiles": {
+            "name": "watchfiles",
+            "version": "1.1.0",
+            "requirements": [
+                {
+                    "raw": "watchfiles==1.1.0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "watchfiles",
+                    "specifier": "==1.1.0",
+                    "url": null,
+                    "found": "/Users/aarondudfield/Library/Python/3.13/lib/python/site-packages/watchfiles-1.1.0.dist-info"
+                }
+            ]
+        },
+        "httptools": {
+            "name": "httptools",
+            "version": "0.6.4",
+            "requirements": [
+                {
+                    "raw": "httptools==0.6.4",
+                    "extras": [],
+                    "marker": null,
+                    "name": "httptools",
+                    "specifier": "==0.6.4",
+                    "url": null,
+                    "found": "/Users/aarondudfield/Library/Python/3.13/lib/python/site-packages/httptools-0.6.4.dist-info"
+                }
+            ]
+        },
+        "installer": {
+            "name": "installer",
+            "version": "0.7.0",
+            "requirements": [
+                {
+                    "raw": "installer==0.7.0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "installer",
+                    "specifier": "==0.7.0",
+                    "url": null,
+                    "found": "/Users/aarondudfield/Library/Python/3.13/lib/python/site-packages/installer-0.7.0.dist-info"
+                }
+            ]
+        },
+        "PyYAML": {
+            "name": "PyYAML",
+            "version": "6.0.2",
+            "requirements": [
+                {
+                    "raw": "PyYAML==6.0.2",
+                    "extras": [],
+                    "marker": null,
+                    "name": "PyYAML",
+                    "specifier": "==6.0.2",
+                    "url": null,
+                    "found": "/Users/aarondudfield/Library/Python/3.13/lib/python/site-packages/PyYAML-6.0.2.dist-info"
+                }
+            ]
+        },
+        "smmap": {
+            "name": "smmap",
+            "version": "5.0.2",
+            "requirements": [
+                {
+                    "raw": "smmap==5.0.2",
+                    "extras": [],
+                    "marker": null,
+                    "name": "smmap",
+                    "specifier": "==5.0.2",
+                    "url": null,
+                    "found": "/Users/aarondudfield/Library/Python/3.13/lib/python/site-packages/smmap-5.0.2.dist-info"
+                }
+            ]
+        },
+        "importlib_metadata": {
+            "name": "importlib_metadata",
+            "version": "8.7.0",
+            "requirements": [
+                {
+                    "raw": "importlib_metadata==8.7.0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "importlib_metadata",
+                    "specifier": "==8.7.0",
+                    "url": null,
+                    "found": "/Users/aarondudfield/Library/Python/3.13/lib/python/site-packages/importlib_metadata-8.7.0.dist-info"
+                }
+            ]
+        },
+        "backoff": {
+            "name": "backoff",
+            "version": "2.2.1",
+            "requirements": [
+                {
+                    "raw": "backoff==2.2.1",
+                    "extras": [],
+                    "marker": null,
+                    "name": "backoff",
+                    "specifier": "==2.2.1",
+                    "url": null,
+                    "found": "/Users/aarondudfield/Library/Python/3.13/lib/python/site-packages/backoff-2.2.1.dist-info"
+                }
+            ]
+        },
+        "pre_commit": {
+            "name": "pre_commit",
+            "version": "4.3.0",
+            "requirements": [
+                {
+                    "raw": "pre_commit==4.3.0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "pre_commit",
+                    "specifier": "==4.3.0",
+                    "url": null,
+                    "found": "/Users/aarondudfield/Library/Python/3.13/lib/python/site-packages/pre_commit-4.3.0.dist-info"
+                }
+            ]
+        },
+        "filetype": {
+            "name": "filetype",
+            "version": "1.2.0",
+            "requirements": [
+                {
+                    "raw": "filetype==1.2.0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "filetype",
+                    "specifier": "==1.2.0",
+                    "url": null,
+                    "found": "/Users/aarondudfield/Library/Python/3.13/lib/python/site-packages/filetype-1.2.0.dist-info"
+                }
+            ]
+        },
+        "py-spy": {
+            "name": "py-spy",
+            "version": "0.4.1",
+            "requirements": [
+                {
+                    "raw": "py-spy==0.4.1",
+                    "extras": [],
+                    "marker": null,
+                    "name": "py-spy",
+                    "specifier": "==0.4.1",
+                    "url": null,
+                    "found": "/Users/aarondudfield/Library/Python/3.13/lib/python/site-packages/py_spy-0.4.1.dist-info"
+                }
+            ]
+        },
+        "xattr": {
+            "name": "xattr",
+            "version": "1.2.0",
+            "requirements": [
+                {
+                    "raw": "xattr==1.2.0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "xattr",
+                    "specifier": "==1.2.0",
+                    "url": null,
+                    "found": "/Users/aarondudfield/Library/Python/3.13/lib/python/site-packages/xattr-1.2.0.dist-info"
+                }
+            ]
+        },
+        "posthog": {
+            "name": "posthog",
+            "version": "5.4.0",
+            "requirements": [
+                {
+                    "raw": "posthog==5.4.0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "posthog",
+                    "specifier": "==5.4.0",
+                    "url": null,
+                    "found": "/Users/aarondudfield/Library/Python/3.13/lib/python/site-packages/posthog-5.4.0.dist-info"
+                }
+            ]
+        },
+        "pyproject_hooks": {
+            "name": "pyproject_hooks",
+            "version": "1.2.0",
+            "requirements": [
+                {
+                    "raw": "pyproject_hooks==1.2.0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "pyproject_hooks",
+                    "specifier": "==1.2.0",
+                    "url": null,
+                    "found": "/Users/aarondudfield/Library/Python/3.13/lib/python/site-packages/pyproject_hooks-1.2.0.dist-info"
+                }
+            ]
+        },
+        "zstandard": {
+            "name": "zstandard",
+            "version": "0.24.0",
+            "requirements": [
+                {
+                    "raw": "zstandard==0.24.0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "zstandard",
+                    "specifier": "==0.24.0",
+                    "url": null,
+                    "found": "/Users/aarondudfield/Library/Python/3.13/lib/python/site-packages/zstandard-0.24.0.dist-info"
+                }
+            ]
+        },
+        "opentelemetry-exporter-otlp-proto-common": {
+            "name": "opentelemetry-exporter-otlp-proto-common",
+            "version": "1.36.0",
+            "requirements": [
+                {
+                    "raw": "opentelemetry-exporter-otlp-proto-common==1.36.0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "opentelemetry-exporter-otlp-proto-common",
+                    "specifier": "==1.36.0",
+                    "url": null,
+                    "found": "/Users/aarondudfield/Library/Python/3.13/lib/python/site-packages/opentelemetry_exporter_otlp_proto_common-1.36.0.dist-info"
+                }
+            ]
+        },
+        "stripe": {
+            "name": "stripe",
+            "version": "13.0.1",
+            "requirements": [
+                {
+                    "raw": "stripe==13.0.1",
+                    "extras": [],
+                    "marker": null,
+                    "name": "stripe",
+                    "specifier": "==13.0.1",
+                    "url": null,
+                    "found": "/Users/aarondudfield/Library/Python/3.13/lib/python/site-packages/stripe-13.0.1.dist-info"
+                }
+            ]
+        },
+        "uvloop": {
+            "name": "uvloop",
+            "version": "0.21.0",
+            "requirements": [
+                {
+                    "raw": "uvloop==0.21.0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "uvloop",
+                    "specifier": "==0.21.0",
+                    "url": null,
+                    "found": "/Users/aarondudfield/Library/Python/3.13/lib/python/site-packages/uvloop-0.21.0.dist-info"
+                }
+            ]
+        },
+        "zipp": {
+            "name": "zipp",
+            "version": "3.23.0",
+            "requirements": [
+                {
+                    "raw": "zipp==3.23.0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "zipp",
+                    "specifier": "==3.23.0",
+                    "url": null,
+                    "found": "/Users/aarondudfield/Library/Python/3.13/lib/python/site-packages/zipp-3.23.0.dist-info"
+                }
+            ]
+        },
+        "PyPika": {
+            "name": "PyPika",
+            "version": "0.48.9",
+            "requirements": [
+                {
+                    "raw": "PyPika==0.48.9",
+                    "extras": [],
+                    "marker": null,
+                    "name": "PyPika",
+                    "specifier": "==0.48.9",
+                    "url": null,
+                    "found": "/Users/aarondudfield/Library/Python/3.13/lib/python/site-packages/pypika-0.48.9.dist-info"
+                }
+            ]
+        },
+        "six": {
+            "name": "six",
+            "version": "1.17.0",
+            "requirements": [
+                {
+                    "raw": "six==1.17.0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "six",
+                    "specifier": "==1.17.0",
+                    "url": null,
+                    "found": "/Users/aarondudfield/Library/Python/3.13/lib/python/site-packages/six-1.17.0.dist-info"
+                }
+            ]
+        },
+        "pypdf": {
+            "name": "pypdf",
+            "version": "6.0.0",
+            "requirements": [
+                {
+                    "raw": "pypdf==6.0.0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "pypdf",
+                    "specifier": "==6.0.0",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/pypdf-6.0.0.dist-info"
+                }
+            ]
+        },
+        "importlib_resources": {
+            "name": "importlib_resources",
+            "version": "6.5.2",
+            "requirements": [
+                {
+                    "raw": "importlib_resources==6.5.2",
+                    "extras": [],
+                    "marker": null,
+                    "name": "importlib_resources",
+                    "specifier": "==6.5.2",
+                    "url": null,
+                    "found": "/Users/aarondudfield/Library/Python/3.13/lib/python/site-packages/importlib_resources-6.5.2.dist-info"
+                }
+            ]
+        },
+        "cleo": {
+            "name": "cleo",
+            "version": "2.1.0",
+            "requirements": [
+                {
+                    "raw": "cleo==2.1.0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "cleo",
+                    "specifier": "==2.1.0",
+                    "url": null,
+                    "found": "/Users/aarondudfield/Library/Python/3.13/lib/python/site-packages/cleo-2.1.0.dist-info"
+                }
+            ]
+        },
+        "websocket-client": {
+            "name": "websocket-client",
+            "version": "1.8.0",
+            "requirements": [
+                {
+                    "raw": "websocket-client==1.8.0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "websocket-client",
+                    "specifier": "==1.8.0",
+                    "url": null,
+                    "found": "/Users/aarondudfield/Library/Python/3.13/lib/python/site-packages/websocket_client-1.8.0.dist-info"
+                }
+            ]
+        },
+        "propcache": {
+            "name": "propcache",
+            "version": "0.3.2",
+            "requirements": [
+                {
+                    "raw": "propcache==0.3.2",
+                    "extras": [],
+                    "marker": null,
+                    "name": "propcache",
+                    "specifier": "==0.3.2",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/propcache-0.3.2.dist-info"
+                }
+            ]
+        },
+        "shellingham": {
+            "name": "shellingham",
+            "version": "1.5.4",
+            "requirements": [
+                {
+                    "raw": "shellingham==1.5.4",
+                    "extras": [],
+                    "marker": null,
+                    "name": "shellingham",
+                    "specifier": "==1.5.4",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/shellingham-1.5.4.dist-info"
+                }
+            ]
+        },
+        "stevedore": {
+            "name": "stevedore",
+            "version": "5.5.0",
+            "requirements": [
+                {
+                    "raw": "stevedore==5.5.0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "stevedore",
+                    "specifier": "==5.5.0",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/stevedore-5.5.0.dist-info"
+                }
+            ]
+        },
+        "strictyaml": {
+            "name": "strictyaml",
+            "version": "1.7.3",
+            "requirements": [
+                {
+                    "raw": "strictyaml==1.7.3",
+                    "extras": [],
+                    "marker": null,
+                    "name": "strictyaml",
+                    "specifier": "==1.7.3",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/strictyaml-1.7.3.dist-info"
+                }
+            ]
+        },
+        "threadpoolctl": {
+            "name": "threadpoolctl",
+            "version": "3.6.0",
+            "requirements": [
+                {
+                    "raw": "threadpoolctl==3.6.0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "threadpoolctl",
+                    "specifier": "==3.6.0",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/threadpoolctl-3.6.0.dist-info"
+                }
+            ]
+        },
+        "pydantic_core": {
+            "name": "pydantic_core",
+            "version": "2.33.2",
+            "requirements": [
+                {
+                    "raw": "pydantic_core==2.33.2",
+                    "extras": [],
+                    "marker": null,
+                    "name": "pydantic_core",
+                    "specifier": "==2.33.2",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/pydantic_core-2.33.2.dist-info"
+                }
+            ]
+        },
+        "oauthlib": {
+            "name": "oauthlib",
+            "version": "3.3.1",
+            "requirements": [
+                {
+                    "raw": "oauthlib==3.3.1",
+                    "extras": [],
+                    "marker": null,
+                    "name": "oauthlib",
+                    "specifier": "==3.3.1",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/oauthlib-3.3.1.dist-info"
+                }
+            ]
+        },
+        "cryptography": {
+            "name": "cryptography",
+            "version": "45.0.6",
+            "requirements": [
+                {
+                    "raw": "cryptography==45.0.6",
+                    "extras": [],
+                    "marker": null,
+                    "name": "cryptography",
+                    "specifier": "==45.0.6",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/cryptography-45.0.6.dist-info"
+                }
+            ]
+        },
+        "idna": {
+            "name": "idna",
+            "version": "3.10",
+            "requirements": [
+                {
+                    "raw": "idna==3.10",
+                    "extras": [],
+                    "marker": null,
+                    "name": "idna",
+                    "specifier": "==3.10",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/idna-3.10.dist-info"
+                }
+            ]
+        },
+        "tokenizers": {
+            "name": "tokenizers",
+            "version": "0.22.1",
+            "requirements": [
+                {
+                    "raw": "tokenizers==0.22.1",
+                    "extras": [],
+                    "marker": null,
+                    "name": "tokenizers",
+                    "specifier": "==0.22.1",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/tokenizers-0.22.1.dist-info"
+                }
+            ]
+        },
+        "urllib3": {
+            "name": "urllib3",
+            "version": "2.5.0",
+            "requirements": [
+                {
+                    "raw": "urllib3==2.5.0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "urllib3",
+                    "specifier": "==2.5.0",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/urllib3-2.5.0.dist-info"
+                }
+            ]
+        },
+        "opentelemetry-instrumentation": {
+            "name": "opentelemetry-instrumentation",
+            "version": "0.59b0",
+            "requirements": [
+                {
+                    "raw": "opentelemetry-instrumentation==0.59b0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "opentelemetry-instrumentation",
+                    "specifier": "==0.59b0",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/opentelemetry_instrumentation-0.59b0.dist-info"
+                }
+            ]
+        },
+        "typer": {
+            "name": "typer",
+            "version": "0.16.0",
+            "requirements": [
+                {
+                    "raw": "typer==0.16.0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "typer",
+                    "specifier": "==0.16.0",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/typer-0.16.0.dist-info"
+                }
+            ]
+        },
+        "reportlab": {
+            "name": "reportlab",
+            "version": "4.4.3",
+            "requirements": [
+                {
+                    "raw": "reportlab==4.4.3",
+                    "extras": [],
+                    "marker": null,
+                    "name": "reportlab",
+                    "specifier": "==4.4.3",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/reportlab-4.4.3.dist-info"
+                }
+            ]
+        },
+        "dparse": {
+            "name": "dparse",
+            "version": "0.6.4",
+            "requirements": [
+                {
+                    "raw": "dparse==0.6.4",
+                    "extras": [],
+                    "marker": null,
+                    "name": "dparse",
+                    "specifier": "==0.6.4",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/dparse-0.6.4.dist-info"
+                }
+            ]
+        },
+        "django-unfold": {
+            "name": "django-unfold",
+            "version": "0.67.0",
+            "requirements": [
+                {
+                    "raw": "django-unfold==0.67.0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "django-unfold",
+                    "specifier": "==0.67.0",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/django_unfold-0.67.0.dist-info"
+                }
+            ]
+        },
+        "azure-common": {
+            "name": "azure-common",
+            "version": "1.1.28",
+            "requirements": [
+                {
+                    "raw": "azure-common==1.1.28",
+                    "extras": [],
+                    "marker": null,
+                    "name": "azure-common",
+                    "specifier": "==1.1.28",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/azure_common-1.1.28.dist-info"
+                }
+            ]
+        },
+        "pip": {
+            "name": "pip",
+            "version": "24.3.1",
+            "requirements": [
+                {
+                    "raw": "pip==24.3.1",
+                    "extras": [],
+                    "marker": null,
+                    "name": "pip",
+                    "specifier": "==24.3.1",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/pip-24.3.1.dist-info"
+                }
+            ]
+        },
+        "aiohttp": {
+            "name": "aiohttp",
+            "version": "3.12.15",
+            "requirements": [
+                {
+                    "raw": "aiohttp==3.12.15",
+                    "extras": [],
+                    "marker": null,
+                    "name": "aiohttp",
+                    "specifier": "==3.12.15",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/aiohttp-3.12.15.dist-info"
+                }
+            ]
+        },
+        "pytz": {
+            "name": "pytz",
+            "version": "2025.2",
+            "requirements": [
+                {
+                    "raw": "pytz==2025.2",
+                    "extras": [],
+                    "marker": null,
+                    "name": "pytz",
+                    "specifier": "==2025.2",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/pytz-2025.2.dist-info"
+                }
+            ]
+        },
+        "typing-inspection": {
+            "name": "typing-inspection",
+            "version": "0.4.1",
+            "requirements": [
+                {
+                    "raw": "typing-inspection==0.4.1",
+                    "extras": [],
+                    "marker": null,
+                    "name": "typing-inspection",
+                    "specifier": "==0.4.1",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/typing_inspection-0.4.1.dist-info"
+                }
+            ]
+        },
+        "multidict": {
+            "name": "multidict",
+            "version": "6.6.3",
+            "requirements": [
+                {
+                    "raw": "multidict==6.6.3",
+                    "extras": [],
+                    "marker": null,
+                    "name": "multidict",
+                    "specifier": "==6.6.3",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/multidict-6.6.3.dist-info"
+                }
+            ]
+        },
+        "psycopg2-binary": {
+            "name": "psycopg2-binary",
+            "version": "2.9.10",
+            "requirements": [
+                {
+                    "raw": "psycopg2-binary==2.9.10",
+                    "extras": [],
+                    "marker": null,
+                    "name": "psycopg2-binary",
+                    "specifier": "==2.9.10",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/psycopg2_binary-2.9.10.dist-info"
+                }
+            ]
+        },
+        "scikit-learn": {
+            "name": "scikit-learn",
+            "version": "1.7.2",
+            "requirements": [
+                {
+                    "raw": "scikit-learn==1.7.2",
+                    "extras": [],
+                    "marker": null,
+                    "name": "scikit-learn",
+                    "specifier": "==1.7.2",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/scikit_learn-1.7.2.dist-info"
+                }
+            ]
+        },
+        "pi": {
+            "name": "pi",
+            "version": "0.1.2",
+            "requirements": [
+                {
+                    "raw": "pi==0.1.2",
+                    "extras": [],
+                    "marker": null,
+                    "name": "pi",
+                    "specifier": "==0.1.2",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/pi-0.1.2.dist-info"
+                }
+            ]
+        },
+        "colorama": {
+            "name": "colorama",
+            "version": "0.4.6",
+            "requirements": [
+                {
+                    "raw": "colorama==0.4.6",
+                    "extras": [],
+                    "marker": null,
+                    "name": "colorama",
+                    "specifier": "==0.4.6",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/colorama-0.4.6.dist-info"
+                }
+            ]
+        },
+        "safety": {
+            "name": "safety",
+            "version": "3.7.0",
+            "requirements": [
+                {
+                    "raw": "safety==3.7.0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "safety",
+                    "specifier": "==3.7.0",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/safety-3.7.0.dist-info"
+                }
+            ]
+        },
+        "opentelemetry-instrumentation-fastapi": {
+            "name": "opentelemetry-instrumentation-fastapi",
+            "version": "0.59b0",
+            "requirements": [
+                {
+                    "raw": "opentelemetry-instrumentation-fastapi==0.59b0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "opentelemetry-instrumentation-fastapi",
+                    "specifier": "==0.59b0",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/opentelemetry_instrumentation_fastapi-0.59b0.dist-info"
+                }
+            ]
+        },
+        "discord.py": {
+            "name": "discord.py",
+            "version": "2.5.2",
+            "requirements": [
+                {
+                    "raw": "discord.py==2.5.2",
+                    "extras": [],
+                    "marker": null,
+                    "name": "discord.py",
+                    "specifier": "==2.5.2",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/discord_py-2.5.2.dist-info"
+                }
+            ]
+        },
+        "opentelemetry-instrumentation-psycopg2": {
+            "name": "opentelemetry-instrumentation-psycopg2",
+            "version": "0.59b0",
+            "requirements": [
+                {
+                    "raw": "opentelemetry-instrumentation-psycopg2==0.59b0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "opentelemetry-instrumentation-psycopg2",
+                    "specifier": "==0.59b0",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/opentelemetry_instrumentation_psycopg2-0.59b0.dist-info"
+                }
+            ]
+        },
+        "anyio": {
+            "name": "anyio",
+            "version": "4.9.0",
+            "requirements": [
+                {
+                    "raw": "anyio==4.9.0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "anyio",
+                    "specifier": "==4.9.0",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/anyio-4.9.0.dist-info"
+                }
+            ]
+        },
+        "defusedxml": {
+            "name": "defusedxml",
+            "version": "0.7.1",
+            "requirements": [
+                {
+                    "raw": "defusedxml==0.7.1",
+                    "extras": [],
+                    "marker": null,
+                    "name": "defusedxml",
+                    "specifier": "==0.7.1",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/defusedxml-0.7.1.dist-info"
+                }
+            ]
+        },
+        "jsonschema": {
+            "name": "jsonschema",
+            "version": "4.25.0",
+            "requirements": [
+                {
+                    "raw": "jsonschema==4.25.0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "jsonschema",
+                    "specifier": "==4.25.0",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/jsonschema-4.25.0.dist-info"
+                }
+            ]
+        },
+        "azure-mgmt-core": {
+            "name": "azure-mgmt-core",
+            "version": "1.6.0",
+            "requirements": [
+                {
+                    "raw": "azure-mgmt-core==1.6.0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "azure-mgmt-core",
+                    "specifier": "==1.6.0",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/azure_mgmt_core-1.6.0.dist-info"
+                }
+            ]
+        },
+        "opentelemetry-util-http": {
+            "name": "opentelemetry-util-http",
+            "version": "0.59b0",
+            "requirements": [
+                {
+                    "raw": "opentelemetry-util-http==0.59b0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "opentelemetry-util-http",
+                    "specifier": "==0.59b0",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/opentelemetry_util_http-0.59b0.dist-info"
+                }
+            ]
+        },
+        "cloudinary": {
+            "name": "cloudinary",
+            "version": "1.44.1",
+            "requirements": [
+                {
+                    "raw": "cloudinary==1.44.1",
+                    "extras": [],
+                    "marker": null,
+                    "name": "cloudinary",
+                    "specifier": "==1.44.1",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/cloudinary-1.44.1.dist-info"
+                }
+            ]
+        },
+        "jiter": {
+            "name": "jiter",
+            "version": "0.11.1",
+            "requirements": [
+                {
+                    "raw": "jiter==0.11.1",
+                    "extras": [],
+                    "marker": null,
+                    "name": "jiter",
+                    "specifier": "==0.11.1",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/jiter-0.11.1.dist-info"
+                }
+            ]
+        },
+        "azure-core-tracing-opentelemetry": {
+            "name": "azure-core-tracing-opentelemetry",
+            "version": "1.0.0b12",
+            "requirements": [
+                {
+                    "raw": "azure-core-tracing-opentelemetry==1.0.0b12",
+                    "extras": [],
+                    "marker": null,
+                    "name": "azure-core-tracing-opentelemetry",
+                    "specifier": "==1.0.0b12",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/azure_core_tracing_opentelemetry-1.0.0b12.dist-info"
+                }
+            ]
+        },
+        "azure-mgmt-resource": {
+            "name": "azure-mgmt-resource",
+            "version": "24.0.0",
+            "requirements": [
+                {
+                    "raw": "azure-mgmt-resource==24.0.0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "azure-mgmt-resource",
+                    "specifier": "==24.0.0",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/azure_mgmt_resource-24.0.0.dist-info"
+                }
+            ]
+        },
+        "msal": {
+            "name": "msal",
+            "version": "1.34.0",
+            "requirements": [
+                {
+                    "raw": "msal==1.34.0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "msal",
+                    "specifier": "==1.34.0",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/msal-1.34.0.dist-info"
+                }
+            ]
+        },
+        "attrs": {
+            "name": "attrs",
+            "version": "25.3.0",
+            "requirements": [
+                {
+                    "raw": "attrs==25.3.0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "attrs",
+                    "specifier": "==25.3.0",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/attrs-25.3.0.dist-info"
+                }
+            ]
+        },
+        "python-dotenv": {
+            "name": "python-dotenv",
+            "version": "1.1.1",
+            "requirements": [
+                {
+                    "raw": "python-dotenv==1.1.1",
+                    "extras": [],
+                    "marker": null,
+                    "name": "python-dotenv",
+                    "specifier": "==1.1.1",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/python_dotenv-1.1.1.dist-info"
+                }
+            ]
+        },
+        "plyer": {
+            "name": "plyer",
+            "version": "2.1.0",
+            "requirements": [
+                {
+                    "raw": "plyer==2.1.0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "plyer",
+                    "specifier": "==2.1.0",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/plyer-2.1.0.dist-info"
+                }
+            ]
+        },
+        "azure-storage-file-share": {
+            "name": "azure-storage-file-share",
+            "version": "12.23.1",
+            "requirements": [
+                {
+                    "raw": "azure-storage-file-share==12.23.1",
+                    "extras": [],
+                    "marker": null,
+                    "name": "azure-storage-file-share",
+                    "specifier": "==12.23.1",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/azure_storage_file_share-12.23.1.dist-info"
+                }
+            ]
+        },
+        "markdown-it-py": {
+            "name": "markdown-it-py",
+            "version": "3.0.0",
+            "requirements": [
+                {
+                    "raw": "markdown-it-py==3.0.0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "markdown-it-py",
+                    "specifier": "==3.0.0",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/markdown_it_py-3.0.0.dist-info"
+                }
+            ]
+        },
+        "pyparsing": {
+            "name": "pyparsing",
+            "version": "3.2.3",
+            "requirements": [
+                {
+                    "raw": "pyparsing==3.2.3",
+                    "extras": [],
+                    "marker": null,
+                    "name": "pyparsing",
+                    "specifier": "==3.2.3",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/pyparsing-3.2.3.dist-info"
+                }
+            ]
+        },
+        "safety-schemas": {
+            "name": "safety-schemas",
+            "version": "0.0.16",
+            "requirements": [
+                {
+                    "raw": "safety-schemas==0.0.16",
+                    "extras": [],
+                    "marker": null,
+                    "name": "safety-schemas",
+                    "specifier": "==0.0.16",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/safety_schemas-0.0.16.dist-info"
+                }
+            ]
+        },
+        "certifi": {
+            "name": "certifi",
+            "version": "2025.6.15",
+            "requirements": [
+                {
+                    "raw": "certifi==2025.6.15",
+                    "extras": [],
+                    "marker": null,
+                    "name": "certifi",
+                    "specifier": "==2025.6.15",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/certifi-2025.6.15.dist-info"
+                }
+            ]
+        },
+        "opentelemetry-instrumentation-asgi": {
+            "name": "opentelemetry-instrumentation-asgi",
+            "version": "0.59b0",
+            "requirements": [
+                {
+                    "raw": "opentelemetry-instrumentation-asgi==0.59b0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "opentelemetry-instrumentation-asgi",
+                    "specifier": "==0.59b0",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/opentelemetry_instrumentation_asgi-0.59b0.dist-info"
+                }
+            ]
+        },
+        "pyhumps": {
+            "name": "pyhumps",
+            "version": "3.8.0",
+            "requirements": [
+                {
+                    "raw": "pyhumps==3.8.0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "pyhumps",
+                    "specifier": "==3.8.0",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/pyhumps-3.8.0.dist-info"
+                }
+            ]
+        },
+        "azure-identity": {
+            "name": "azure-identity",
+            "version": "1.25.1",
+            "requirements": [
+                {
+                    "raw": "azure-identity==1.25.1",
+                    "extras": [],
+                    "marker": null,
+                    "name": "azure-identity",
+                    "specifier": "==1.25.1",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/azure_identity-1.25.1.dist-info"
+                }
+            ]
+        },
+        "charset-normalizer": {
+            "name": "charset-normalizer",
+            "version": "3.4.2",
+            "requirements": [
+                {
+                    "raw": "charset-normalizer==3.4.2",
+                    "extras": [],
+                    "marker": null,
+                    "name": "charset-normalizer",
+                    "specifier": "==3.4.2",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/charset_normalizer-3.4.2.dist-info"
+                }
+            ]
+        },
+        "tavily-python": {
+            "name": "tavily-python",
+            "version": "0.7.11",
+            "requirements": [
+                {
+                    "raw": "tavily-python==0.7.11",
+                    "extras": [],
+                    "marker": null,
+                    "name": "tavily-python",
+                    "specifier": "==0.7.11",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/tavily_python-0.7.11.dist-info"
+                }
+            ]
+        },
+        "Django": {
+            "name": "Django",
+            "version": "5.2.7",
+            "requirements": [
+                {
+                    "raw": "Django==5.2.7",
+                    "extras": [],
+                    "marker": null,
+                    "name": "Django",
+                    "specifier": "==5.2.7",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/django-5.2.7.dist-info"
+                }
+            ]
+        },
+        "requests": {
+            "name": "requests",
+            "version": "2.32.4",
+            "requirements": [
+                {
+                    "raw": "requests==2.32.4",
+                    "extras": [],
+                    "marker": null,
+                    "name": "requests",
+                    "specifier": "==2.32.4",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/requests-2.32.4.dist-info"
+                }
+            ]
+        },
+        "googleapis-common-protos": {
+            "name": "googleapis-common-protos",
+            "version": "1.70.0",
+            "requirements": [
+                {
+                    "raw": "googleapis-common-protos==1.70.0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "googleapis-common-protos",
+                    "specifier": "==1.70.0",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/googleapis_common_protos-1.70.0.dist-info"
+                }
+            ]
+        },
+        "customtkinter": {
+            "name": "customtkinter",
+            "version": "5.2.2",
+            "requirements": [
+                {
+                    "raw": "customtkinter==5.2.2",
+                    "extras": [],
+                    "marker": null,
+                    "name": "customtkinter",
+                    "specifier": "==5.2.2",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/customtkinter-5.2.2.dist-info"
+                }
+            ]
+        },
+        "azure-core": {
+            "name": "azure-core",
+            "version": "1.36.0",
+            "requirements": [
+                {
+                    "raw": "azure-core==1.36.0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "azure-core",
+                    "specifier": "==1.36.0",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/azure_core-1.36.0.dist-info"
+                }
+            ]
+        },
+        "azure-ai-ml": {
+            "name": "azure-ai-ml",
+            "version": "1.30.0",
+            "requirements": [
+                {
+                    "raw": "azure-ai-ml==1.30.0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "azure-ai-ml",
+                    "specifier": "==1.30.0",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/azure_ai_ml-1.30.0.dist-info"
+                }
+            ]
+        },
+        "google-auth-httplib2": {
+            "name": "google-auth-httplib2",
+            "version": "0.2.0",
+            "requirements": [
+                {
+                    "raw": "google-auth-httplib2==0.2.0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "google-auth-httplib2",
+                    "specifier": "==0.2.0",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/google_auth_httplib2-0.2.0.dist-info"
+                }
+            ]
+        },
+        "google-api-python-client": {
+            "name": "google-api-python-client",
+            "version": "2.110.0",
+            "requirements": [
+                {
+                    "raw": "google-api-python-client==2.110.0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "google-api-python-client",
+                    "specifier": "==2.110.0",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/google_api_python_client-2.110.0.dist-info"
+                }
+            ]
+        },
+        "opentelemetry-semantic-conventions": {
+            "name": "opentelemetry-semantic-conventions",
+            "version": "0.59b0",
+            "requirements": [
+                {
+                    "raw": "opentelemetry-semantic-conventions==0.59b0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "opentelemetry-semantic-conventions",
+                    "specifier": "==0.59b0",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/opentelemetry_semantic_conventions-0.59b0.dist-info"
+                }
+            ]
+        },
+        "PyPDFForm": {
+            "name": "PyPDFForm",
+            "version": "3.4.0",
+            "requirements": [
+                {
+                    "raw": "PyPDFForm==3.4.0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "PyPDFForm",
+                    "specifier": "==3.4.0",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/pypdfform-3.4.0.dist-info"
+                }
+            ]
+        },
+        "dj-database-url": {
+            "name": "dj-database-url",
+            "version": "2.1.0",
+            "requirements": [
+                {
+                    "raw": "dj-database-url==2.1.0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "dj-database-url",
+                    "specifier": "==2.1.0",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/dj_database_url-2.1.0.dist-info"
+                }
+            ]
+        },
+        "uritemplate": {
+            "name": "uritemplate",
+            "version": "4.2.0",
+            "requirements": [
+                {
+                    "raw": "uritemplate==4.2.0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "uritemplate",
+                    "specifier": "==4.2.0",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/uritemplate-4.2.0.dist-info"
+                }
+            ]
+        },
+        "azure-storage-file-datalake": {
+            "name": "azure-storage-file-datalake",
+            "version": "12.22.0",
+            "requirements": [
+                {
+                    "raw": "azure-storage-file-datalake==12.22.0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "azure-storage-file-datalake",
+                    "specifier": "==12.22.0",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/azure_storage_file_datalake-12.22.0.dist-info"
+                }
+            ]
+        },
+        "httpcore": {
+            "name": "httpcore",
+            "version": "1.0.9",
+            "requirements": [
+                {
+                    "raw": "httpcore==1.0.9",
+                    "extras": [],
+                    "marker": null,
+                    "name": "httpcore",
+                    "specifier": "==1.0.9",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/httpcore-1.0.9.dist-info"
+                }
+            ]
+        },
+        "ruamel.yaml.clib": {
+            "name": "ruamel.yaml.clib",
+            "version": "0.2.14",
+            "requirements": [
+                {
+                    "raw": "ruamel.yaml.clib==0.2.14",
+                    "extras": [],
+                    "marker": null,
+                    "name": "ruamel.yaml.clib",
+                    "specifier": "==0.2.14",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/ruamel.yaml.clib-0.2.14.dist-info"
+                }
+            ]
+        },
+        "lxml": {
+            "name": "lxml",
+            "version": "6.0.0",
+            "requirements": [
+                {
+                    "raw": "lxml==6.0.0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "lxml",
+                    "specifier": "==6.0.0",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/lxml-6.0.0.dist-info"
+                }
+            ]
+        },
+        "rich": {
+            "name": "rich",
+            "version": "14.1.0",
+            "requirements": [
+                {
+                    "raw": "rich==14.1.0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "rich",
+                    "specifier": "==14.1.0",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/rich-14.1.0.dist-info"
+                }
+            ]
+        },
+        "mcp": {
+            "name": "mcp",
+            "version": "1.12.1",
+            "requirements": [
+                {
+                    "raw": "mcp==1.12.1",
+                    "extras": [],
+                    "marker": null,
+                    "name": "mcp",
+                    "specifier": "==1.12.1",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/mcp-1.12.1.dist-info"
+                }
+            ]
+        },
+        "cffi": {
+            "name": "cffi",
+            "version": "1.17.1",
+            "requirements": [
+                {
+                    "raw": "cffi==1.17.1",
+                    "extras": [],
+                    "marker": null,
+                    "name": "cffi",
+                    "specifier": "==1.17.1",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/cffi-1.17.1.dist-info"
+                }
+            ]
+        },
+        "opentelemetry-instrumentation-wsgi": {
+            "name": "opentelemetry-instrumentation-wsgi",
+            "version": "0.59b0",
+            "requirements": [
+                {
+                    "raw": "opentelemetry-instrumentation-wsgi==0.59b0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "opentelemetry-instrumentation-wsgi",
+                    "specifier": "==0.59b0",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/opentelemetry_instrumentation_wsgi-0.59b0.dist-info"
+                }
+            ]
+        },
+        "msrest": {
+            "name": "msrest",
+            "version": "0.7.1",
+            "requirements": [
+                {
+                    "raw": "msrest==0.7.1",
+                    "extras": [],
+                    "marker": null,
+                    "name": "msrest",
+                    "specifier": "==0.7.1",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/msrest-0.7.1.dist-info"
+                }
+            ]
+        },
+        "yarl": {
+            "name": "yarl",
+            "version": "1.20.1",
+            "requirements": [
+                {
+                    "raw": "yarl==1.20.1",
+                    "extras": [],
+                    "marker": null,
+                    "name": "yarl",
+                    "specifier": "==1.20.1",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/yarl-1.20.1.dist-info"
+                }
+            ]
+        },
+        "pyasn1": {
+            "name": "pyasn1",
+            "version": "0.6.1",
+            "requirements": [
+                {
+                    "raw": "pyasn1==0.6.1",
+                    "extras": [],
+                    "marker": null,
+                    "name": "pyasn1",
+                    "specifier": "==0.6.1",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/pyasn1-0.6.1.dist-info"
+                }
+            ]
+        },
+        "httpx-sse": {
+            "name": "httpx-sse",
+            "version": "0.4.1",
+            "requirements": [
+                {
+                    "raw": "httpx-sse==0.4.1",
+                    "extras": [],
+                    "marker": null,
+                    "name": "httpx-sse",
+                    "specifier": "==0.4.1",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/httpx_sse-0.4.1.dist-info"
+                }
+            ]
+        },
+        "PyJWT": {
+            "name": "PyJWT",
+            "version": "2.10.1",
+            "requirements": [
+                {
+                    "raw": "PyJWT==2.10.1",
+                    "extras": [],
+                    "marker": null,
+                    "name": "PyJWT",
+                    "specifier": "==2.10.1",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/PyJWT-2.10.1.dist-info"
+                }
+            ]
+        },
+        "google-auth": {
+            "name": "google-auth",
+            "version": "2.25.2",
+            "requirements": [
+                {
+                    "raw": "google-auth==2.25.2",
+                    "extras": [],
+                    "marker": null,
+                    "name": "google-auth",
+                    "specifier": "==2.25.2",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/google_auth-2.25.2.dist-info"
+                }
+            ]
+        },
+        "isodate": {
+            "name": "isodate",
+            "version": "0.7.2",
+            "requirements": [
+                {
+                    "raw": "isodate==0.7.2",
+                    "extras": [],
+                    "marker": null,
+                    "name": "isodate",
+                    "specifier": "==0.7.2",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/isodate-0.7.2.dist-info"
+                }
+            ]
+        },
+        "Authlib": {
+            "name": "Authlib",
+            "version": "1.6.5",
+            "requirements": [
+                {
+                    "raw": "Authlib==1.6.5",
+                    "extras": [],
+                    "marker": null,
+                    "name": "Authlib",
+                    "specifier": "==1.6.5",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/authlib-1.6.5.dist-info"
+                }
+            ]
+        },
+        "referencing": {
+            "name": "referencing",
+            "version": "0.36.2",
+            "requirements": [
+                {
+                    "raw": "referencing==0.36.2",
+                    "extras": [],
+                    "marker": null,
+                    "name": "referencing",
+                    "specifier": "==0.36.2",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/referencing-0.36.2.dist-info"
+                }
+            ]
+        },
+        "wrapt": {
+            "name": "wrapt",
+            "version": "1.17.3",
+            "requirements": [
+                {
+                    "raw": "wrapt==1.17.3",
+                    "extras": [],
+                    "marker": null,
+                    "name": "wrapt",
+                    "specifier": "==1.17.3",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/wrapt-1.17.3.dist-info"
+                }
+            ]
+        },
+        "h11": {
+            "name": "h11",
+            "version": "0.16.0",
+            "requirements": [
+                {
+                    "raw": "h11==0.16.0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "h11",
+                    "specifier": "==0.16.0",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/h11-0.16.0.dist-info"
+                }
+            ]
+        },
+        "sniffio": {
+            "name": "sniffio",
+            "version": "1.3.1",
+            "requirements": [
+                {
+                    "raw": "sniffio==1.3.1",
+                    "extras": [],
+                    "marker": null,
+                    "name": "sniffio",
+                    "specifier": "==1.3.1",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/sniffio-1.3.1.dist-info"
+                }
+            ]
+        },
+        "rsa": {
+            "name": "rsa",
+            "version": "4.9.1",
+            "requirements": [
+                {
+                    "raw": "rsa==4.9.1",
+                    "extras": [],
+                    "marker": null,
+                    "name": "rsa",
+                    "specifier": "==4.9.1",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/rsa-4.9.1.dist-info"
+                }
+            ]
+        },
+        "uvicorn": {
+            "name": "uvicorn",
+            "version": "0.35.0",
+            "requirements": [
+                {
+                    "raw": "uvicorn==0.35.0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "uvicorn",
+                    "specifier": "==0.35.0",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/uvicorn-0.35.0.dist-info"
+                }
+            ]
+        },
+        "rpds-py": {
+            "name": "rpds-py",
+            "version": "0.26.0",
+            "requirements": [
+                {
+                    "raw": "rpds-py==0.26.0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "rpds-py",
+                    "specifier": "==0.26.0",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/rpds_py-0.26.0.dist-info"
+                }
+            ]
+        },
+        "bandit": {
+            "name": "bandit",
+            "version": "1.8.6",
+            "requirements": [
+                {
+                    "raw": "bandit==1.8.6",
+                    "extras": [],
+                    "marker": null,
+                    "name": "bandit",
+                    "specifier": "==1.8.6",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/bandit-1.8.6.dist-info"
+                }
+            ]
+        },
+        "mdurl": {
+            "name": "mdurl",
+            "version": "0.1.2",
+            "requirements": [
+                {
+                    "raw": "mdurl==0.1.2",
+                    "extras": [],
+                    "marker": null,
+                    "name": "mdurl",
+                    "specifier": "==0.1.2",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/mdurl-0.1.2.dist-info"
+                }
+            ]
+        },
+        "pywifi": {
+            "name": "pywifi",
+            "version": "1.1.12",
+            "requirements": [
+                {
+                    "raw": "pywifi==1.1.12",
+                    "extras": [],
+                    "marker": null,
+                    "name": "pywifi",
+                    "specifier": "==1.1.12",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/pywifi-1.1.12.dist-info"
+                }
+            ]
+        },
+        "networkx": {
+            "name": "networkx",
+            "version": "3.5",
+            "requirements": [
+                {
+                    "raw": "networkx==3.5",
+                    "extras": [],
+                    "marker": null,
+                    "name": "networkx",
+                    "specifier": "==3.5",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/networkx-3.5.dist-info"
+                }
+            ]
+        },
+        "opentelemetry-api": {
+            "name": "opentelemetry-api",
+            "version": "1.38.0",
+            "requirements": [
+                {
+                    "raw": "opentelemetry-api==1.38.0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "opentelemetry-api",
+                    "specifier": "==1.38.0",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/opentelemetry_api-1.38.0.dist-info"
+                }
+            ]
+        },
+        "soupsieve": {
+            "name": "soupsieve",
+            "version": "2.8",
+            "requirements": [
+                {
+                    "raw": "soupsieve==2.8",
+                    "extras": [],
+                    "marker": null,
+                    "name": "soupsieve",
+                    "specifier": "==2.8",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/soupsieve-2.8.dist-info"
+                }
+            ]
+        },
+        "pydash": {
+            "name": "pydash",
+            "version": "8.0.5",
+            "requirements": [
+                {
+                    "raw": "pydash==8.0.5",
+                    "extras": [],
+                    "marker": null,
+                    "name": "pydash",
+                    "specifier": "==8.0.5",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/pydash-8.0.5.dist-info"
+                }
+            ]
+        },
+        "openai": {
+            "name": "openai",
+            "version": "2.6.1",
+            "requirements": [
+                {
+                    "raw": "openai==2.6.1",
+                    "extras": [],
+                    "marker": null,
+                    "name": "openai",
+                    "specifier": "==2.6.1",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/openai-2.6.1.dist-info"
+                }
+            ]
+        },
+        "sentence-transformers": {
+            "name": "sentence-transformers",
+            "version": "5.1.2",
+            "requirements": [
+                {
+                    "raw": "sentence-transformers==5.1.2",
+                    "extras": [],
+                    "marker": null,
+                    "name": "sentence-transformers",
+                    "specifier": "==5.1.2",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/sentence_transformers-5.1.2.dist-info"
+                }
+            ]
+        },
+        "whitenoise": {
+            "name": "whitenoise",
+            "version": "6.6.0",
+            "requirements": [
+                {
+                    "raw": "whitenoise==6.6.0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "whitenoise",
+                    "specifier": "==6.6.0",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/whitenoise-6.6.0.dist-info"
+                }
+            ]
+        },
+        "PyMuPDF": {
+            "name": "PyMuPDF",
+            "version": "1.26.3",
+            "requirements": [
+                {
+                    "raw": "PyMuPDF==1.26.3",
+                    "extras": [],
+                    "marker": null,
+                    "name": "PyMuPDF",
+                    "specifier": "==1.26.3",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/pymupdf-1.26.3.dist-info"
+                }
+            ]
+        },
+        "typing_extensions": {
+            "name": "typing_extensions",
+            "version": "4.15.0",
+            "requirements": [
+                {
+                    "raw": "typing_extensions==4.15.0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "typing_extensions",
+                    "specifier": "==4.15.0",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/typing_extensions-4.15.0.dist-info"
+                }
+            ]
+        },
+        "aiosignal": {
+            "name": "aiosignal",
+            "version": "1.4.0",
+            "requirements": [
+                {
+                    "raw": "aiosignal==1.4.0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "aiosignal",
+                    "specifier": "==1.4.0",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/aiosignal-1.4.0.dist-info"
+                }
+            ]
+        },
+        "click": {
+            "name": "click",
+            "version": "8.2.1",
+            "requirements": [
+                {
+                    "raw": "click==8.2.1",
+                    "extras": [],
+                    "marker": null,
+                    "name": "click",
+                    "specifier": "==8.2.1",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/click-8.2.1.dist-info"
+                }
+            ]
+        },
+        "azure-monitor-opentelemetry": {
+            "name": "azure-monitor-opentelemetry",
+            "version": "1.8.1",
+            "requirements": [
+                {
+                    "raw": "azure-monitor-opentelemetry==1.8.1",
+                    "extras": [],
+                    "marker": null,
+                    "name": "azure-monitor-opentelemetry",
+                    "specifier": "==1.8.1",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/azure_monitor_opentelemetry-1.8.1.dist-info"
+                }
+            ]
+        },
+        "packaging": {
+            "name": "packaging",
+            "version": "25.0",
+            "requirements": [
+                {
+                    "raw": "packaging==25.0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "packaging",
+                    "specifier": "==25.0",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/packaging-25.0.dist-info"
+                }
+            ]
+        },
+        "jsonschema-specifications": {
+            "name": "jsonschema-specifications",
+            "version": "2025.4.1",
+            "requirements": [
+                {
+                    "raw": "jsonschema-specifications==2025.4.1",
+                    "extras": [],
+                    "marker": null,
+                    "name": "jsonschema-specifications",
+                    "specifier": "==2025.4.1",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/jsonschema_specifications-2025.4.1.dist-info"
+                }
+            ]
+        },
+        "pycparser": {
+            "name": "pycparser",
+            "version": "2.22",
+            "requirements": [
+                {
+                    "raw": "pycparser==2.22",
+                    "extras": [],
+                    "marker": null,
+                    "name": "pycparser",
+                    "specifier": "==2.22",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/pycparser-2.22.dist-info"
+                }
+            ]
+        },
+        "starlette": {
+            "name": "starlette",
+            "version": "0.47.2",
+            "requirements": [
+                {
+                    "raw": "starlette==0.47.2",
+                    "extras": [],
+                    "marker": null,
+                    "name": "starlette",
+                    "specifier": "==0.47.2",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/starlette-0.47.2.dist-info"
+                }
+            ]
+        },
+        "Jinja2": {
+            "name": "Jinja2",
+            "version": "3.1.6",
+            "requirements": [
+                {
+                    "raw": "Jinja2==3.1.6",
+                    "extras": [],
+                    "marker": null,
+                    "name": "Jinja2",
+                    "specifier": "==3.1.6",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/jinja2-3.1.6.dist-info"
+                }
+            ]
+        },
+        "python-multipart": {
+            "name": "python-multipart",
+            "version": "0.0.20",
+            "requirements": [
+                {
+                    "raw": "python-multipart==0.0.20",
+                    "extras": [],
+                    "marker": null,
+                    "name": "python-multipart",
+                    "specifier": "==0.0.20",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/python_multipart-0.0.20.dist-info"
+                }
+            ]
+        },
+        "google-api-core": {
+            "name": "google-api-core",
+            "version": "2.25.1",
+            "requirements": [
+                {
+                    "raw": "google-api-core==2.25.1",
+                    "extras": [],
+                    "marker": null,
+                    "name": "google-api-core",
+                    "specifier": "==2.25.1",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/google_api_core-2.25.1.dist-info"
+                }
+            ]
+        },
+        "MarkupSafe": {
+            "name": "MarkupSafe",
+            "version": "3.0.3",
+            "requirements": [
+                {
+                    "raw": "MarkupSafe==3.0.3",
+                    "extras": [],
+                    "marker": null,
+                    "name": "MarkupSafe",
+                    "specifier": "==3.0.3",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/markupsafe-3.0.3.dist-info"
+                }
+            ]
+        },
+        "google-workspace-mcp": {
+            "name": "google-workspace-mcp",
+            "version": "1.2.0",
+            "requirements": [
+                {
+                    "raw": "google-workspace-mcp==1.2.0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "google-workspace-mcp",
+                    "specifier": "==1.2.0",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/google_workspace_mcp-1.2.0.dist-info"
+                }
+            ]
+        },
+        "opentelemetry-instrumentation-django": {
+            "name": "opentelemetry-instrumentation-django",
+            "version": "0.59b0",
+            "requirements": [
+                {
+                    "raw": "opentelemetry-instrumentation-django==0.59b0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "opentelemetry-instrumentation-django",
+                    "specifier": "==0.59b0",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/opentelemetry_instrumentation_django-0.59b0.dist-info"
+                }
+            ]
+        },
+        "fixedint": {
+            "name": "fixedint",
+            "version": "0.1.6",
+            "requirements": [
+                {
+                    "raw": "fixedint==0.1.6",
+                    "extras": [],
+                    "marker": null,
+                    "name": "fixedint",
+                    "specifier": "==0.1.6",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/fixedint-0.1.6.dist-info"
+                }
+            ]
+        },
+        "opentelemetry-resource-detector-azure": {
+            "name": "opentelemetry-resource-detector-azure",
+            "version": "0.1.5",
+            "requirements": [
+                {
+                    "raw": "opentelemetry-resource-detector-azure==0.1.5",
+                    "extras": [],
+                    "marker": null,
+                    "name": "opentelemetry-resource-detector-azure",
+                    "specifier": "==0.1.5",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/opentelemetry_resource_detector_azure-0.1.5.dist-info"
+                }
+            ]
+        },
+        "pydantic": {
+            "name": "pydantic",
+            "version": "2.11.7",
+            "requirements": [
+                {
+                    "raw": "pydantic==2.11.7",
+                    "extras": [],
+                    "marker": null,
+                    "name": "pydantic",
+                    "specifier": "==2.11.7",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/pydantic-2.11.7.dist-info"
+                }
+            ]
+        },
+        "opentelemetry-instrumentation-urllib": {
+            "name": "opentelemetry-instrumentation-urllib",
+            "version": "0.59b0",
+            "requirements": [
+                {
+                    "raw": "opentelemetry-instrumentation-urllib==0.59b0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "opentelemetry-instrumentation-urllib",
+                    "specifier": "==0.59b0",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/opentelemetry_instrumentation_urllib-0.59b0.dist-info"
+                }
+            ]
+        },
+        "opentelemetry-instrumentation-dbapi": {
+            "name": "opentelemetry-instrumentation-dbapi",
+            "version": "0.59b0",
+            "requirements": [
+                {
+                    "raw": "opentelemetry-instrumentation-dbapi==0.59b0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "opentelemetry-instrumentation-dbapi",
+                    "specifier": "==0.59b0",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/opentelemetry_instrumentation_dbapi-0.59b0.dist-info"
+                }
+            ]
+        },
+        "Markdown": {
+            "name": "Markdown",
+            "version": "3.9",
+            "requirements": [
+                {
+                    "raw": "Markdown==3.9",
+                    "extras": [],
+                    "marker": null,
+                    "name": "Markdown",
+                    "specifier": "==3.9",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/markdown-3.9.dist-info"
+                }
+            ]
+        },
+        "mcp_pdf_forms": {
+            "name": "mcp_pdf_forms",
+            "version": "0.2.0",
+            "requirements": [
+                {
+                    "raw": "mcp_pdf_forms==0.2.0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "mcp_pdf_forms",
+                    "specifier": "==0.2.0",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/mcp_pdf_forms-0.2.0.dist-info"
+                }
+            ]
+        },
+        "Pygments": {
+            "name": "Pygments",
+            "version": "2.19.2",
+            "requirements": [
+                {
+                    "raw": "Pygments==2.19.2",
+                    "extras": [],
+                    "marker": null,
+                    "name": "Pygments",
+                    "specifier": "==2.19.2",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/pygments-2.19.2.dist-info"
+                }
+            ]
+        },
+        "python-docx": {
+            "name": "python-docx",
+            "version": "1.2.0",
+            "requirements": [
+                {
+                    "raw": "python-docx==1.2.0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "python-docx",
+                    "specifier": "==1.2.0",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/python_docx-1.2.0.dist-info"
+                }
+            ]
+        },
+        "sse-starlette": {
+            "name": "sse-starlette",
+            "version": "2.4.1",
+            "requirements": [
+                {
+                    "raw": "sse-starlette==2.4.1",
+                    "extras": [],
+                    "marker": null,
+                    "name": "sse-starlette",
+                    "specifier": "==2.4.1",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/sse_starlette-2.4.1.dist-info"
+                }
+            ]
+        },
+        "aiohappyeyeballs": {
+            "name": "aiohappyeyeballs",
+            "version": "2.6.1",
+            "requirements": [
+                {
+                    "raw": "aiohappyeyeballs==2.6.1",
+                    "extras": [],
+                    "marker": null,
+                    "name": "aiohappyeyeballs",
+                    "specifier": "==2.6.1",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/aiohappyeyeballs-2.6.1.dist-info"
+                }
+            ]
+        },
+        "opentelemetry-instrumentation-urllib3": {
+            "name": "opentelemetry-instrumentation-urllib3",
+            "version": "0.59b0",
+            "requirements": [
+                {
+                    "raw": "opentelemetry-instrumentation-urllib3==0.59b0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "opentelemetry-instrumentation-urllib3",
+                    "specifier": "==0.59b0",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/opentelemetry_instrumentation_urllib3-0.59b0.dist-info"
+                }
+            ]
+        },
+        "azure-mgmt-cognitiveservices": {
+            "name": "azure-mgmt-cognitiveservices",
+            "version": "14.1.0",
+            "requirements": [
+                {
+                    "raw": "azure-mgmt-cognitiveservices==14.1.0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "azure-mgmt-cognitiveservices",
+                    "specifier": "==14.1.0",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/azure_mgmt_cognitiveservices-14.1.0.dist-info"
+                }
+            ]
+        },
+        "transformers": {
+            "name": "transformers",
+            "version": "4.57.1",
+            "requirements": [
+                {
+                    "raw": "transformers==4.57.1",
+                    "extras": [],
+                    "marker": null,
+                    "name": "transformers",
+                    "specifier": "==4.57.1",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/transformers-4.57.1.dist-info"
+                }
+            ]
+        },
+        "odfpy": {
+            "name": "odfpy",
+            "version": "1.4.1",
+            "requirements": [
+                {
+                    "raw": "odfpy==1.4.1",
+                    "extras": [],
+                    "marker": null,
+                    "name": "odfpy",
+                    "specifier": "==1.4.1",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/odfpy-1.4.1.dist-info"
+                }
+            ]
+        },
+        "darkdetect": {
+            "name": "darkdetect",
+            "version": "0.8.0",
+            "requirements": [
+                {
+                    "raw": "darkdetect==0.8.0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "darkdetect",
+                    "specifier": "==0.8.0",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/darkdetect-0.8.0.dist-info"
+                }
+            ]
+        },
+        "nltk": {
+            "name": "nltk",
+            "version": "3.9.2",
+            "requirements": [
+                {
+                    "raw": "nltk==3.9.2",
+                    "extras": [],
+                    "marker": null,
+                    "name": "nltk",
+                    "specifier": "==3.9.2",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/nltk-3.9.2.dist-info"
+                }
+            ]
+        },
+        "httpx": {
+            "name": "httpx",
+            "version": "0.28.1",
+            "requirements": [
+                {
+                    "raw": "httpx==0.28.1",
+                    "extras": [],
+                    "marker": null,
+                    "name": "httpx",
+                    "specifier": "==0.28.1",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/httpx-0.28.1.dist-info"
+                }
+            ]
+        },
+        "ruamel.yaml": {
+            "name": "ruamel.yaml",
+            "version": "0.18.16",
+            "requirements": [
+                {
+                    "raw": "ruamel.yaml==0.18.16",
+                    "extras": [],
+                    "marker": null,
+                    "name": "ruamel.yaml",
+                    "specifier": "==0.18.16",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/ruamel.yaml-0.18.16.dist-info"
+                }
+            ]
+        },
+        "asgiref": {
+            "name": "asgiref",
+            "version": "3.10.0",
+            "requirements": [
+                {
+                    "raw": "asgiref==3.10.0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "asgiref",
+                    "specifier": "==3.10.0",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/asgiref-3.10.0.dist-info"
+                }
+            ]
+        },
+        "sqlparse": {
+            "name": "sqlparse",
+            "version": "0.5.3",
+            "requirements": [
+                {
+                    "raw": "sqlparse==0.5.3",
+                    "extras": [],
+                    "marker": null,
+                    "name": "sqlparse",
+                    "specifier": "==0.5.3",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/sqlparse-0.5.3.dist-info"
+                }
+            ]
+        },
+        "scipy": {
+            "name": "scipy",
+            "version": "1.16.2",
+            "requirements": [
+                {
+                    "raw": "scipy==1.16.2",
+                    "extras": [],
+                    "marker": null,
+                    "name": "scipy",
+                    "specifier": "==1.16.2",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/scipy-1.16.2.dist-info"
+                }
+            ]
+        },
+        "pillow": {
+            "name": "pillow",
+            "version": "11.3.0",
+            "requirements": [
+                {
+                    "raw": "pillow==11.3.0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "pillow",
+                    "specifier": "==11.3.0",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/pillow-11.3.0.dist-info"
+                }
+            ]
+        },
+        "pyasn1_modules": {
+            "name": "pyasn1_modules",
+            "version": "0.4.2",
+            "requirements": [
+                {
+                    "raw": "pyasn1_modules==0.4.2",
+                    "extras": [],
+                    "marker": null,
+                    "name": "pyasn1_modules",
+                    "specifier": "==0.4.2",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/pyasn1_modules-0.4.2.dist-info"
+                }
+            ]
+        },
+        "opentelemetry-sdk": {
+            "name": "opentelemetry-sdk",
+            "version": "1.38.0",
+            "requirements": [
+                {
+                    "raw": "opentelemetry-sdk==1.38.0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "opentelemetry-sdk",
+                    "specifier": "==1.38.0",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/opentelemetry_sdk-1.38.0.dist-info"
+                }
+            ]
+        },
+        "PyQt6_sip": {
+            "name": "PyQt6_sip",
+            "version": "13.10.2",
+            "requirements": [
+                {
+                    "raw": "PyQt6_sip==13.10.2",
+                    "extras": [],
+                    "marker": null,
+                    "name": "PyQt6_sip",
+                    "specifier": "==13.10.2",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/pyqt6_sip-13.10.2.dist-info"
+                }
+            ]
+        },
+        "audioop-lts": {
+            "name": "audioop-lts",
+            "version": "0.2.2",
+            "requirements": [
+                {
+                    "raw": "audioop-lts==0.2.2",
+                    "extras": [],
+                    "marker": null,
+                    "name": "audioop-lts",
+                    "specifier": "==0.2.2",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/audioop_lts-0.2.2.dist-info"
+                }
+            ]
+        },
+        "watchdog": {
+            "name": "watchdog",
+            "version": "6.0.0",
+            "requirements": [
+                {
+                    "raw": "watchdog==6.0.0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "watchdog",
+                    "specifier": "==6.0.0",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/watchdog-6.0.0.dist-info"
+                }
+            ]
+        },
+        "beautifulsoup4": {
+            "name": "beautifulsoup4",
+            "version": "4.14.2",
+            "requirements": [
+                {
+                    "raw": "beautifulsoup4==4.14.2",
+                    "extras": [],
+                    "marker": null,
+                    "name": "beautifulsoup4",
+                    "specifier": "==4.14.2",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/beautifulsoup4-4.14.2.dist-info"
+                }
+            ]
+        },
+        "marshmallow": {
+            "name": "marshmallow",
+            "version": "3.26.1",
+            "requirements": [
+                {
+                    "raw": "marshmallow==3.26.1",
+                    "extras": [],
+                    "marker": null,
+                    "name": "marshmallow",
+                    "specifier": "==3.26.1",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/marshmallow-3.26.1.dist-info"
+                }
+            ]
+        },
+        "google-auth-oauthlib": {
+            "name": "google-auth-oauthlib",
+            "version": "1.2.0",
+            "requirements": [
+                {
+                    "raw": "google-auth-oauthlib==1.2.0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "google-auth-oauthlib",
+                    "specifier": "==1.2.0",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/google_auth_oauthlib-1.2.0.dist-info"
+                }
+            ]
+        },
+        "joblib": {
+            "name": "joblib",
+            "version": "1.5.2",
+            "requirements": [
+                {
+                    "raw": "joblib==1.5.2",
+                    "extras": [],
+                    "marker": null,
+                    "name": "joblib",
+                    "specifier": "==1.5.2",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/joblib-1.5.2.dist-info"
+                }
+            ]
+        },
+        "msal-extensions": {
+            "name": "msal-extensions",
+            "version": "1.3.1",
+            "requirements": [
+                {
+                    "raw": "msal-extensions==1.3.1",
+                    "extras": [],
+                    "marker": null,
+                    "name": "msal-extensions",
+                    "specifier": "==1.3.1",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/msal_extensions-1.3.1.dist-info"
+                }
+            ]
+        },
+        "annotated-types": {
+            "name": "annotated-types",
+            "version": "0.7.0",
+            "requirements": [
+                {
+                    "raw": "annotated-types==0.7.0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "annotated-types",
+                    "specifier": "==0.7.0",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/annotated_types-0.7.0.dist-info"
+                }
+            ]
+        },
+        "httplib2": {
+            "name": "httplib2",
+            "version": "0.22.0",
+            "requirements": [
+                {
+                    "raw": "httplib2==0.22.0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "httplib2",
+                    "specifier": "==0.22.0",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/httplib2-0.22.0.dist-info"
+                }
+            ]
+        },
+        "safetensors": {
+            "name": "safetensors",
+            "version": "0.6.2",
+            "requirements": [
+                {
+                    "raw": "safetensors==0.6.2",
+                    "extras": [],
+                    "marker": null,
+                    "name": "safetensors",
+                    "specifier": "==0.6.2",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/safetensors-0.6.2.dist-info"
+                }
+            ]
+        },
+        "cachetools": {
+            "name": "cachetools",
+            "version": "5.5.2",
+            "requirements": [
+                {
+                    "raw": "cachetools==5.5.2",
+                    "extras": [],
+                    "marker": null,
+                    "name": "cachetools",
+                    "specifier": "==5.5.2",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/cachetools-5.5.2.dist-info"
+                }
+            ]
+        },
+        "opentelemetry-instrumentation-requests": {
+            "name": "opentelemetry-instrumentation-requests",
+            "version": "0.59b0",
+            "requirements": [
+                {
+                    "raw": "opentelemetry-instrumentation-requests==0.59b0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "opentelemetry-instrumentation-requests",
+                    "specifier": "==0.59b0",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/opentelemetry_instrumentation_requests-0.59b0.dist-info"
+                }
+            ]
+        },
+        "opentelemetry-instrumentation-flask": {
+            "name": "opentelemetry-instrumentation-flask",
+            "version": "0.59b0",
+            "requirements": [
+                {
+                    "raw": "opentelemetry-instrumentation-flask==0.59b0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "opentelemetry-instrumentation-flask",
+                    "specifier": "==0.59b0",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/opentelemetry_instrumentation_flask-0.59b0.dist-info"
+                }
+            ]
+        },
+        "requests-oauthlib": {
+            "name": "requests-oauthlib",
+            "version": "2.0.0",
+            "requirements": [
+                {
+                    "raw": "requests-oauthlib==2.0.0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "requests-oauthlib",
+                    "specifier": "==2.0.0",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/requests_oauthlib-2.0.0.dist-info"
+                }
+            ]
+        },
+        "proto-plus": {
+            "name": "proto-plus",
+            "version": "1.26.1",
+            "requirements": [
+                {
+                    "raw": "proto-plus==1.26.1",
+                    "extras": [],
+                    "marker": null,
+                    "name": "proto-plus",
+                    "specifier": "==1.26.1",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/proto_plus-1.26.1.dist-info"
+                }
+            ]
+        },
+        "torch": {
+            "name": "torch",
+            "version": "2.9.0",
+            "requirements": [
+                {
+                    "raw": "torch==2.9.0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "torch",
+                    "specifier": "==2.9.0",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/torch-2.9.0.dist-info"
+                }
+            ]
+        },
+        "regex": {
+            "name": "regex",
+            "version": "2025.7.34",
+            "requirements": [
+                {
+                    "raw": "regex==2025.7.34",
+                    "extras": [],
+                    "marker": null,
+                    "name": "regex",
+                    "specifier": "==2025.7.34",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/regex-2025.7.34.dist-info"
+                }
+            ]
+        },
+        "pydantic-settings": {
+            "name": "pydantic-settings",
+            "version": "2.10.1",
+            "requirements": [
+                {
+                    "raw": "pydantic-settings==2.10.1",
+                    "extras": [],
+                    "marker": null,
+                    "name": "pydantic-settings",
+                    "specifier": "==2.10.1",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/pydantic_settings-2.10.1.dist-info"
+                }
+            ]
+        },
+        "frozenlist": {
+            "name": "frozenlist",
+            "version": "1.7.0",
+            "requirements": [
+                {
+                    "raw": "frozenlist==1.7.0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "frozenlist",
+                    "specifier": "==1.7.0",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/frozenlist-1.7.0.dist-info"
+                }
+            ]
+        },
+        "tiktoken": {
+            "name": "tiktoken",
+            "version": "0.11.0",
+            "requirements": [
+                {
+                    "raw": "tiktoken==0.11.0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "tiktoken",
+                    "specifier": "==0.11.0",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/tiktoken-0.11.0.dist-info"
+                }
+            ]
+        },
+        "azure-storage-blob": {
+            "name": "azure-storage-blob",
+            "version": "12.27.1",
+            "requirements": [
+                {
+                    "raw": "azure-storage-blob==12.27.1",
+                    "extras": [],
+                    "marker": null,
+                    "name": "azure-storage-blob",
+                    "specifier": "==12.27.1",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/azure_storage_blob-12.27.1.dist-info"
+                }
+            ]
+        },
+        "azure-monitor-opentelemetry-exporter": {
+            "name": "azure-monitor-opentelemetry-exporter",
+            "version": "1.0.0b44",
+            "requirements": [
+                {
+                    "raw": "azure-monitor-opentelemetry-exporter==1.0.0b44",
+                    "extras": [],
+                    "marker": null,
+                    "name": "azure-monitor-opentelemetry-exporter",
+                    "specifier": "==1.0.0b44",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/azure_monitor_opentelemetry_exporter-1.0.0b44.dist-info"
+                }
+            ]
+        },
+        "markdowndeck": {
+            "name": "markdowndeck",
+            "version": "0.1.5",
+            "requirements": [
+                {
+                    "raw": "markdowndeck==0.1.5",
+                    "extras": [],
+                    "marker": null,
+                    "name": "markdowndeck",
+                    "specifier": "==0.1.5",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/markdowndeck-0.1.5.dist-info"
+                }
+            ]
+        }
+    },
+    "affected_packages": {
+        "pip": {
+            "name": "pip",
+            "version": "24.3.1",
+            "requirements": [
+                {
+                    "raw": "pip==24.3.1",
+                    "extras": [],
+                    "marker": null,
+                    "name": "pip",
+                    "specifier": "==24.3.1",
+                    "url": null,
+                    "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/pip-24.3.1.dist-info"
+                }
+            ],
+            "found": null,
+            "insecure_versions": [
+                "0.2",
+                "0.2.1",
+                "0.3",
+                "0.3.1",
+                "0.4",
+                "0.5",
+                "0.5.1",
+                "0.6",
+                "0.6.1",
+                "0.6.2",
+                "0.6.3",
+                "0.7",
+                "0.7.1",
+                "0.7.2",
+                "0.8",
+                "0.8.1",
+                "0.8.2",
+                "0.8.3",
+                "1.0",
+                "10.0.0",
+                "10.0.0b1",
+                "10.0.0b2",
+                "10.0.1",
+                "1.0.1",
+                "1.0.2",
+                "1.1",
+                "1.2",
+                "1.2.1",
+                "1.3",
+                "1.3.1",
+                "1.4",
+                "1.4.1",
+                "1.5",
+                "1.5.1",
+                "1.5.2",
+                "1.5.3",
+                "1.5.4",
+                "1.5.5",
+                "1.5.6",
+                "18.0",
+                "18.1",
+                "19.0",
+                "19.0.1",
+                "19.0.2",
+                "19.0.3",
+                "19.1",
+                "19.1.1",
+                "19.2",
+                "19.2.1",
+                "19.2.2",
+                "19.2.3",
+                "19.3",
+                "19.3.1",
+                "20.0",
+                "20.0.1",
+                "20.0.2",
+                "20.1",
+                "20.1.1",
+                "20.1b1",
+                "20.2",
+                "20.2.1",
+                "20.2.2",
+                "20.2.3",
+                "20.2.4",
+                "20.2b1",
+                "20.3",
+                "20.3.1",
+                "20.3.2",
+                "20.3.3",
+                "20.3.4",
+                "20.3b1",
+                "21.0",
+                "21.0.1",
+                "21.1",
+                "21.1.1",
+                "21.1.2",
+                "21.1.3",
+                "21.2",
+                "21.2.1",
+                "21.2.2",
+                "21.2.3",
+                "21.2.4",
+                "21.3",
+                "21.3.1",
+                "22.0",
+                "22.0.1",
+                "22.0.2",
+                "22.0.3",
+                "22.0.4",
+                "22.1",
+                "22.1.1",
+                "22.1.2",
+                "22.1b1",
+                "22.2",
+                "22.2.1",
+                "22.2.2",
+                "22.3",
+                "22.3.1",
+                "23.0",
+                "23.0.1",
+                "23.1",
+                "23.1.1",
+                "23.1.2",
+                "23.2",
+                "23.2.1",
+                "23.3",
+                "23.3.1",
+                "23.3.2",
+                "24.0",
+                "24.1",
+                "24.1.1",
+                "24.1.2",
+                "24.1b1",
+                "24.1b2",
+                "24.2",
+                "24.3",
+                "24.3.1",
+                "25.0",
+                "25.0.1",
+                "25.1",
+                "25.1.1",
+                "6.0",
+                "6.0.1",
+                "6.0.2",
+                "6.0.3",
+                "6.0.4",
+                "6.0.5",
+                "6.0.6",
+                "6.0.7",
+                "6.0.8",
+                "6.1.0",
+                "6.1.1",
+                "7.0.0",
+                "7.0.1",
+                "7.0.2",
+                "7.0.3",
+                "7.1.0",
+                "7.1.1",
+                "7.1.2",
+                "8.0.0",
+                "8.0.1",
+                "8.0.2",
+                "8.0.3",
+                "8.1.0",
+                "8.1.1",
+                "8.1.2",
+                "9.0.0",
+                "9.0.1",
+                "9.0.2",
+                "9.0.3"
+            ],
+            "secure_versions": [
+                "25.3",
+                "25.2"
+            ],
+            "latest_version_without_known_vulnerabilities": "25.3",
+            "latest_version": "25.3",
+            "more_info_url": "https://data.safetycli.com/p/pypi/pip/97c/"
+        }
+    },
+    "announcements": [],
+    "vulnerabilities": [
+        {
+            "vulnerability_id": "79883",
+            "package_name": "pip",
+            "ignored": {},
+            "ignored_reason": null,
+            "ignored_expires": null,
+            "vulnerable_spec": [
+                "<25.2"
+            ],
+            "all_vulnerable_specs": [
+                "<25.2"
+            ],
+            "analyzed_version": "24.3.1",
+            "analyzed_requirement": {
+                "raw": "pip==24.3.1",
+                "extras": [],
+                "marker": null,
+                "name": "pip",
+                "specifier": "==24.3.1",
+                "url": null,
+                "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/pip-24.3.1.dist-info"
+            },
+            "advisory": "Affected versions of the pip package are vulnerable to Arbitrary File Overwrite due to improper validation of symbolic link targets in the fallback tar extraction code. In src/pip/_internal/utils/unpacking.py, the _untar_without_filter routine used when the Python tarfile module lacks PEP 706 (no tarfile.data_filter) extracted symlink members with tar._extract_member without verifying that link destinations resolve under the extraction root, a check later added via the is_symlink_target_in_tar helper.",
+            "is_transitive": false,
+            "published_date": null,
+            "fixed_versions": [],
+            "closest_versions_without_known_vulnerabilities": [],
+            "resources": [],
+            "CVE": "CVE-2025-8869",
+            "severity": null,
+            "affected_versions": [],
+            "more_info_url": "https://data.safetycli.com/v/79883/97c"
+        },
+        {
+            "vulnerability_id": "75180",
+            "package_name": "pip",
+            "ignored": {},
+            "ignored_reason": null,
+            "ignored_expires": null,
+            "vulnerable_spec": [
+                "<25.0"
+            ],
+            "all_vulnerable_specs": [
+                "<25.0"
+            ],
+            "analyzed_version": "24.3.1",
+            "analyzed_requirement": {
+                "raw": "pip==24.3.1",
+                "extras": [],
+                "marker": null,
+                "name": "pip",
+                "specifier": "==24.3.1",
+                "url": null,
+                "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/pip-24.3.1.dist-info"
+            },
+            "advisory": "Pip solves a security vulnerability that previously allowed maliciously crafted wheel files to execute unauthorized code during installation.",
+            "is_transitive": false,
+            "published_date": null,
+            "fixed_versions": [],
+            "closest_versions_without_known_vulnerabilities": [],
+            "resources": [],
+            "CVE": null,
+            "severity": null,
+            "affected_versions": [],
+            "more_info_url": "https://data.safetycli.com/v/75180/97c"
+        }
+    ],
+    "ignored_vulnerabilities": [],
+    "remediations": {
+        "pip": {
+            "requirements": {
+                "==24.3.1": {
+                    "vulnerabilities_found": 2,
+                    "version": "24.3.1",
+                    "requirement": {
+                        "raw": "pip==24.3.1",
+                        "extras": [],
+                        "marker": null,
+                        "name": "pip",
+                        "specifier": "==24.3.1",
+                        "url": null,
+                        "found": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/pip-24.3.1.dist-info"
+                    },
+                    "more_info_url": "https://data.safetycli.com/p/pypi/pip/97c/"
+                }
+            },
+            "current_version": null,
+            "vulnerabilities_found": null,
+            "recommended_version": null,
+            "other_recommended_versions": [],
+            "more_info_url": null
+        }
+    },
+    "remediations_results": {
+        "vulnerabilities_fixed": [],
+        "remediations_applied": {},
+        "remediations_skipped": {}
+    }
+}
+
+
++===========================================================================================================================================================================================+
+
+
+DEPRECATED: this command (`check`) has been DEPRECATED, and will be unsupported beyond 01 June 2024.
+
+
+We highly encourage switching to the new `scan` command which is easier to use, more powerful, and can be set up to mimic the deprecated command if required.
+
+
++===========================================================================================================================================================================================+
+
+

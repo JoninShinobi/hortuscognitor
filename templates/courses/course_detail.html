@@ -11,14 +11,25 @@
     <div class="container">
         <div class="hero-content">
             <h1>{{ course.title }}</h1>
-            {% if course.subtitle %}
-            <p class="hero-subheading">{{ course.subtitle }}</p>
-            {% endif %}
             <div style="margin-top: 2rem; color: white; text-align: center;">
                 <span style="margin-right: 2rem;">📅 Starts: {{ course.start_date|date:"F Y" }}</span>
                 <span style="margin-right: 2rem;">⏱ Duration: {{ course.duration }}</span>
                 <span>👥 Max Participants: {{ course.max_participants }}</span>
             </div>
+            {% if course.sessions.exists %}
+            <div style="margin-top: 1rem; text-align: center;">
+                <button onclick="toggleSessionsDropdown()" class="sessions-toggle" style="background: transparent; border: 1px solid white; color: white; padding: 0.5rem 1.5rem; cursor: pointer; border-radius: 4px; font-size: 1rem;">View Course Dates</button>
+            </div>
+            <div id="sessions-dropdown" class="sessions-dropdown" style="display: none; margin-top: 1rem; background: rgba(0, 0, 0, 0.3); color: white; padding: 1rem; border-radius: 8px; max-width: 400px; margin-left: auto; margin-right: auto;">
+                <h3 style="font-family: 'hey-eloise', 'Kalam', 'Patrick Hand', 'Caveat', cursive; color: #ADA228; font-size: 1.2rem; margin-bottom: 0.75rem; text-align: left;">Course Sessions</h3>
+                {% for session in course.sessions.all %}
+                <div style="padding: 0.5rem 0; border-bottom: 1px solid rgba(255, 255, 255, 0.2); {% if forloop.last %}border-bottom: none;{% endif %}; text-align: left; font-size: 0.9rem;">
+                    <strong style="color: #ADA228;">Session {{ session.session_number }}:</strong>
+                    {{ session.date|date:"l, j F Y" }} | {{ session.start_time|time:"H:i" }} - {{ session.end_time|time:"H:i" }}
+                </div>
+                {% endfor %}
+            </div>
+            {% endif %}
         </div>
     </div>
 </section>
@@ -26,51 +37,55 @@
 <section class="container course-detail">
     <div class="course-info-grid">
         <div class="course-content">
+            {% if course.description %}
             <h2>About This Course</h2>
-            <p style="line-height: 1.8;">{{ course.description }}</p>
-            
+            <div style="color: #ffffff;">{{ course.description|linebreaks }}</div>
+            {% endif %}
+
+            {% if course.what_you_will_experience %}
             <h2>What You Will Experience</h2>
-            <p style="line-height: 1.8;">{{ course.what_you_will_experience }}</p>
-            
+            <div style="color: #ffffff;">{{ course.what_you_will_experience|linebreaks }}</div>
+            {% endif %}
+
+            {% if course.course_structure %}
             <h2>Course Structure</h2>
-            <p style="line-height: 1.8;">{{ course.course_structure }}</p>
-            
+            <div style="color: #ffffff;">{{ course.course_structure|linebreaks }}</div>
+            {% endif %}
+
+            {% if course.location %}
             <h2>Location</h2>
-            <p style="line-height: 1.8;">{{ course.location }}</p>
-            
+            <div style="color: #ffffff;">{{ course.location|linebreaks }}</div>
+            {% endif %}
+
+            {% if course.accessibility %}
             <h2>Accessibility</h2>
-            <p style="line-height: 1.8;">{{ course.accessibility }}</p>
-            
+            <div style="color: #ffffff;">{{ course.accessibility|linebreaks }}</div>
+            {% endif %}
+
+            {% if course.who_this_is_for %}
             <h2>Who This Is For</h2>
-            <p style="line-height: 1.8;">{{ course.who_this_is_for }}</p>
-            
+            <div style="color: #ffffff;">{{ course.who_this_is_for|linebreaks }}</div>
+            {% endif %}
+
+            {% if course.what_you_will_gain %}
             <h2>What You Will Gain</h2>
-            <p style="line-height: 1.8;">{{ course.what_you_will_gain }}</p>
+            <div style="color: #ffffff;">{{ course.what_you_will_gain|linebreaks }}</div>
+            {% endif %}
         </div>
-        
-        <!-- Standalone highlighted heading on black background -->
-        <div style="grid-column: 1 / -1; text-align: center; margin: 2rem 0;">
-            <h3 style="font-family: 'hey-eloise', 'Kalam', 'Patrick Hand', 'Caveat', cursive; color: #000000; font-size: 2.2rem; margin-bottom: 0; position: relative;">
-                <span class="highlight-text">How much does it cost?</span>
-            </h3>
-        </div>
-        
+
         <div class="course-sidebar">
             <!-- White background section with pricing -->
             <div style="background: white; padding: 2rem; border-radius: 8px; margin-bottom: 2rem;">
-                <h4 style="font-family: 'hey-eloise', cursive; color: #ADA228; font-size: 1.5rem; margin-bottom: 1rem; text-align: center;">Three-Tier Pricing</h4>
-                <p style="color: #666; font-size: 0.9rem; text-align: center; margin-bottom: 1.5rem;">Choose what feels right for your situation</p>
-                
+                <h4 style="font-family: 'hey-eloise', cursive; color: #ADA228; font-size: 1.5rem; margin-bottom: 1rem; text-align: center;">Pricing</h4>
+                <p style="color: #000000; font-size: 0.9rem; text-align: center; margin-bottom: 1.5rem;">Choose what feels right for your situation</p>
+
                 <div style="text-align: center; margin-bottom: 1rem;">
                     <div style="margin-bottom: 0.5rem;">
-                        <strong style="color: #ADA228;">£225 - £475</strong>
-                    </div>
-                    <div style="font-size: 0.85rem; color: #666;">
-                        Based on your financial situation
+                        <strong style="color: #000000;">£225 - £475</strong>
                     </div>
                 </div>
-                
-                <p style="font-size: 0.9rem; color: #666; margin-bottom: 1.5rem; text-align: center;">Limited to {{ course.max_participants }} participants</p>
+
+                <p style="font-size: 0.9rem; color: #000000; margin-bottom: 1.5rem; text-align: center;">Limited to {{ course.max_participants }} participants</p>
                 
                 <div style="text-align: center;">
                     <a href="{% url 'payment_selection' course.slug %}" class="btn" style="background: #ADA228; color: white; text-decoration: none; padding: 1rem 2rem; display: inline-block; border-radius: 4px; font-size: 1.1rem; margin-bottom: 1rem;">
@@ -78,69 +93,18 @@
                     </a>
                 </div>
             </div>
-            
-            <div class="booking-form">
-                <h3 style="font-family: 'hey-eloise', 'Kalam', 'Patrick Hand', 'Caveat', cursive; color: #ADA228; font-size: 1.8rem; margin-bottom: 1.5rem;">Quick Enquiry</h3>
-                <p style="color: #666; font-size: 0.9rem; margin-bottom: 1.5rem;">Have questions? Send us a message first</p>
-                
-                {% if messages %}
-                    {% for message in messages %}
-                    <div style="background: #d4edda; border: 1px solid #c3e6cb; color: #155724; padding: 1rem; border-radius: 4px; margin-bottom: 1rem;">
-                        {{ message }}
-                    </div>
-                    {% endfor %}
-                {% endif %}
-                
-                <form method="post" action="{% url 'book_course' course.slug %}">
-                    {% csrf_token %}
-                    <div class="form-group">
-                        <label for="{{ booking_form.full_name.id_for_label }}">Full Name *</label>
-                        {{ booking_form.full_name }}
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="{{ booking_form.email.id_for_label }}">Email *</label>
-                        {{ booking_form.email }}
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="{{ booking_form.phone.id_for_label }}">Phone</label>
-                        {{ booking_form.phone }}
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="{{ booking_form.message.id_for_label }}">Message</label>
-                        {{ booking_form.message }}
-                    </div>
-                    
-                    <button type="submit" class="btn btn-secondary" style="width: 100%;">Send Enquiry</button>
-                </form>
-            </div>
         </div>
     </div>
 </section>
 
-{% if course.instructors.exists %}
-<section class="instructor-section">
-    <div class="container">
-        <h2 style="font-family: 'hey-eloise', 'Kalam', 'Patrick Hand', 'Caveat', cursive; color: #ADA228; font-size: 2.5rem; text-align: center; margin-bottom: 3rem;">Meet Your Instructor</h2>
-        
-        {% for instructor in course.instructors.all %}
-        <div class="instructor-card">
-            {% if instructor.photo %}
-            <img src="{{ instructor.photo.url }}" alt="{{ instructor.name }}" class="instructor-photo">
-            {% else %}
-            <div style="width: 200px; height: 200px; background: #ADA228; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 3rem;">
-                {{ instructor.name|first }}
-            </div>
-            {% endif %}
-            <div class="instructor-info">
-                <h3>{{ instructor.name }}</h3>
-                <p style="line-height: 1.8;">{{ instructor.bio }}</p>
-            </div>
-        </div>
-        {% endfor %}
-    </div>
-</section>
-{% endif %}
+<script>
+function toggleSessionsDropdown() {
+    const dropdown = document.getElementById('sessions-dropdown');
+    if (dropdown.style.display === 'none') {
+        dropdown.style.display = 'block';
+    } else {
+        dropdown.style.display = 'none';
+    }
+}
+</script>
 {% endblock %}

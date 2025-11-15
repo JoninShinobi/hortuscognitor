@@ -129,6 +129,12 @@ h1, h2, h3, h4, h5, h6 {
     position: relative;
 }
 
+/* Transparent button hover effect for hero */
+.hero a[style*="rgba(255, 255, 255, 0.15)"]:hover {
+    background: rgba(255, 255, 255, 0.25) !important;
+    border-color: rgba(255, 255, 255, 0.9) !important;
+}
+
 .hero-logo {
     position: absolute;
     bottom: 2rem;
@@ -289,6 +295,22 @@ h1, h2, h3, h4, h5, h6 {
 /* Course Detail Page */
 .course-detail {
     padding: 3rem 0;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+}
+
+/* Removed global white text rule to allow pricing section to have black text */
+.course-detail .course-content p {
+    color: #ffffff;
+}
+
+/* Add spacing to paragraphs in course content */
+.course-content {
+    background: transparent;
+}
+
+.course-content p {
+    margin-bottom: 1rem;
+    line-height: 2.2;
 }
 
 .course-header {
@@ -320,7 +342,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .course-sidebar {
-    background: var(--light-gray);
     padding: 2rem;
     border-radius: 8px;
     height: fit-content;
@@ -360,18 +381,48 @@ h1, h2, h3, h4, h5, h6 {
     border-color: var(--primary-color);
 }
 
+/* Course Sessions Dropdown */
+.sessions-toggle {
+    transition: all 0.3s ease;
+}
+
+.sessions-toggle:hover {
+    background: rgba(255, 255, 255, 0.15) !important;
+    border-color: var(--primary-color) !important;
+    color: var(--primary-color) !important;
+}
+
+.sessions-dropdown {
+    animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 /* Instructor Section */
 .instructor-section {
-    background: #ffffff;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
     padding: 3rem 0;
     margin: 0;
+}
+
+.instructor-section p {
+    color: #ffffff !important;
 }
 
 .instructor-card {
     display: grid;
     grid-template-columns: 200px 1fr;
     gap: 2rem;
-    background: var(--white);
+    background: transparent;
     padding: 2rem;
     border-radius: 8px;
 }
@@ -582,5 +633,28 @@ footer {
     /* Centre featured course text on mobile */
     .section-white p {
         text-align: center !important;
+    }
+
+    /* Sessions dropdown mobile styles */
+    .sessions-toggle {
+        display: block !important;
+        width: 100%;
+        margin-top: 0.5rem !important;
+        margin-left: 0 !important;
+    }
+
+    .sessions-dropdown {
+        max-width: 90% !important;
+        font-size: 0.9rem;
+    }
+
+    .hero-content > div {
+        flex-direction: column !important;
+    }
+
+    .hero-content > div > span {
+        margin-right: 0 !important;
+        margin-bottom: 0.75rem;
+        display: block;
     }
 }

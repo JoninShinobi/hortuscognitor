@@ -23,81 +23,103 @@
             </p>
         </div>
 
-        <!-- Pricing Tiers -->
-        <div style="max-width: 900px; margin: 0 auto;">
-            {% for tier in pricing_tiers %}
-            <div class="pricing-tier-card" data-tier-id="{{ tier.id }}" style="background: #000000; border-left: 5px solid #ADA228; padding: 2rem; margin-bottom: 2rem; border-radius: 8px; cursor: pointer; transition: all 0.3s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
-                    <div>
-                        <h3 style="font-family: 'hey-eloise', cursive; color: #ADA228; font-size: 1.8rem; margin-bottom: 0.5rem;">
-                            £{{ tier.price }} for {{ tier.sessions }} sessions
-                        </h3>
-                        <p style="color: #ffffff; font-size: 1rem; margin: 0;">
-                            (£{{ tier.price_per_session|floatformat:0 }} per session)
-                        </p>
-                    </div>
-                    <div class="tier-radio" style="margin-left: 1rem;">
-                        <input type="radio" name="pricing_tier" value="{{ tier.id }}" id="tier_{{ tier.id }}" style="transform: scale(1.5);">
-                    </div>
-                </div>
-                <div style="color: #ffffff; line-height: 1.6;">
-                    {{ tier.description|linebreaks }}
-                </div>
-            </div>
-            {% endfor %}
+        <!-- Pricing Tiers Table -->
+        <div style="max-width: 1000px; margin: 0 auto; background: #000000; border: 2px solid #ADA228; border-radius: 8px; overflow: hidden;">
+            <table style="width: 100%; border-collapse: collapse;">
+                <thead>
+                    <tr style="background: #1a1a1a;">
+                        <th style="padding: 1.5rem; text-align: center; color: #ADA228; font-family: 'hey-eloise', cursive; font-size: 1.3rem; border-bottom: 2px solid #ADA228; width: 10%;">Select</th>
+                        <th style="padding: 1.5rem; text-align: left; color: #ADA228; font-family: 'hey-eloise', cursive; font-size: 1.3rem; border-bottom: 2px solid #ADA228; width: 25%;">Price</th>
+                        <th style="padding: 1.5rem; text-align: left; color: #ADA228; font-family: 'hey-eloise', cursive; font-size: 1.3rem; border-bottom: 2px solid #ADA228; width: 65%;">Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for tier in pricing_tiers %}
+                    <tr class="pricing-tier-card" data-tier-id="{{ tier.id }}" style="cursor: pointer; transition: all 0.3s ease; border-bottom: 1px solid #333;">
+                        <td style="padding: 1.5rem; text-align: center; vertical-align: middle;">
+                            <input type="radio" name="pricing_tier" value="{{ tier.id }}" id="tier_{{ tier.id }}" style="transform: scale(1.5); cursor: pointer;">
+                        </td>
+                        <td style="padding: 1.5rem; vertical-align: middle;">
+                            <div style="color: #ADA228; font-family: 'hey-eloise', cursive; font-size: 1.5rem; margin-bottom: 0.25rem;">
+                                £{{ tier.price }}
+                            </div>
+                            <div style="color: #ffffff; font-size: 0.9rem;">
+                                {{ tier.sessions }} sessions (£{{ tier.price_per_session|floatformat:0 }}/session)
+                            </div>
+                        </td>
+                        <td style="padding: 1.5rem; vertical-align: middle;">
+                            <div style="color: #ffffff; line-height: 1.8; font-size: 0.95rem; white-space: pre-line;">
+                                {{ tier.description }}
+                            </div>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
         </div>
 
         <!-- Payment Plan Selection -->
-        <div style="max-width: 700px; margin: 3rem auto 0;">
-            <h3 style="font-family: 'hey-eloise', cursive; color: #ADA228; font-size: 2rem; text-align: center; margin-bottom: 2rem;">Payment Options</h3>
-            
-            {% for plan in payment_plans %}
-            <div class="payment-plan-card" data-plan-id="{{ plan.id }}" style="background: #000000; border: 2px solid #ADA228; padding: 2rem; margin-bottom: 1rem; border-radius: 8px; cursor: pointer; transition: all 0.3s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center;">
-                    <div>
-                        <h4 style="font-family: 'hey-eloise', cursive; color: #ADA228; font-size: 1.4rem; margin-bottom: 0.5rem;">
-                            {{ plan.get_name_display }}
-                        </h4>
-                        {% if plan.name == 'full' %}
-                        <p style="color: #ffffff; margin: 0;">Course bookings close and payments must be made in full by {{ plan.deposit_deadline|date:"jS M Y" }}.</p>
-                        {% else %}
-                        <p style="color: #ffffff; margin: 0;">
-                            50% non-refundable deposit by {{ plan.deposit_deadline|date:"jS M Y" }}<br>
-                            Pay remaining 50% by {{ plan.final_payment_deadline|date:"jS M Y" }}
-                        </p>
-                        {% endif %}
-                    </div>
-                    <div>
-                        <input type="radio" name="payment_plan" value="{{ plan.id }}" id="plan_{{ plan.id }}" style="transform: scale(1.5);">
-                    </div>
-                </div>
-            </div>
-            {% endfor %}
+        <div style="max-width: 1000px; margin: 3rem auto 0; background: #000000; border: 2px solid #ADA228; border-radius: 8px; overflow: hidden;">
+            <h3 style="font-family: 'hey-eloise', cursive; color: #ADA228; font-size: 2rem; text-align: center; margin: 0; padding: 1.5rem; background: #1a1a1a; border-bottom: 2px solid #ADA228;">Payment Options</h3>
+
+            <table style="width: 100%; border-collapse: collapse;">
+                <thead>
+                    <tr style="background: #1a1a1a;">
+                        <th style="padding: 1.5rem; text-align: center; color: #ADA228; font-family: 'hey-eloise', cursive; font-size: 1.3rem; border-bottom: 2px solid #ADA228; width: 10%;">Select</th>
+                        <th style="padding: 1.5rem; text-align: left; color: #ADA228; font-family: 'hey-eloise', cursive; font-size: 1.3rem; border-bottom: 2px solid #ADA228; width: 30%;">Payment Plan</th>
+                        <th style="padding: 1.5rem; text-align: left; color: #ADA228; font-family: 'hey-eloise', cursive; font-size: 1.3rem; border-bottom: 2px solid #ADA228; width: 60%;">Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for plan in payment_plans %}
+                    <tr class="payment-plan-card" data-plan-id="{{ plan.id }}" style="cursor: pointer; transition: all 0.3s ease; border-bottom: 1px solid #333;">
+                        <td style="padding: 1.5rem; text-align: center; vertical-align: middle;">
+                            <input type="radio" name="payment_plan" value="{{ plan.id }}" id="plan_{{ plan.id }}" style="transform: scale(1.5); cursor: pointer;">
+                        </td>
+                        <td style="padding: 1.5rem; vertical-align: middle;">
+                            <div style="color: #ADA228; font-family: 'hey-eloise', cursive; font-size: 1.4rem;">
+                                {{ plan.get_name_display }}
+                            </div>
+                        </td>
+                        <td style="padding: 1.5rem; vertical-align: middle;">
+                            <div style="color: #ffffff; line-height: 1.8; font-size: 0.95rem;">
+                                {% if plan.name == 'full' %}
+                                Course bookings close and payments must be made in full by {{ plan.deposit_deadline|date:"jS M Y" }}.
+                                {% else %}
+                                50% non-refundable deposit by {{ plan.deposit_deadline|date:"jS M Y" }}<br>
+                                Pay remaining 50% by {{ plan.final_payment_deadline|date:"jS M Y" }}
+                                {% endif %}
+                            </div>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
         </div>
 
         <!-- Customer Details Form -->
         <div style="max-width: 600px; margin: 3rem auto 0; background: #f8f8f8; padding: 2rem; border-radius: 8px;">
             <h3 style="font-family: 'hey-eloise', cursive; color: #ADA228; font-size: 1.8rem; text-align: center; margin-bottom: 2rem;">Your Details</h3>
-            
+
             <form id="customer-form">
                 <div style="margin-bottom: 1.5rem;">
                     <label for="full_name" style="display: block; margin-bottom: 0.5rem; font-weight: 500; color: #333;">Full Name *</label>
-                    <input type="text" id="full_name" name="full_name" required style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 4px; font-size: 1rem;">
+                    <input type="text" id="full_name" name="full_name" required style="width: 100%; padding: 0.75rem; border: 2px solid #ddd; border-radius: 4px; font-size: 1rem;">
                 </div>
-                
+
                 <div style="margin-bottom: 1.5rem;">
                     <label for="email" style="display: block; margin-bottom: 0.5rem; font-weight: 500; color: #333;">Email Address *</label>
-                    <input type="email" id="email" name="email" required style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 4px; font-size: 1rem;">
+                    <input type="email" id="email" name="email" required style="width: 100%; padding: 0.75rem; border: 2px solid #ddd; border-radius: 4px; font-size: 1rem;">
                 </div>
-                
+
                 <div style="margin-bottom: 1.5rem;">
                     <label for="phone" style="display: block; margin-bottom: 0.5rem; font-weight: 500; color: #333;">Phone Number</label>
-                    <input type="tel" id="phone" name="phone" style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 4px; font-size: 1rem;">
+                    <input type="tel" id="phone" name="phone" style="width: 100%; padding: 0.75rem; border: 2px solid #ddd; border-radius: 4px; font-size: 1rem;">
                 </div>
-                
+
                 <div style="margin-bottom: 2rem;">
                     <label for="message" style="display: block; margin-bottom: 0.5rem; font-weight: 500; color: #333;">Message (Optional)</label>
-                    <textarea id="message" name="message" rows="4" style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 4px; font-size: 1rem; resize: vertical;"></textarea>
+                    <textarea id="message" name="message" rows="4" style="width: 100%; padding: 0.75rem; border: 2px solid #ddd; border-radius: 4px; font-size: 1rem; resize: vertical;"></textarea>
                 </div>
             </form>
         </div>
@@ -153,15 +175,13 @@ document.addEventListener('DOMContentLoaded', function() {
         card.addEventListener('click', function() {
             // Remove previous selections
             tierCards.forEach(c => {
-                c.style.borderLeft = '5px solid #ADA228';
-                c.style.background = '#000000';
+                c.style.background = 'transparent';
             });
-            
+
             // Select this tier
-            this.style.borderLeft = '5px solid #ffffff';
             this.style.background = '#1a1a1a';
             this.querySelector('input[type="radio"]').checked = true;
-            
+
             validateForm();
         });
     });
@@ -171,15 +191,13 @@ document.addEventListener('DOMContentLoaded', function() {
         card.addEventListener('click', function() {
             // Remove previous selections
             planCards.forEach(c => {
-                c.style.border = '2px solid #ADA228';
-                c.style.background = '#000000';
+                c.style.background = 'transparent';
             });
-            
+
             // Select this plan
-            this.style.border = '2px solid #ffffff';
             this.style.background = '#1a1a1a';
             this.querySelector('input[type="radio"]').checked = true;
-            
+
             validateForm();
         });
     });
@@ -297,13 +315,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
 <style>
 .pricing-tier-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    background: #1a1a1a !important;
 }
 
 .payment-plan-card:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    background: #1a1a1a !important;
 }
 
 .btn:disabled {
@@ -312,17 +328,32 @@ document.addEventListener('DOMContentLoaded', function() {
 }
 
 @media (max-width: 768px) {
-    .pricing-tier-card, .payment-plan-card {
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
+
+    thead tr {
+        display: none;
+    }
+
+    .pricing-tier-card {
+        margin-bottom: 1rem;
+        border-bottom: 2px solid #ADA228 !important;
+    }
+
+    .pricing-tier-card td {
+        display: block;
+        text-align: left !important;
+        padding: 0.75rem !important;
+    }
+
+    .pricing-tier-card td:first-child {
+        text-align: center !important;
+        padding: 1rem !important;
+    }
+
+    .payment-plan-card {
         padding: 1.5rem;
-    }
-    
-    .pricing-tier-card div[style*="display: flex"] {
-        display: block !important;
-    }
-    
-    .tier-radio {
-        margin: 1rem 0 0 0 !important;
-        text-align: center;
     }
 }
 </style>

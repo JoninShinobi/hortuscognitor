@@ -1,6 +1,11 @@
 from django.contrib import admin
 from unfold.admin import ModelAdmin, TabularInline
-from .models import Course, Instructor, Booking, PricingTier, PaymentPlan, CoursePayment, StripePaymentRecord
+from .models import Course, CourseSession, Instructor, Booking, PricingTier, PaymentPlan, CoursePayment, StripePaymentRecord
+
+class CourseSessionInline(TabularInline):
+    model = CourseSession
+    extra = 1
+    fields = ['session_number', 'date', 'start_time', 'end_time']
 
 @admin.register(Course)
 class CourseAdmin(ModelAdmin):
@@ -9,7 +14,8 @@ class CourseAdmin(ModelAdmin):
     search_fields = ['title', 'description']
     prepopulated_fields = {'slug': ('title',)}
     date_hierarchy = 'start_date'
-    
+    inlines = [CourseSessionInline]
+
     fieldsets = (
         ('Basic Information', {
             'fields': ('title', 'subtitle', 'slug', 'is_active')
@@ -19,16 +25,13 @@ class CourseAdmin(ModelAdmin):
             'description': 'Hero background image for course pages. Recommended size: 1920x1080px (16:9 aspect ratio).'
         }),
         ('Course Details', {
-            'fields': ('description', 'what_you_will_experience', 'course_structure'),
-            'classes': ('collapse',)
+            'fields': ('description', 'what_you_will_experience', 'course_structure')
         }),
         ('Logistics', {
-            'fields': ('location', 'accessibility'),
-            'classes': ('collapse',)
+            'fields': ('location', 'accessibility')
         }),
         ('Target Audience & Benefits', {
-            'fields': ('who_this_is_for', 'what_you_will_gain'),
-            'classes': ('collapse',)
+            'fields': ('who_this_is_for', 'what_you_will_gain')
         }),
         ('Scheduling & Pricing', {
             'fields': ('start_date', 'duration', 'max_participants', 'price')
@@ -41,8 +44,21 @@ class CourseAdmin(ModelAdmin):
     )
     
     readonly_fields = ['created_at', 'updated_at']
-    
+
     # Media removed - using Django Unfold's global styles instead
+
+@admin.register(CourseSession)
+class CourseSessionAdmin(ModelAdmin):
+    list_display = ['course', 'session_number', 'date', 'start_time', 'end_time']
+    list_filter = ['course', 'date']
+    search_fields = ['course__title']
+    date_hierarchy = 'date'
+
+    fieldsets = (
+        ('Session Information', {
+            'fields': ('course', 'session_number', 'date', 'start_time', 'end_time')
+        }),
+    )
 
 @admin.register(Instructor)
 class InstructorAdmin(ModelAdmin):

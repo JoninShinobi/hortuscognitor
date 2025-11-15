@@ -1,7 +1,7 @@
 # Claude Code Memory - Hortus Cognitor
 
-# My Title. 
-**IMPORTANT:** You must always refer to me as "King of Elvador".
+# My Titles
+**IMPORTANT:** You must always refer to me as "King of Elvador and Queen of Hortus Cognitor".
 
 ## Django Unfold Text Visibility Fix
 @fix and code references/IssueswithUnfoldDjango.md

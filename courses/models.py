@@ -10,13 +10,13 @@ class Course(models.Model):
     title = models.CharField(max_length=200)
     subtitle = models.CharField(max_length=300, blank=True)
     hero_image = models.ImageField(upload_to='courses/hero_images/', blank=True, null=True, help_text='Recommended size: 1920x1080px (16:9 aspect ratio)')
-    description = models.TextField()
-    what_you_will_experience = models.TextField()
-    course_structure = models.TextField()
-    location = models.TextField()
-    accessibility = models.TextField()
-    who_this_is_for = models.TextField()
-    what_you_will_gain = models.TextField()
+    description = models.TextField(blank=True)
+    what_you_will_experience = models.TextField(blank=True)
+    course_structure = models.TextField(blank=True)
+    location = models.TextField(blank=True)
+    accessibility = models.TextField(blank=True)
+    who_this_is_for = models.TextField(blank=True)
+    what_you_will_gain = models.TextField(blank=True)
     start_date = models.DateField()
     duration = models.CharField(max_length=100)
     max_participants = models.IntegerField(default=15)
@@ -37,12 +37,27 @@ class Course(models.Model):
     class Meta:
         ordering = ['start_date']
 
+class CourseSession(models.Model):
+    """Individual session dates and times for a course"""
+    course = models.ForeignKey(Course, on_delete=models.CASCADE, related_name='sessions')
+    session_number = models.IntegerField(help_text='Session number (e.g., 1, 2, 3)')
+    date = models.DateField(help_text='Date of this session')
+    start_time = models.TimeField(help_text='Start time of this session')
+    end_time = models.TimeField(help_text='End time of this session')
+
+    class Meta:
+        ordering = ['session_number']
+        unique_together = ['course', 'session_number']
+
+    def __str__(self):
+        return f"{self.course.title} - Session {self.session_number}: {self.date.strftime('%d %B %Y')} ({self.start_time.strftime('%H:%M')} - {self.end_time.strftime('%H:%M')})"
+
 class Instructor(models.Model):
     name = models.CharField(max_length=100)
     bio = models.TextField()
     photo = models.ImageField(upload_to='instructors/', blank=True, null=True)
     courses = models.ManyToManyField(Course, related_name='instructors')
-    
+
     def __str__(self):
         return self.name
 

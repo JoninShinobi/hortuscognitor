@@ -3,6 +3,11 @@
 
 {% block title %}Contact Us - Hortus Cognitor{% endblock %}
 
+{% block extra_head %}
+<!-- Cloudflare Turnstile -->
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+{% endblock %}
+
 {% block content %}
 <section class="hero">
     <div class="hero-logo">
@@ -70,6 +75,11 @@
                             <p style="font-size: 0.9rem; color: #555; margin: 0; line-height: 1.6;">
                                 By submitting this form, you consent to us storing and using your personal data to respond to your enquiry. We will not share your data with third parties or use it for marketing without your explicit consent. See our <a href="{% url 'privacy_policy' %}" target="_blank" style="color: #ADA228; text-decoration: underline;">Privacy Policy</a> for full details on how we protect your data.
                             </p>
+                        </div>
+
+                        <!-- Cloudflare Turnstile verification -->
+                        <div style="margin-bottom: 1.5rem; display: flex; justify-content: center;">
+                            <div class="cf-turnstile" data-sitekey="{{ TURNSTILE_SITE_KEY }}" data-theme="light"></div>
                         </div>
 
                         <div style="text-align: center;">

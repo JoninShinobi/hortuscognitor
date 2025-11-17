@@ -15,12 +15,45 @@ import hashlib
 import stripe
 import json
 import logging
+import requests
 from .models import Course, Instructor, Booking, PricingTier, PaymentPlan, CoursePayment, StripePaymentRecord
 from .forms import BookingForm
 
 # Configure Stripe
 stripe.api_key = settings.STRIPE_SECRET_KEY
 logger = logging.getLogger(__name__)
+
+
+def verify_turnstile(token, remote_ip):
+    """
+    Verify Cloudflare Turnstile token.
+    Returns True if verification succeeds, False otherwise.
+    """
+    secret_key = getattr(settings, 'TURNSTILE_SECRET_KEY', None)
+
+    # Skip verification if no secret key is configured (development)
+    if not secret_key:
+        logger.warning("Turnstile verification skipped - no secret key configured")
+        return True
+
+    try:
+        response = requests.post(
+            'https://challenges.cloudflare.com/turnstile/v0/siteverify',
+            data={
+                'secret': secret_key,
+                'response': token,
+                'remoteip': remote_ip,
+            },
+            timeout=5
+        )
+
+        result = response.json()
+        return result.get('success', False)
+    except Exception as e:
+        logger.error(f"Turnstile verification error: {str(e)}")
+        # Fail closed - reject on error
+        return False
+
 
 def home(request):
     try:
@@ -48,10 +81,23 @@ def regenerative_movement_course(request):
     return render(request, 'regenerative_movement_course.html')
 
 def contact(request):
+    # Pass Turnstile site key to template
+    context = {
+        'TURNSTILE_SITE_KEY': getattr(settings, 'TURNSTILE_SITE_KEY', '')
+    }
+
     if request.method == 'POST':
         # Rate limiting - max 3 contact attempts per 5 minutes per IP
         if is_rate_limited(request, 'contact', limit=3, window=300):
             messages.error(request, 'Too many contact attempts. Please wait 5 minutes before trying again.')
+            return redirect('contact')
+
+        # Verify Cloudflare Turnstile
+        turnstile_response = request.POST.get('cf-turnstile-response', '')
+        remote_ip = request.META.get('REMOTE_ADDR', '')
+
+        if not verify_turnstile(turnstile_response, remote_ip):
+            messages.error(request, 'Please complete the verification challenge.')
             return redirect('contact')
 
         # Get and sanitize form data
@@ -100,7 +146,7 @@ def contact(request):
             messages.error(request, 'There was an error sending your message. Please try again.')
             return redirect('contact')
 
-    return render(request, 'contact.html')
+    return render(request, 'contact.html', context)
 
 class CourseListView(ListView):
     model = Course
@@ -590,3 +636,14 @@ def stripe_webhook(request):
         logger.info(f"Unhandled webhook event type: {event_type}")
 
     return HttpResponse(status=200)
+
+
+def instagram_course_poster(request, slug):
+    """
+    Render Instagram poster for course announcement.
+    Access at /instagram/course/{slug}/
+    """
+    course = get_object_or_404(Course, slug=slug)
+    return render(request, 'instagram/course_announcement.html', {
+        'course': course
+    })

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Reminder - Hortus Cognitor</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&family=Patrick+Hand&family=Caveat:wght@400;700&display=swap');
+    </style>
+</head>
+<body style="margin: 0; padding: 0; font-family: Georgia, serif; background-color: #000000; color: #ADA228;">
+    <table role="presentation" style="width: 100%; border-collapse: collapse;">
+        <tr>
+            <td style="padding: 40px 20px; text-align: center;">
+                <table role="presentation" style="max-width: 600px; margin: 0 auto; background-color: #000000; border-radius: 8px; box-shadow: 0 2px 8px rgba(173,162,40,0.3); border-collapse: collapse; border: 2px solid #ADA228;">
+
+                    <!-- Header -->
+                    <tr>
+                        <td style="padding: 40px 40px 20px; text-align: center; background-color: #1a1a1a; border-radius: 8px 8px 0 0;">
+                            <h1 style="margin: 0; font-family: 'Kalam', 'Patrick Hand', 'Caveat', Georgia, serif; font-size: 36px; color: #ADA228; font-weight: 400;">Hortus Cognitor</h1>
+                            <p style="margin: 10px 0 0; font-size: 14px; color: #969020; letter-spacing: 1px;">A Garden of Knowledge</p>
+                        </td>
+                    </tr>
+
+                    <!-- Main content -->
+                    <tr>
+                        <td style="padding: 40px;">
+                            <h2 style="margin: 0 0 20px; font-family: 'Kalam', 'Patrick Hand', 'Caveat', Georgia, serif; font-size: 28px; color: #ADA228; font-weight: 400;">Final Payment Reminder</h2>
+
+                            <p style="margin: 0 0 20px; line-height: 1.6; font-size: 16px; color: #FFFFFF;">
+                                Dear {{ booking.full_name }},
+                            </p>
+
+                            <p style="margin: 0 0 20px; line-height: 1.6; font-size: 16px; color: #FFFFFF;">
+                                This is a friendly reminder that the final payment for your course <strong>{{ course.title }}</strong> is due on <strong>{{ payment.payment_plan.final_payment_due_date|date:"l, d F Y" }}</strong>.
+                            </p>
+
+                            <!-- Payment details box -->
+                            <table role="presentation" style="width: 100%; border-collapse: collapse; margin: 30px 0; background-color: #1a1a1a; border-radius: 6px; border: 2px solid #ADA228;">
+                                <tr>
+                                    <td style="padding: 25px;">
+                                        <h3 style="margin: 0 0 15px; font-family: 'Kalam', 'Patrick Hand', 'Caveat', Georgia, serif; font-size: 20px; color: #ADA228;">Payment Details</h3>
+
+                                        <p style="margin: 8px 0; font-size: 15px; color: #FFFFFF;">
+                                            <strong>Course:</strong> {{ course.title }}
+                                        </p>
+
+                                        <p style="margin: 8px 0; font-size: 15px; color: #FFFFFF;">
+                                            <strong>Deposit Paid:</strong> £{{ payment.deposit_amount }} ✓
+                                        </p>
+
+                                        <p style="margin: 8px 0; font-size: 18px; color: #FFFFFF;">
+                                            <strong>Final Payment:</strong> £{{ payment.final_amount }}
+                                        </p>
+
+                                        <p style="margin: 8px 0; font-size: 15px; color: #FFFFFF;">
+                                            <strong>Due Date:</strong> {{ payment.payment_plan.final_payment_due_date|date:"l, d F Y" }}
+                                        </p>
+
+                                        <p style="margin: 8px 0; font-size: 15px; color: #FFFFFF;">
+                                            <strong>Booking Reference:</strong> #{{ booking.id }}
+                                        </p>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <!-- Payment button -->
+                            <table role="presentation" style="margin: 30px auto; border-collapse: collapse;">
+                                <tr>
+                                    <td style="text-align: center;">
+                                        <a href="{{ payment_url }}" style="display: inline-block; padding: 15px 40px; background-color: #ADA228; color: #000000; text-decoration: none; border-radius: 6px; font-size: 16px; font-weight: bold; font-family: Georgia, serif;">Complete Payment</a>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <p style="margin: 30px 0 20px; line-height: 1.6; font-size: 16px; color: #FFFFFF;">
+                                If you've already made this payment, please disregard this email. If you have any questions or need to discuss alternative arrangements, please get in touch.
+                            </p>
+
+                            <p style="margin: 30px 0 0; line-height: 1.6; font-size: 16px; color: #FFFFFF;">
+                                Warm regards,<br>
+                                <strong style="font-family: 'Kalam', 'Patrick Hand', 'Caveat', Georgia, serif; font-size: 18px; color: #ADA228;">Hannah</strong><br>
+                                <span style="font-size: 14px; color: #969020;">Hortus Cognitor</span>
+                            </p>
+                        </td>
+                    </tr>
+
+                    <!-- Footer -->
+                    <tr>
+                        <td style="padding: 30px 40px; text-align: center; background-color: #1a1a1a; border-radius: 0 0 8px 8px; border-top: 1px solid #ADA228;">
+                            <p style="margin: 0 0 10px; font-size: 14px; color: #969020;">
+                                <a href="https://hortuscognitor.co.uk" style="color: #ADA228; text-decoration: none;">hortuscognitor.co.uk</a>
+                            </p>
+                            <p style="margin: 0; font-size: 13px; color: #969020;">
+                                {{ booking.email }}
+                            </p>
+                        </td>
+                    </tr>
+
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

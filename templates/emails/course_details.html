@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Details - Hortus Cognitor</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&family=Patrick+Hand&family=Caveat:wght@400;700&display=swap');
+    </style>
+</head>
+<body style="margin: 0; padding: 0; font-family: Georgia, serif; background-color: #000000; color: #ADA228;">
+    <table role="presentation" style="width: 100%; border-collapse: collapse;">
+        <tr>
+            <td style="padding: 40px 20px; text-align: center;">
+                <table role="presentation" style="max-width: 600px; margin: 0 auto; background-color: #000000; border-radius: 8px; box-shadow: 0 2px 8px rgba(173,162,40,0.3); border-collapse: collapse; border: 2px solid #ADA228;">
+
+                    <!-- Header -->
+                    <tr>
+                        <td style="padding: 40px 40px 20px; text-align: center; background-color: #1a1a1a; border-radius: 8px 8px 0 0;">
+                            <h1 style="margin: 0; font-family: 'Kalam', 'Patrick Hand', 'Caveat', Georgia, serif; font-size: 36px; color: #ADA228; font-weight: 400;">Hortus Cognitor</h1>
+                            <p style="margin: 10px 0 0; font-size: 14px; color: #969020; letter-spacing: 1px;">A Garden of Knowledge</p>
+                        </td>
+                    </tr>
+
+                    <!-- Main content -->
+                    <tr>
+                        <td style="padding: 40px;">
+                            <h2 style="margin: 0 0 20px; font-family: 'Kalam', 'Patrick Hand', 'Caveat', Georgia, serif; font-size: 28px; color: #ADA228; font-weight: 400;">Your Course Starts Soon!</h2>
+
+                            <p style="margin: 0 0 20px; line-height: 1.6; font-size: 16px; color: #FFFFFF;">
+                                Dear {{ booking.full_name }},
+                            </p>
+
+                            <p style="margin: 0 0 20px; line-height: 1.6; font-size: 16px; color: #FFFFFF;">
+                                We're looking forward to welcoming you to <strong>{{ course.title }}</strong>. Here are all the details you need for the course:
+                            </p>
+
+                            <!-- Course details box -->
+                            <table role="presentation" style="width: 100%; border-collapse: collapse; margin: 30px 0; background-color: #1a1a1a; border-radius: 6px; border: 1px solid #ADA228;">
+                                <tr>
+                                    <td style="padding: 25px;">
+                                        <h3 style="margin: 0 0 15px; font-family: 'Kalam', 'Patrick Hand', 'Caveat', Georgia, serif; font-size: 20px; color: #ADA228;">{{ course.title }}</h3>
+
+                                        <p style="margin: 15px 0 10px; font-size: 16px; color: #FFFFFF; line-height: 1.6;">
+                                            {{ course.description }}
+                                        </p>
+
+                                        {% if course.sessions.exists %}
+                                        <div style="margin: 20px 0 0; padding: 15px 0 0; border-top: 1px solid #ADA228;">
+                                            <h4 style="margin: 0 0 12px; font-family: 'Kalam', 'Patrick Hand', 'Caveat', Georgia, serif; font-size: 18px; color: #ADA228;">Course Sessions</h4>
+
+                                            {% for session in course.sessions.all %}
+                                            <p style="margin: 8px 0; font-size: 15px; color: #FFFFFF;">
+                                                <strong>Session {{ session.session_number }}:</strong> {{ session.date|date:"l, d F Y" }} | {{ session.start_time|time:"g:i A" }} - {{ session.end_time|time:"g:i A" }}
+                                            </p>
+                                            {% endfor %}
+                                        </div>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <!-- What to bring section -->
+                            {% if course.requirements %}
+                            <table role="presentation" style="width: 100%; border-collapse: collapse; margin: 30px 0; background-color: #1a1a1a; border-radius: 6px; border: 1px solid #ADA228;">
+                                <tr>
+                                    <td style="padding: 25px;">
+                                        <h3 style="margin: 0 0 15px; font-family: 'Kalam', 'Patrick Hand', 'Caveat', Georgia, serif; font-size: 20px; color: #ADA228;">What to Bring</h3>
+
+                                        <p style="margin: 0; font-size: 15px; color: #FFFFFF; line-height: 1.6;">
+                                            {{ course.requirements }}
+                                        </p>
+                                    </td>
+                                </tr>
+                            </table>
+                            {% endif %}
+
+                            <!-- Location/venue info (if applicable) -->
+                            {% if course.location %}
+                            <table role="presentation" style="width: 100%; border-collapse: collapse; margin: 30px 0; background-color: #1a1a1a; border-radius: 6px; border: 1px solid #ADA228;">
+                                <tr>
+                                    <td style="padding: 25px;">
+                                        <h3 style="margin: 0 0 15px; font-family: 'Kalam', 'Patrick Hand', 'Caveat', Georgia, serif; font-size: 20px; color: #ADA228;">Location</h3>
+
+                                        <p style="margin: 0; font-size: 15px; color: #FFFFFF; line-height: 1.6;">
+                                            {{ course.location }}
+                                        </p>
+                                    </td>
+                                </tr>
+                            </table>
+                            {% endif %}
+
+                            <p style="margin: 30px 0 20px; line-height: 1.6; font-size: 16px; color: #FFFFFF;">
+                                If you have any questions before the course starts, please don't hesitate to get in touch. We're here to help!
+                            </p>
+
+                            <p style="margin: 0 0 20px; line-height: 1.6; font-size: 16px; color: #FFFFFF;">
+                                See you soon!
+                            </p>
+
+                            <p style="margin: 30px 0 0; line-height: 1.6; font-size: 16px; color: #FFFFFF;">
+                                Warm regards,<br>
+                                <strong style="font-family: 'Kalam', 'Patrick Hand', 'Caveat', Georgia, serif; font-size: 18px; color: #ADA228;">Hannah</strong><br>
+                                <span style="font-size: 14px; color: #969020;">Hortus Cognitor</span>
+                            </p>
+                        </td>
+                    </tr>
+
+                    <!-- Footer -->
+                    <tr>
+                        <td style="padding: 30px 40px; text-align: center; background-color: #1a1a1a; border-radius: 0 0 8px 8px; border-top: 1px solid #ADA228;">
+                            <p style="margin: 0 0 10px; font-size: 14px; color: #969020;">
+                                <a href="https://hortuscognitor.co.uk" style="color: #ADA228; text-decoration: none;">hortuscognitor.co.uk</a>
+                            </p>
+                            <p style="margin: 0 0 5px; font-size: 13px; color: #969020;">
+                                {{ booking.email }}
+                            </p>
+                            <p style="margin: 5px 0 0; font-size: 13px; color: #969020;">
+                                Booking Reference: #{{ booking.id }}
+                            </p>
+                        </td>
+                    </tr>
+
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

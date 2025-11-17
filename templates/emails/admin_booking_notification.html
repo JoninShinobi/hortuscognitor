@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Booking Received - Hortus Cognitor</title>
+    <style>
+        /* Import Google Fonts for better email client support */
+        @import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&family=Patrick+Hand&family=Caveat:wght@400;700&display=swap');
+    </style>
+</head>
+<body style="margin: 0; padding: 0; font-family: Georgia, serif; background-color: #000000; color: #ADA228;">
+    <table role="presentation" style="width: 100%; border-collapse: collapse;">
+        <tr>
+            <td style="padding: 40px 20px; text-align: center;">
+                <table role="presentation" style="max-width: 600px; margin: 0 auto; background-color: #000000; border-radius: 8px; box-shadow: 0 2px 8px rgba(173,162,40,0.3); border-collapse: collapse; border: 2px solid #ADA228;">
+
+                    <!-- Header with brand styling -->
+                    <tr>
+                        <td style="padding: 40px 40px 20px; text-align: center; background-color: #1a1a1a; border-radius: 8px 8px 0 0;">
+                            <h1 style="margin: 0; font-family: 'Kalam', 'Patrick Hand', 'Caveat', Georgia, serif; font-size: 36px; color: #ADA228; font-weight: 400;">Hortus Cognitor</h1>
+                            <p style="margin: 10px 0 0; font-size: 14px; color: #969020; letter-spacing: 1px;">Admin Notification</p>
+                        </td>
+                    </tr>
+
+                    <!-- Main content -->
+                    <tr>
+                        <td style="padding: 40px;">
+                            <h2 style="margin: 0 0 20px; font-family: 'Kalam', 'Patrick Hand', 'Caveat', Georgia, serif; font-size: 28px; color: #ADA228; font-weight: 400;">New Booking Received!</h2>
+
+                            <p style="margin: 0 0 20px; line-height: 1.6; font-size: 16px; color: #FFFFFF;">
+                                A new participant has just booked a place on <strong>{{ course.title }}</strong>.
+                            </p>
+
+                            <!-- Booking details box -->
+                            <table role="presentation" style="width: 100%; border-collapse: collapse; margin: 30px 0; background-color: #1a1a1a; border-radius: 6px; border: 1px solid #ADA228;">
+                                <tr>
+                                    <td style="padding: 25px;">
+                                        <h3 style="margin: 0 0 15px; font-family: 'Kalam', 'Patrick Hand', 'Caveat', Georgia, serif; font-size: 20px; color: #ADA228;">Participant Details</h3>
+
+                                        <p style="margin: 8px 0; font-size: 15px; color: #FFFFFF;">
+                                            <strong>Name:</strong> {{ booking.full_name }}
+                                        </p>
+
+                                        <p style="margin: 8px 0; font-size: 15px; color: #FFFFFF;">
+                                            <strong>Email:</strong> {{ booking.email }}
+                                        </p>
+
+                                        {% if booking.phone %}
+                                        <p style="margin: 8px 0; font-size: 15px; color: #FFFFFF;">
+                                            <strong>Phone:</strong> {{ booking.phone }}
+                                        </p>
+                                        {% endif %}
+
+                                        <p style="margin: 8px 0; font-size: 15px; color: #FFFFFF;">
+                                            <strong>Booking Reference:</strong> #{{ booking.id }}
+                                        </p>
+
+                                        <p style="margin: 8px 0; font-size: 15px; color: #FFFFFF;">
+                                            <strong>Booking Date:</strong> {{ booking.created_at|date:"d F Y, H:i" }}
+                                        </p>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <!-- Course and payment details box -->
+                            <table role="presentation" style="width: 100%; border-collapse: collapse; margin: 30px 0; background-color: #1a1a1a; border-radius: 6px; border: 1px solid #ADA228;">
+                                <tr>
+                                    <td style="padding: 25px;">
+                                        <h3 style="margin: 0 0 15px; font-family: 'Kalam', 'Patrick Hand', 'Caveat', Georgia, serif; font-size: 20px; color: #ADA228;">Course & Payment Information</h3>
+
+                                        <p style="margin: 8px 0; font-size: 15px; color: #FFFFFF;">
+                                            <strong>Course:</strong> {{ course.title }}
+                                        </p>
+
+                                        <p style="margin: 8px 0; font-size: 15px; color: #FFFFFF;">
+                                            <strong>Pricing Tier:</strong> {{ payment.pricing_tier.get_tier_display }}
+                                        </p>
+
+                                        <p style="margin: 8px 0; font-size: 15px; color: #FFFFFF;">
+                                            <strong>Total Amount:</strong> £{{ payment.total_amount }}
+                                        </p>
+
+                                        {% if payment.payment_plan.name == 'installment' %}
+                                        <p style="margin: 8px 0; font-size: 15px; color: #FFFFFF;">
+                                            <strong>Payment Plan:</strong> Two installments
+                                        </p>
+                                        <p style="margin: 8px 0; font-size: 15px; color: #FFFFFF;">
+                                            <strong>Deposit Paid:</strong> £{{ payment.deposit_amount }}
+                                        </p>
+                                        <p style="margin: 8px 0; font-size: 15px; color: #FFFFFF;">
+                                            <strong>Final Payment Due:</strong> £{{ payment.final_amount }}
+                                        </p>
+                                        {% else %}
+                                        <p style="margin: 8px 0; font-size: 15px; color: #FFFFFF;">
+                                            <strong>Payment:</strong> Full payment received (£{{ payment.total_amount }})
+                                        </p>
+                                        {% endif %}
+
+                                        <p style="margin: 8px 0; font-size: 15px; color: #FFFFFF;">
+                                            <strong>Payment Status:</strong> {{ payment.get_status_display }}
+                                        </p>
+
+                                        <p style="margin: 8px 0; font-size: 15px; color: #FFFFFF;">
+                                            <strong>Spaces Remaining:</strong> {{ course.spaces_left }}
+                                        </p>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            {% if booking.message %}
+                            <!-- Message box -->
+                            <table role="presentation" style="width: 100%; border-collapse: collapse; margin: 30px 0; background-color: #1a1a1a; border-radius: 6px; border: 1px solid #ADA228;">
+                                <tr>
+                                    <td style="padding: 25px;">
+                                        <h3 style="margin: 0 0 15px; font-family: 'Kalam', 'Patrick Hand', 'Caveat', Georgia, serif; font-size: 20px; color: #ADA228;">Message from Participant</h3>
+                                        <p style="margin: 0; font-size: 15px; color: #FFFFFF; line-height: 1.6;">
+                                            {{ booking.message|linebreaks }}
+                                        </p>
+                                    </td>
+                                </tr>
+                            </table>
+                            {% endif %}
+
+                            <p style="margin: 30px 0 0; line-height: 1.6; font-size: 16px; color: #FFFFFF;">
+                                A confirmation email has been sent to the participant at {{ booking.email }}.
+                            </p>
+                        </td>
+                    </tr>
+
+                    <!-- Footer -->
+                    <tr>
+                        <td style="padding: 30px 40px; text-align: center; background-color: #1a1a1a; border-radius: 0 0 8px 8px; border-top: 1px solid #ADA228;">
+                            <p style="margin: 0 0 10px; font-size: 14px; color: #969020;">
+                                <a href="https://hortuscognitor.co.uk/admin" style="color: #ADA228; text-decoration: none;">View in Admin Panel</a>
+                            </p>
+                            <p style="margin: 0; font-size: 13px; color: #969020;">
+                                Hortus Cognitor Admin Notification
+                            </p>
+                        </td>
+                    </tr>
+
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

@@ -2,6 +2,8 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import ListView, DetailView
 from django.contrib import messages
 from django.core.cache import cache
+from django.core.mail import EmailMultiAlternatives
+from django.template.loader import render_to_string
 from django.http import HttpResponseForbidden, JsonResponse, HttpResponse
 from django.utils import timezone
 from django.urls import reverse
@@ -244,19 +246,114 @@ def create_checkout_session(request):
         return JsonResponse({'error': str(e)}, status=400)
 
 
+def send_course_confirmation_email(course_payment):
+    """
+    Send course confirmation email after successful payment.
+
+    Args:
+        course_payment: CoursePayment instance
+    """
+    try:
+        booking = course_payment.booking
+        course = booking.course
+
+        # Email context
+        context = {
+            'booking': booking,
+            'course': course,
+            'payment': course_payment,
+        }
+
+        # Render HTML and text versions
+        html_content = render_to_string('emails/course_confirmation.html', context)
+        text_content = render_to_string('emails/course_confirmation.txt', context)
+
+        # Create email
+        subject = f'Course Booking Confirmation - {course.title}'
+        from_email = settings.DEFAULT_FROM_EMAIL
+        to_email = booking.email
+
+        email = EmailMultiAlternatives(
+            subject=subject,
+            body=text_content,
+            from_email=from_email,
+            to=[to_email],
+        )
+        email.attach_alternative(html_content, "text/html")
+
+        # Send email
+        email.send(fail_silently=False)
+        logger.info(f"Course confirmation email sent to {to_email} for booking #{booking.id}")
+
+    except Exception as e:
+        logger.error(f"Error sending course confirmation email: {str(e)}")
+
+
+def send_admin_booking_notification(course_payment):
+    """
+    Send notification email to Hannah when a new booking is made.
+
+    Args:
+        course_payment: CoursePayment instance
+    """
+    try:
+        from .models import SiteSettings
+
+        booking = course_payment.booking
+        course = booking.course
+
+        # Get notification email addresses from settings
+        site_settings = SiteSettings.load()
+        admin_emails = site_settings.get_notification_emails()
+
+        if not admin_emails:
+            logger.warning(f"No notification emails configured in Site Settings for booking #{booking.id}")
+            return
+
+        # Email context
+        context = {
+            'booking': booking,
+            'course': course,
+            'payment': course_payment,
+        }
+
+        # Render HTML and text versions
+        html_content = render_to_string('emails/admin_booking_notification.html', context)
+        text_content = render_to_string('emails/admin_booking_notification.txt', context)
+
+        # Create email
+        subject = f'New Booking Received - {course.title}'
+        from_email = settings.DEFAULT_FROM_EMAIL
+
+        email = EmailMultiAlternatives(
+            subject=subject,
+            body=text_content,
+            from_email=from_email,
+            to=admin_emails,
+        )
+        email.attach_alternative(html_content, "text/html")
+
+        # Send email
+        email.send(fail_silently=False)
+        logger.info(f"Admin booking notification sent to {', '.join(admin_emails)} for booking #{booking.id}")
+
+    except Exception as e:
+        logger.error(f"Error sending admin booking notification: {str(e)}")
+
+
 def payment_success(request):
     """Handle successful payment"""
     session_id = request.GET.get('session_id')
-    
+
     if session_id:
         try:
             session = stripe.checkout.Session.retrieve(session_id)
             course_payment_id = session.metadata.get('course_payment_id')
             payment_type = session.metadata.get('payment_type')
-            
+
             if course_payment_id:
                 course_payment = CoursePayment.objects.get(id=course_payment_id)
-                
+
                 # Update payment status
                 if payment_type == 'deposit':
                     course_payment.status = 'deposit_paid'
@@ -265,13 +362,13 @@ def payment_success(request):
                     course_payment.status = 'fully_paid'
                     course_payment.deposit_paid_at = timezone.now()
                     course_payment.final_paid_at = timezone.now()
-                
+
                 # Update payment intent ID if available
                 if session.payment_intent:
                     course_payment.stripe_payment_intent_id = session.payment_intent
-                
+
                 course_payment.save()
-                
+
                 # Create payment record
                 StripePaymentRecord.objects.create(
                     course_payment=course_payment,
@@ -281,18 +378,24 @@ def payment_success(request):
                     status='succeeded',
                     processed_at=timezone.now(),
                 )
-                
+
+                # Send confirmation email to customer
+                send_course_confirmation_email(course_payment)
+
+                # Send notification email to Hannah
+                send_admin_booking_notification(course_payment)
+
                 context = {
                     'course_payment': course_payment,
                     'session': session,
                     'payment_type': payment_type,
                 }
                 return render(request, 'courses/payment_success.html', context)
-                
+
         except Exception as e:
             logger.error(f"Error processing successful payment: {str(e)}")
             messages.error(request, 'There was an error processing your payment confirmation.')
-    
+
     return render(request, 'courses/payment_success.html', {})
 
 

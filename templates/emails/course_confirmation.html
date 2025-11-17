@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Booking Confirmation - Hortus Cognitor</title>
+    <style>
+        /* Import Google Fonts for better email client support */
+        @import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&family=Patrick+Hand&family=Caveat:wght@400;700&display=swap');
+    </style>
+</head>
+<body style="margin: 0; padding: 0; font-family: Georgia, serif; background-color: #000000; color: #ADA228;">
+    <table role="presentation" style="width: 100%; border-collapse: collapse;">
+        <tr>
+            <td style="padding: 40px 20px; text-align: center;">
+                <table role="presentation" style="max-width: 600px; margin: 0 auto; background-color: #000000; border-radius: 8px; box-shadow: 0 2px 8px rgba(173,162,40,0.3); border-collapse: collapse; border: 2px solid #ADA228;">
+
+                    <!-- Header with brand styling -->
+                    <tr>
+                        <td style="padding: 40px 40px 20px; text-align: center; background-color: #1a1a1a; border-radius: 8px 8px 0 0;">
+                            <h1 style="margin: 0; font-family: 'Kalam', 'Patrick Hand', 'Caveat', Georgia, serif; font-size: 36px; color: #ADA228; font-weight: 400;">Hortus Cognitor</h1>
+                            <p style="margin: 10px 0 0; font-size: 14px; color: #969020; letter-spacing: 1px;">A Garden of Knowledge</p>
+                        </td>
+                    </tr>
+
+                    <!-- Main content -->
+                    <tr>
+                        <td style="padding: 40px;">
+                            <h2 style="margin: 0 0 20px; font-family: 'Kalam', 'Patrick Hand', 'Caveat', Georgia, serif; font-size: 28px; color: #ADA228; font-weight: 400;">Your Course Space is Confirmed!</h2>
+
+                            <p style="margin: 0 0 20px; line-height: 1.6; font-size: 16px; color: #FFFFFF;">
+                                Dear {{ booking.full_name }},
+                            </p>
+
+                            <p style="margin: 0 0 20px; line-height: 1.6; font-size: 16px; color: #FFFFFF;">
+                                Thank you for booking your place on <strong>{{ course.title }}</strong>. We're delighted to welcome you to this journey of discovery and growth.
+                            </p>
+
+                            <!-- Course details box -->
+                            <table role="presentation" style="width: 100%; border-collapse: collapse; margin: 30px 0; background-color: #1a1a1a; border-radius: 6px; border: 1px solid #ADA228;">
+                                <tr>
+                                    <td style="padding: 25px;">
+                                        <h3 style="margin: 0 0 15px; font-family: 'Kalam', 'Patrick Hand', 'Caveat', Georgia, serif; font-size: 20px; color: #ADA228;">Course Details</h3>
+
+                                        <p style="margin: 8px 0; font-size: 15px; color: #FFFFFF;">
+                                            <strong>Course:</strong> {{ course.title }}
+                                        </p>
+
+                                        {% if payment.payment_plan.installments == 1 %}
+                                        <p style="margin: 8px 0; font-size: 15px; color: #FFFFFF;">
+                                            <strong>Payment:</strong> Full payment of £{{ payment.total_amount }} received
+                                        </p>
+                                        {% else %}
+                                        <p style="margin: 8px 0; font-size: 15px; color: #FFFFFF;">
+                                            <strong>Deposit Paid:</strong> £{{ payment.deposit_amount }}
+                                        </p>
+                                        <p style="margin: 8px 0; font-size: 15px; color: #FFFFFF;">
+                                            <strong>Final Payment Due:</strong> £{{ payment.final_amount }} by {{ payment.payment_plan.final_payment_due_date|date:"d F Y" }}
+                                        </p>
+                                        {% endif %}
+
+                                        <p style="margin: 8px 0; font-size: 15px; color: #FFFFFF;">
+                                            <strong>Booking Reference:</strong> #{{ booking.id }}
+                                        </p>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <p style="margin: 0 0 20px; line-height: 1.6; font-size: 16px; color: #FFFFFF;">
+                                You'll receive full course details and joining instructions closer to the start date. In the meantime, if you have any questions, please don't hesitate to get in touch.
+                            </p>
+
+                            <p style="margin: 0 0 20px; line-height: 1.6; font-size: 16px; color: #FFFFFF;">
+                                We look forward to seeing you soon!
+                            </p>
+
+                            <p style="margin: 30px 0 0; line-height: 1.6; font-size: 16px; color: #FFFFFF;">
+                                Warm regards,<br>
+                                <strong style="font-family: 'Kalam', 'Patrick Hand', 'Caveat', Georgia, serif; font-size: 18px; color: #ADA228;">Hannah</strong><br>
+                                <span style="font-size: 14px; color: #969020;">Hortus Cognitor</span>
+                            </p>
+                        </td>
+                    </tr>
+
+                    <!-- Footer -->
+                    <tr>
+                        <td style="padding: 30px 40px; text-align: center; background-color: #1a1a1a; border-radius: 0 0 8px 8px; border-top: 1px solid #ADA228;">
+                            <p style="margin: 0 0 10px; font-size: 14px; color: #969020;">
+                                <a href="https://hortuscognitor.co.uk" style="color: #ADA228; text-decoration: none;">hortuscognitor.co.uk</a>
+                            </p>
+                            <p style="margin: 0; font-size: 13px; color: #969020;">
+                                {{ booking.email }}
+                            </p>
+                        </td>
+                    </tr>
+
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

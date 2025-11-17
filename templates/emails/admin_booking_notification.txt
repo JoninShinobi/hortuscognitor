@@ -1,0 +1,38 @@
+HORTUS COGNITOR
+Admin Notification
+
+New Booking Received!
+
+A new participant has just booked a place on {{ course.title }}.
+
+PARTICIPANT DETAILS
+-------------------
+Name: {{ booking.full_name }}
+Email: {{ booking.email }}
+{% if booking.phone %}Phone: {{ booking.phone }}
+{% endif %}Booking Reference: #{{ booking.id }}
+Booking Date: {{ booking.created_at|date:"d F Y, H:i" }}
+
+COURSE & PAYMENT INFORMATION
+-----------------------------
+Course: {{ course.title }}
+Pricing Tier: {{ payment.pricing_tier.get_tier_display }}
+Total Amount: £{{ payment.total_amount }}
+
+{% if payment.payment_plan.name == 'installment' %}Payment Plan: Two installments
+Deposit Paid: £{{ payment.deposit_amount }}
+Final Payment Due: £{{ payment.final_amount }}
+{% else %}Payment: Full payment received (£{{ payment.total_amount }})
+{% endif %}
+Payment Status: {{ payment.get_status_display }}
+Spaces Remaining: {{ course.spaces_left }}
+
+{% if booking.message %}MESSAGE FROM PARTICIPANT
+------------------------
+{{ booking.message }}
+
+{% endif %}A confirmation email has been sent to the participant at {{ booking.email }}.
+
+---
+View in Admin Panel: https://hortuscognitor.co.uk/admin
+Hortus Cognitor Admin Notification

@@ -1,0 +1,30 @@
+HORTUS COGNITOR
+A Garden of Knowledge
+
+Your Course Space is Confirmed!
+
+Dear {{ booking.full_name }},
+
+Thank you for booking your place on {{ course.title }}. We're delighted to welcome you to this journey of discovery and growth.
+
+COURSE DETAILS
+--------------
+Course: {{ course.title }}
+
+{% if payment.payment_plan.installments == 1 %}Payment: Full payment of £{{ payment.total_amount }} received
+{% else %}Deposit Paid: £{{ payment.deposit_amount }}
+Final Payment Due: £{{ payment.final_amount }} by {{ payment.payment_plan.final_payment_due_date|date:"d F Y" }}
+{% endif %}
+Booking Reference: #{{ booking.id }}
+
+You'll receive full course details and joining instructions closer to the start date. In the meantime, if you have any questions, please don't hesitate to get in touch.
+
+We look forward to seeing you soon!
+
+Warm regards,
+Hannah
+Hortus Cognitor
+
+---
+hortuscognitor.co.uk
+{{ booking.email }}

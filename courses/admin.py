@@ -1,6 +1,6 @@
 from django.contrib import admin
 from unfold.admin import ModelAdmin, TabularInline
-from .models import Course, CourseSession, Instructor, Booking, PricingTier, PaymentPlan, CoursePayment, StripePaymentRecord
+from .models import Course, CourseSession, Instructor, Booking, PricingTier, PaymentPlan, CoursePayment, StripePaymentRecord, SiteSettings
 
 class CourseSessionInline(TabularInline):
     model = CourseSession
@@ -215,3 +215,30 @@ class StripePaymentRecordAdmin(ModelAdmin):
             'classes': ('collapse',)
         })
     )
+
+
+@admin.register(SiteSettings)
+class SiteSettingsAdmin(ModelAdmin):
+    """
+    Admin interface for site-wide settings.
+    Allows Hannah to manage notification emails and other global settings.
+    """
+
+    fieldsets = (
+        ('Email Notifications', {
+            'fields': ('booking_notification_emails',),
+            'description': (
+                'Configure who receives email notifications when bookings are made. '
+                'You can enter multiple email addresses separated by commas. '
+                'For example: hannah@hortuscognitor.co.uk, admin@hortuscognitor.co.uk'
+            )
+        }),
+    )
+
+    def has_add_permission(self, request):
+        """Prevent adding more than one settings instance"""
+        return not SiteSettings.objects.exists()
+
+    def has_delete_permission(self, request, obj=None):
+        """Prevent deletion of settings"""
+        return False

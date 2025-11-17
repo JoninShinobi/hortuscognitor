@@ -33,7 +33,19 @@ class Course(models.Model):
     
     def __str__(self):
         return self.title
-    
+
+    @property
+    def confirmed_bookings_count(self):
+        """Count bookings with confirmed payments (deposit_paid or fully_paid)"""
+        return self.bookings.filter(
+            payment__status__in=['deposit_paid', 'fully_paid']
+        ).count()
+
+    @property
+    def spaces_left(self):
+        """Calculate remaining spaces based on max participants and confirmed bookings"""
+        return self.max_participants - self.confirmed_bookings_count
+
     class Meta:
         ordering = ['start_date']
 
@@ -267,3 +279,7 @@ class StripePaymentRecord(models.Model):
     
     def __str__(self):
         return f"{self.get_payment_type_display()} - £{self.amount} - {self.status}"
+
+
+# Import site settings at the end to avoid circular import
+from .site_settings import SiteSettings

@@ -11,10 +11,11 @@
     <div class="container">
         <div class="hero-content">
             <h1>{{ course.title }}</h1>
-            <div style="margin-top: 2rem; color: white; text-align: center;">
+            <div style="margin-top: 2rem; color: white; text-align: center; white-space: nowrap;">
                 <span style="margin-right: 2rem;">📅 Starts: {{ course.start_date|date:"F Y" }}</span>
                 <span style="margin-right: 2rem;">⏱ Duration: {{ course.duration }}</span>
-                <span>👥 Max Participants: {{ course.max_participants }}</span>
+                <span style="margin-right: 2rem;">👥 Max Participants: {{ course.max_participants }}</span>
+                <span style="font-weight: bold; color: #ADA228;">Spaces Left: {{ course.spaces_left }}</span>
             </div>
             {% if course.sessions.exists %}
             <div style="margin-top: 1rem; text-align: center;">
@@ -34,8 +35,9 @@
     </div>
 </section>
 
-<section class="container course-detail">
-    <div class="course-info-grid">
+<section class="course-detail">
+    <div class="container">
+        <div class="course-info-grid">
         <div class="course-content">
             {% if course.description %}
             <h2>About This Course</h2>
@@ -94,6 +96,7 @@
                 </div>
             </div>
         </div>
+    </div>
     </div>
 </section>
 

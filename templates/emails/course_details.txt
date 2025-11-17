@@ -1,0 +1,45 @@
+HORTUS COGNITOR
+A Garden of Knowledge
+
+Your Course Starts Soon!
+
+Dear {{ booking.full_name }},
+
+We're looking forward to welcoming you to {{ course.title }}. Here are all the details you need for the course:
+
+{{ course.title|upper }}
+{{ "=" * course.title|length }}
+
+{{ course.description }}
+
+{% if course.sessions.exists %}
+COURSE SESSIONS
+---------------
+{% for session in course.sessions.all %}Session {{ session.session_number }}: {{ session.date|date:"l, d F Y" }} | {{ session.start_time|time:"g:i A" }} - {{ session.end_time|time:"g:i A" }}
+{% endfor %}
+{% endif %}
+
+{% if course.requirements %}
+WHAT TO BRING
+-------------
+{{ course.requirements }}
+{% endif %}
+
+{% if course.location %}
+LOCATION
+--------
+{{ course.location }}
+{% endif %}
+
+If you have any questions before the course starts, please don't hesitate to get in touch. We're here to help!
+
+See you soon!
+
+Warm regards,
+Hannah
+Hortus Cognitor
+
+---
+hortuscognitor.co.uk
+{{ booking.email }}
+Booking Reference: #{{ booking.id }}

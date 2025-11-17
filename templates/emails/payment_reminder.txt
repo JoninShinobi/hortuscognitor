@@ -1,0 +1,29 @@
+HORTUS COGNITOR
+A Garden of Knowledge
+
+Final Payment Reminder
+
+Dear {{ booking.full_name }},
+
+This is a friendly reminder that the final payment for your course {{ course.title }} is due on {{ payment.payment_plan.final_payment_due_date|date:"l, d F Y" }}.
+
+PAYMENT DETAILS
+---------------
+Course: {{ course.title }}
+Deposit Paid: £{{ payment.deposit_amount }} ✓
+Final Payment: £{{ payment.final_amount }}
+Due Date: {{ payment.payment_plan.final_payment_due_date|date:"l, d F Y" }}
+Booking Reference: #{{ booking.id }}
+
+To complete your payment, please visit:
+{{ payment_url }}
+
+If you've already made this payment, please disregard this email. If you have any questions or need to discuss alternative arrangements, please get in touch.
+
+Warm regards,
+Hannah
+Hortus Cognitor
+
+---
+hortuscognitor.co.uk
+{{ booking.email }}

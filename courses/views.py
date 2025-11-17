@@ -3,6 +3,7 @@ from django.views.generic import ListView, DetailView
 from django.contrib import messages
 from django.core.cache import cache
 from django.core.mail import EmailMultiAlternatives
+from django.core.exceptions import ValidationError
 from django.template.loader import render_to_string
 from django.http import HttpResponseForbidden, JsonResponse, HttpResponse
 from django.utils import timezone
@@ -45,39 +46,53 @@ def contact(request):
         if is_rate_limited(request, 'contact', limit=3, window=300):
             messages.error(request, 'Too many contact attempts. Please wait 5 minutes before trying again.')
             return redirect('contact')
-        
-        # Get form data
+
+        # Get and sanitize form data
         name = request.POST.get('name', '').strip()
         email = request.POST.get('email', '').strip()
         phone = request.POST.get('phone', '').strip()
         subject = request.POST.get('subject', '').strip()
         message = request.POST.get('message', '').strip()
-        
+
         # Basic validation
         if not name or not email or not subject or not message:
             messages.error(request, 'Please fill in all required fields.')
             return redirect('contact')
-        
+
+        # Validate subject length and content
+        if len(subject) > 200:
+            messages.error(request, 'Subject line is too long (maximum 200 characters).')
+            return redirect('contact')
+
         try:
-            # Create a booking record (reusing the existing model for simplicity)
-            booking = Booking.objects.create(
+            # Create a booking record - this will run full model validation
+            booking = Booking(
                 course=None,  # Contact form doesn't relate to a specific course
                 full_name=name,
                 email=email,
                 phone=phone,
                 message=f"Subject: {subject}\n\n{message}",
             )
+            # Run model validation (will raise ValidationError if invalid)
+            booking.full_clean()
+            booking.save()
 
             # Send email notification to Hannah
             send_contact_form_notification(booking, subject)
 
             messages.success(request, 'Thank you for your message! We will get back to you within 24-48 hours.')
             return redirect('contact')
+        except ValidationError as e:
+            # Handle validation errors
+            for field, errors in e.message_dict.items():
+                for error in errors:
+                    messages.error(request, f'{field.replace("_", " ").title()}: {error}')
+            return redirect('contact')
         except Exception as e:
             logger.error(f"Error saving contact form: {str(e)}")
             messages.error(request, 'There was an error sending your message. Please try again.')
             return redirect('contact')
-    
+
     return render(request, 'contact.html')
 
 class CourseListView(ListView):
@@ -176,7 +191,13 @@ def create_checkout_session(request):
     """Create Stripe Checkout session for course payment"""
     if request.method != 'POST':
         return JsonResponse({'error': 'Method not allowed'}, status=405)
-    
+
+    # Rate limiting - max 5 payment attempts per 10 minutes per IP
+    if is_rate_limited(request, 'payment', limit=5, window=600):
+        return JsonResponse({
+            'error': 'Too many payment attempts. Please wait 10 minutes before trying again.'
+        }, status=429)
+
     try:
         data = json.loads(request.body)
         course_id = data.get('course_id')
@@ -354,10 +375,16 @@ def send_contact_form_notification(booking, subject):
         subject: The subject line from the contact form
     """
     try:
+        # Sanitize subject to prevent email header injection
+        # Remove newlines, carriage returns, and null bytes
+        sanitized_subject = subject.replace('\n', ' ').replace('\r', ' ').replace('\0', ' ')
+        # Truncate to reasonable length
+        sanitized_subject = sanitized_subject[:200]
+
         # Email context
         context = {
             'booking': booking,
-            'subject': subject,
+            'subject': sanitized_subject,
         }
 
         # Render email content
@@ -375,7 +402,7 @@ Submitted: {booking.created_at.strftime('%d %B %Y, %H:%M')}
 
 SUBJECT
 -------
-{subject}
+{sanitized_subject}
 
 MESSAGE
 -------
@@ -387,7 +414,7 @@ Hortus Cognitor Contact Form Notification
 """
 
         # Create email
-        subject_line = f'New Contact Form - {subject}'
+        subject_line = f'New Contact Form - {sanitized_subject}'
         from_email = settings.DEFAULT_FROM_EMAIL
         to_email = 'hannah@hortuscognitor.co.uk'
 
@@ -472,26 +499,87 @@ def payment_cancel(request):
 
 @csrf_exempt
 def stripe_webhook(request):
-    """Handle Stripe webhooks"""
+    """Handle Stripe webhooks with idempotency and proper error handling"""
     payload = request.body
     sig_header = request.META.get('HTTP_STRIPE_SIGNATURE')
-    
+
     try:
         event = stripe.Webhook.construct_event(
             payload, sig_header, settings.STRIPE_WEBHOOK_SECRET
         )
-    except ValueError:
+    except ValueError as e:
+        logger.error(f"Stripe webhook invalid payload: {str(e)}")
         return HttpResponse(status=400)
-    except stripe.error.SignatureVerificationError:
+    except stripe.error.SignatureVerificationError as e:
+        logger.error(f"Stripe webhook signature verification failed: {str(e)}")
         return HttpResponse(status=400)
-    
+
+    # Get event ID for idempotency checking
+    event_id = event.get('id')
+    event_type = event.get('type')
+
+    logger.info(f"Received Stripe webhook: {event_type} (ID: {event_id})")
+
     # Handle the event
-    if event['type'] == 'payment_intent.succeeded':
+    if event_type == 'payment_intent.succeeded':
         payment_intent = event['data']['object']
-        logger.info(f"Payment succeeded: {payment_intent['id']}")
-    
-    elif event['type'] == 'payment_intent.payment_failed':
+        payment_intent_id = payment_intent['id']
+
+        try:
+            # Check if we've already processed this payment
+            existing_record = StripePaymentRecord.objects.filter(
+                stripe_payment_intent_id=payment_intent_id
+            ).first()
+
+            if existing_record:
+                logger.info(f"Payment {payment_intent_id} already processed (idempotent)")
+                return HttpResponse(status=200)
+
+            # Find the associated course payment
+            course_payment = CoursePayment.objects.filter(
+                stripe_payment_intent_id=payment_intent_id
+            ).first()
+
+            if course_payment:
+                # Update payment status based on metadata
+                if course_payment.status == 'pending':
+                    course_payment.status = 'deposit_paid'
+                    course_payment.deposit_paid_at = timezone.now()
+                elif course_payment.status == 'deposit_paid':
+                    course_payment.status = 'fully_paid'
+                    course_payment.final_paid_at = timezone.now()
+
+                course_payment.save()
+                logger.info(f"Updated CoursePayment {course_payment.id} status to {course_payment.status}")
+            else:
+                logger.warning(f"No CoursePayment found for payment_intent {payment_intent_id}")
+
+        except Exception as e:
+            logger.error(f"Error processing payment_intent.succeeded webhook: {str(e)}")
+            return HttpResponse(status=500)
+
+    elif event_type == 'payment_intent.payment_failed':
         payment_intent = event['data']['object']
-        logger.error(f"Payment failed: {payment_intent['id']}")
-    
+        payment_intent_id = payment_intent['id']
+        error_message = payment_intent.get('last_payment_error', {}).get('message', 'Unknown error')
+
+        logger.error(f"Payment failed: {payment_intent_id} - {error_message}")
+
+        try:
+            # Update course payment status to indicate failure
+            course_payment = CoursePayment.objects.filter(
+                stripe_payment_intent_id=payment_intent_id
+            ).first()
+
+            if course_payment:
+                # Don't change status to failed automatically - keep as pending
+                # This allows customers to retry with the same booking
+                logger.warning(f"Payment failed for CoursePayment {course_payment.id}: {error_message}")
+
+        except Exception as e:
+            logger.error(f"Error processing payment_intent.payment_failed webhook: {str(e)}")
+
+    else:
+        logger.info(f"Unhandled webhook event type: {event_type}")
+
     return HttpResponse(status=200)

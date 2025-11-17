@@ -21,10 +21,16 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-$=wf$o#q87f=-#*+x_zjd$hs64#l%@iuxa@%xemvsxt$8dy$a7')
-
-# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG', 'False').lower() == 'true'
+
+if DEBUG:
+    # Development: Use insecure fallback key
+    SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-$=wf$o#q87f=-#*+x_zjd$hs64#l%@iuxa@%xemvsxt$8dy$a7')
+else:
+    # Production: REQUIRE SECRET_KEY environment variable
+    SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
+    if not SECRET_KEY:
+        raise ValueError('DJANGO_SECRET_KEY environment variable must be set in production')
 
 ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'localhost,127.0.0.1,hortuscognitor.onrender.com,hortuscogintor.vercel.app').split(',')
 

@@ -30,10 +30,12 @@ If we are discussing something related to @business_plan or something feels rele
 # Hortus Cognitor Action List - Website Launch Tasks
 
 ## Email Setup & Automation
-- **Email Address**: hannah@hortuscognitor.co.uk (using SendGrid)
+- **Email Address**: hannah@hortuscognitor.co.uk (using SendGrid) ✓
 - **Email 1**: Course space confirmation (immediate after booking) ✓
-- **Email 2**: Payment reminder for 2-installment bookings - send on 2nd Jan 2026 (payment due 9th Jan)
-- **Email 3**: Course details reminder - send on 10th Jan with full course information
+- **Email 2**: Payment reminder for 2-installment bookings ✓ (Automated - runs daily at 9am UTC)
+- **Email 3**: Course details reminder ✓ (Automated - runs daily at 11am UTC)
+- **Email 4**: Session reminders ✓ (Automated - runs daily at 10am UTC)
+- **Automated Reminder System**: Fully implemented with configurable schedules, test mode, and admin tracking ✓
 
 ## Stripe & Payments
 - **Test payment system** with Stripe

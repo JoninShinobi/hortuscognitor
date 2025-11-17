@@ -165,22 +165,78 @@ This updates automatically - no manual tracking needed!
 
 ## 📋 Automated Reminder Emails
 
-### What's Set Up
+Your website now has a fully automated reminder email system that runs daily without any manual work!
 
-**Email 1: Course Confirmation** ✅ Working
-- Sent immediately when someone pays
-- Confirms their booking and payment
+### What Emails Are Sent Automatically
 
-**Email 2: Payment Reminder** (Code ready, needs scheduling)
-- For people paying in installments
-- Should send on 2nd January 2026
-- Reminds them final payment is due 9th January 2026
+**1. Course Confirmation** ✅ Immediate
+- Sent instantly when someone pays (deposit or full)
+- Confirms their booking and payment details
 
-**Email 3: Course Details Reminder** (Code ready, needs scheduling)
-- Should send on 10th January 2026
-- Includes full course details and what to bring/expect
+**2. Payment Reminders** ✅ Automated
+- Sent to people paying in installments who haven't paid their final amount
+- Default schedule: 7 days before, 3 days before, 1 day before deadline
+- You can customize when these are sent in Site Settings
 
-📝 *Note: Emails 2 and 3 need to be scheduled - this will be done before the course start date*
+**3. Course Details Reminder** ✅ Automated
+- Sent 7 days before the course starts (customizable)
+- Includes full course information, what to bring, preparation details
+- Only sent to confirmed participants (those who have paid)
+
+**4. Session Reminders** ✅ Automated
+- Sent before individual course sessions
+- Default: 1 day before each session (customizable)
+- You can choose to send only before the first session, or before all sessions
+
+### How to Configure Reminder Emails
+
+1. Go to **Admin Panel** → **Site Settings**
+2. You'll see sections for each type of reminder:
+
+**Payment Reminders**
+- Toggle on/off
+- Set days before deadline (e.g., "7,3,1" for 7 days, 3 days, 1 day before)
+
+**Course Details Reminders**
+- Toggle on/off
+- Set how many days before course start to send
+
+**Session Reminders**
+- Toggle on/off
+- Set how many days before session to send
+- Choose: "First Session Only" or "All Sessions"
+
+**Test Mode**
+- Enable this to send all reminders to your email instead of customers
+- Perfect for testing before going live!
+
+### When Reminders Are Sent
+
+The system runs automatically every day at:
+- **9:00 AM**: Checks for payment reminders to send
+- **10:00 AM**: Checks for session reminders to send
+- **11:00 AM**: Checks for course details reminders to send
+
+You don't need to do anything - it's completely hands-off!
+
+### Viewing Sent Reminders
+
+1. Go to **Admin Panel** → **Email Reminders**
+2. See all reminders that have been sent
+3. Filter by type, date, or success status
+4. Track which customers have received which reminders
+
+### Test Mode (IMPORTANT!)
+
+Before your course goes live, test the reminder system:
+
+1. Go to **Admin Panel** → **Site Settings**
+2. Scroll to **Test Mode Settings**
+3. Enable "Test Mode"
+4. Enter your email in "Test Email Address"
+5. All reminder emails will now send to YOU instead of customers
+
+This lets you safely test everything without spamming your participants!
 
 ---
 

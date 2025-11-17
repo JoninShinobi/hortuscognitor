@@ -1,0 +1,33 @@
+HORTUS COGNITOR
+A Garden of Knowledge
+
+Session Reminder
+
+Dear {{ booking.full_name }},
+
+This is a friendly reminder that your next session for {{ course.title }} is coming up soon!
+
+SESSION DETAILS
+---------------
+Session {{ session.session_number }}{% if is_first_session %} (First Session){% endif %}
+Date: {{ session.date|date:"l, d F Y" }}
+Time: {{ session.start_time|time:"H:i" }} - {{ session.end_time|time:"H:i" }}
+{% if course.location %}Location: {{ course.location }}{% endif %}
+
+{% if is_first_session %}WHAT TO BRING
+--------------
+• Comfortable clothing suitable for outdoor activities
+• Waterproof jacket and boots
+• Notebook and pen
+• Water bottle
+• Any specific items mentioned in your course confirmation email
+
+{% endif %}We're looking forward to seeing you! If you have any questions or need to let us know about any changes, please don't hesitate to get in touch.
+
+See you soon,
+Hannah
+Hortus Cognitor
+
+---
+hortuscognitor.co.uk
+{{ booking.email }}

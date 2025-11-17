@@ -89,6 +89,12 @@ def validate_no_html(value):
             raise ValidationError('Potentially unsafe content detected.')
 
 class Booking(models.Model):
+    STATUS_CHOICES = [
+        ('pending', 'Pending'),
+        ('confirmed', 'Confirmed'),
+        ('cancelled', 'Cancelled'),
+    ]
+
     course = models.ForeignKey(Course, on_delete=models.CASCADE, related_name='bookings', null=True, blank=True)
     full_name = models.CharField(
         max_length=100,
@@ -124,6 +130,12 @@ class Booking(models.Model):
         max_length=1000,
         validators=[validate_no_html],
         help_text="Optional message (maximum 1000 characters)"
+    )
+    status = models.CharField(
+        max_length=20,
+        choices=STATUS_CHOICES,
+        default='pending',
+        help_text="Booking status - set to 'confirmed' once payment received, 'cancelled' to stop reminders"
     )
     created_at = models.DateTimeField(auto_now_add=True)
     
@@ -279,6 +291,72 @@ class StripePaymentRecord(models.Model):
     
     def __str__(self):
         return f"{self.get_payment_type_display()} - £{self.amount} - {self.status}"
+
+
+class EmailReminder(models.Model):
+    """Track automated reminder emails sent to prevent duplicates and for monitoring"""
+    REMINDER_TYPE_CHOICES = [
+        ('payment_reminder', 'Payment Reminder'),
+        ('course_details', 'Course Details'),
+        ('session_reminder', 'Session Reminder'),
+    ]
+
+    # Foreign keys (nullable to support different reminder types)
+    course_payment = models.ForeignKey(
+        CoursePayment,
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True,
+        related_name='email_reminders',
+        help_text='Related course payment (for payment reminders)'
+    )
+    course_session = models.ForeignKey(
+        CourseSession,
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True,
+        related_name='email_reminders',
+        help_text='Related course session (for session reminders)'
+    )
+
+    # Reminder details
+    reminder_type = models.CharField(
+        max_length=20,
+        choices=REMINDER_TYPE_CHOICES,
+        help_text='Type of reminder email sent'
+    )
+    days_before_sent = models.IntegerField(
+        null=True,
+        blank=True,
+        help_text='How many days before the event this reminder was sent (e.g., 7 for "7 days before")'
+    )
+
+    # Email tracking
+    recipient_email = models.EmailField(help_text='Email address the reminder was sent to')
+    sent_at = models.DateTimeField(auto_now_add=True, help_text='When the reminder was sent')
+    successful = models.BooleanField(
+        default=True,
+        help_text='Whether the email was sent successfully'
+    )
+    error_message = models.TextField(
+        blank=True,
+        help_text='Error message if email failed to send'
+    )
+
+    class Meta:
+        ordering = ['-sent_at']
+        verbose_name = 'Email Reminder'
+        verbose_name_plural = 'Email Reminders'
+        indexes = [
+            models.Index(fields=['reminder_type', 'sent_at']),
+            models.Index(fields=['course_payment', 'reminder_type', 'days_before_sent']),
+            models.Index(fields=['course_session', 'reminder_type']),
+        ]
+
+    def __str__(self):
+        status = "✓" if self.successful else "✗"
+        days_info = f" ({self.days_before_sent} days before)" if self.days_before_sent else ""
+        return f"{status} {self.get_reminder_type_display()}{days_info} to {self.recipient_email} at {self.sent_at.strftime('%Y-%m-%d %H:%M')}"
 
 
 # Import site settings at the end to avoid circular import

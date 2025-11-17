@@ -16,3 +16,22 @@ databases:
   - name: hortus-cognitor-db
     databaseName: hortus_cognitor
     user: hortus_cognitor
+
+# Automated email reminder cron jobs
+# These run daily to check for and send reminder emails
+# Configuration is managed in the Django admin under Site Settings
+cronJobs:
+  - name: payment-reminders
+    schedule: "0 9 * * *"  # Daily at 9:00 AM UTC (10:00 AM BST / 9:00 AM GMT)
+    command: "python manage.py send_payment_reminders"
+    env: python
+
+  - name: session-reminders
+    schedule: "0 10 * * *"  # Daily at 10:00 AM UTC (11:00 AM BST / 10:00 AM GMT)
+    command: "python manage.py send_session_reminders"
+    env: python
+
+  - name: course-details-reminders
+    schedule: "0 11 * * *"  # Daily at 11:00 AM UTC (12:00 PM BST / 11:00 AM GMT)
+    command: "python manage.py send_course_details"
+    env: python

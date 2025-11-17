@@ -1,6 +1,6 @@
 from django.contrib import admin
 from unfold.admin import ModelAdmin, TabularInline
-from .models import Course, CourseSession, Instructor, Booking, PricingTier, PaymentPlan, CoursePayment, StripePaymentRecord, SiteSettings
+from .models import Course, CourseSession, Instructor, Booking, PricingTier, PaymentPlan, CoursePayment, StripePaymentRecord, EmailReminder, SiteSettings
 
 class CourseSessionInline(TabularInline):
     model = CourseSession
@@ -93,18 +93,18 @@ class InstructorAdmin(ModelAdmin):
     
 @admin.register(Booking)
 class BookingAdmin(ModelAdmin):
-    list_display = ['full_name', 'email', 'course', 'created_at']
-    list_filter = ['course', 'created_at']
+    list_display = ['full_name', 'email', 'course', 'status', 'created_at']
+    list_filter = ['status', 'course', 'created_at']
     search_fields = ['full_name', 'email', 'course__title']
     date_hierarchy = 'created_at'
     readonly_fields = ['created_at']
-    
+
     fieldsets = (
         ('Contact Information', {
             'fields': ('full_name', 'email', 'phone')
         }),
         ('Booking Details', {
-            'fields': ('course', 'message', 'created_at')
+            'fields': ('course', 'status', 'message', 'created_at')
         })
     )
 
@@ -217,11 +217,95 @@ class StripePaymentRecordAdmin(ModelAdmin):
     )
 
 
+@admin.register(EmailReminder)
+class EmailReminderAdmin(ModelAdmin):
+    """
+    Admin interface for viewing sent email reminders.
+    Provides visibility into which reminders have been sent and their status.
+    """
+    list_display = [
+        'reminder_icon',
+        'reminder_type_display',
+        'recipient_email',
+        'days_before_sent',
+        'sent_at',
+        'successful'
+    ]
+    list_filter = [
+        'reminder_type',
+        'successful',
+        'sent_at',
+        'days_before_sent'
+    ]
+    search_fields = [
+        'recipient_email',
+        'course_payment__booking__full_name',
+        'course_payment__booking__course__title',
+        'course_session__course__title'
+    ]
+    date_hierarchy = 'sent_at'
+    readonly_fields = [
+        'course_payment',
+        'course_session',
+        'reminder_type',
+        'days_before_sent',
+        'recipient_email',
+        'sent_at',
+        'successful',
+        'error_message'
+    ]
+
+    fieldsets = (
+        ('Reminder Information', {
+            'fields': (
+                'reminder_type',
+                'days_before_sent',
+                'recipient_email',
+            )
+        }),
+        ('Related Records', {
+            'fields': (
+                'course_payment',
+                'course_session',
+            ),
+            'description': 'The booking or session this reminder relates to.'
+        }),
+        ('Status', {
+            'fields': (
+                'sent_at',
+                'successful',
+                'error_message',
+            )
+        }),
+    )
+
+    def reminder_icon(self, obj):
+        """Display icon based on reminder type"""
+        if obj.successful:
+            return '✓'
+        return '✗'
+    reminder_icon.short_description = ''
+
+    def reminder_type_display(self, obj):
+        """Format reminder type for display"""
+        return obj.get_reminder_type_display()
+    reminder_type_display.short_description = 'Type'
+    reminder_type_display.admin_order_field = 'reminder_type'
+
+    def has_add_permission(self, request):
+        """Prevent manual creation of reminder records"""
+        return False
+
+    def has_delete_permission(self, request, obj=None):
+        """Allow deletion for cleanup"""
+        return True
+
+
 @admin.register(SiteSettings)
 class SiteSettingsAdmin(ModelAdmin):
     """
     Admin interface for site-wide settings.
-    Allows Hannah to manage notification emails and other global settings.
+    Allows Hannah to manage notification emails and automated reminder settings.
     """
 
     fieldsets = (
@@ -231,6 +315,46 @@ class SiteSettingsAdmin(ModelAdmin):
                 'Configure who receives email notifications when bookings are made. '
                 'You can enter multiple email addresses separated by commas. '
                 'For example: hannah@hortuscognitor.co.uk, admin@hortuscognitor.co.uk'
+            )
+        }),
+        ('Payment Reminders', {
+            'fields': (
+                'payment_reminder_enabled',
+                'payment_reminder_days_before_list',
+            ),
+            'description': (
+                'Automated payment reminders for customers who paid a deposit and need to pay the final amount. '
+                'Reminders are sent X days before the final payment deadline based on the schedule you configure.'
+            )
+        }),
+        ('Course Details Reminders', {
+            'fields': (
+                'course_details_enabled',
+                'course_details_days_before',
+            ),
+            'description': (
+                'Send course details and preparation information to confirmed participants before the course starts.'
+            )
+        }),
+        ('Session Reminders', {
+            'fields': (
+                'session_reminder_enabled',
+                'session_reminder_days_before',
+                'session_reminder_per_course',
+            ),
+            'description': (
+                'Automated reminders sent before individual course sessions to remind participants of upcoming sessions.'
+            )
+        }),
+        ('Test Mode Settings', {
+            'fields': (
+                'reminder_test_mode',
+                'reminder_test_email',
+            ),
+            'classes': ('collapse',),
+            'description': (
+                'IMPORTANT: When test mode is enabled, all automated reminder emails will be sent to the test email address '
+                'instead of actual recipients. Use this to safely test the reminder system before going live.'
             )
         }),
     )

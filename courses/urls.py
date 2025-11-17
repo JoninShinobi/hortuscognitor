@@ -3,6 +3,7 @@ from . import views
 
 urlpatterns = [
     path('', views.CourseListView.as_view(), name='course_list'),
+    path('instagram/<slug:slug>/', views.instagram_course_poster, name='instagram_course_poster'),
     path('<slug:slug>/', views.CourseDetailView.as_view(), name='course_detail'),
     path('<slug:slug>/book/', views.book_course, name='book_course'),
     path('<slug:slug>/payment/', views.payment_selection, name='payment_selection'),

@@ -40,11 +40,19 @@ If we are discussing something related to @business_plan or something feels rele
 - **Onboard Hannah's payment details** to Stripe account
 
 ## Website Content & Legal
-- **Edit About Me page** - set up with contact form and reviews/testimonials (non-healthcare disclaimer)
-- **Remove grey background** from site
-- **Privacy Notice** - create and publish
+- **Edit About Me page** - set up with contact form and reviews/testimonials (non-healthcare disclaimer) ✓
+- **Remove grey background** from site ✓
+- **Privacy Notice** ✓ - COMPLETED: Comprehensive UK GDPR-compliant privacy policy created at /privacy-policy/
+  - Full data collection disclosure (contact forms, bookings, payments)
+  - Data usage and storage information
+  - Third-party services documented (Stripe, SendGrid, Render)
+  - User rights explained (access, rectification, erasure, portability, etc.)
+  - Cookie policy (essential cookies only)
+  - UK GDPR compliance statement
+  - Privacy notices added to contact form and payment page
+  - Privacy policy link added to footer on all pages
 - **ICO Registration** - sign up/register (data protection requirement)
-- **Contact page** - create or update
+- **Contact page** - create or update ✓
 
 ## Marketing & Domain
 - **Instagram post** - Aaron to provide images

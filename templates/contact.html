@@ -65,7 +65,13 @@
                             <label for="message" style="display: block; margin-bottom: 0.5rem; font-weight: 500; color: #333;">Message *</label>
                             <textarea id="message" name="message" rows="6" required style="width: 100%; padding: 0.75rem; border: 3px solid #ADA228; border-radius: 4px; font-size: 1rem; resize: vertical;" placeholder="Tell us about your interest in regenerative growing, any specific questions, or how we can help you..."></textarea>
                         </div>
-                        
+
+                        <div style="margin-bottom: 1.5rem; padding: 1rem; background: #f5f5f5; border-left: 3px solid #ADA228; border-radius: 4px;">
+                            <p style="font-size: 0.9rem; color: #555; margin: 0; line-height: 1.6;">
+                                By submitting this form, you consent to us storing and using your personal data to respond to your enquiry. We will not share your data with third parties or use it for marketing without your explicit consent. See our <a href="{% url 'privacy_policy' %}" target="_blank" style="color: #ADA228; text-decoration: underline;">Privacy Policy</a> for full details on how we protect your data.
+                            </p>
+                        </div>
+
                         <div style="text-align: center;">
                             <button type="submit" class="btn" style="background: #ADA228; color: white; padding: 1rem 2rem; font-size: 1.1rem; border: none; cursor: pointer;">
                                 Send Message

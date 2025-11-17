@@ -1,0 +1,340 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Privacy Policy - Hortus Cognitor{% endblock %}
+
+{% block content %}
+<section class="hero" style="padding: 4rem 0 2rem 0; min-height: auto;">
+    <div class="container">
+        <div class="hero-content">
+            <h1 style="margin-bottom: 0;">PRIVACY POLICY</h1>
+            <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8;">Last updated: {{ last_updated }}</p>
+        </div>
+    </div>
+</section>
+
+<section style="background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%); padding: 3rem 0;">
+    <div class="container" style="max-width: 900px;">
+
+        <!-- Introduction -->
+        <div style="margin-bottom: 3rem;">
+            <p style="font-size: 1.1rem; line-height: 1.8; color: #ffffff;">
+                At Hortus Cognitor, we are committed to protecting your privacy and personal data. This privacy policy explains how we collect, use, store, and protect your information in accordance with the UK General Data Protection Regulation (UK GDPR) and the Data Protection Act 2018.
+            </p>
+        </div>
+
+        <!-- Data Controller -->
+        <div style="margin-bottom: 3rem;">
+            <h2 style="color: #ADA228; margin-bottom: 1.5rem; font-size: 1.8rem;">1. Who We Are</h2>
+            <p style="line-height: 1.8; color: #ffffff;">
+                <strong>Data Controller:</strong> Hortus Cognitor<br>
+                <strong>Contact Email:</strong> hannah@hortuscognitor.co.uk<br>
+                <strong>Website:</strong> hortuscognitor.co.uk
+            </p>
+            <p style="line-height: 1.8; color: #ffffff; margin-top: 1rem;">
+                We are the data controller responsible for your personal information. If you have any questions about this privacy policy or how we handle your data, please contact us at the email address above.
+            </p>
+        </div>
+
+        <!-- What Data We Collect -->
+        <div style="margin-bottom: 3rem;">
+            <h2 style="color: #ADA228; margin-bottom: 1.5rem; font-size: 1.8rem;">2. What Personal Data We Collect</h2>
+
+            <h3 style="color: #ADA228; margin: 1.5rem 0 1rem 0; font-size: 1.3rem;">2.1 Contact Form Submissions</h3>
+            <p style="line-height: 1.8; color: #ffffff;">When you submit our contact form, we collect:</p>
+            <ul style="line-height: 1.8; color: #ffffff; margin-left: 2rem; margin-top: 0.5rem;">
+                <li>Your full name</li>
+                <li>Email address</li>
+                <li>Phone number (optional)</li>
+                <li>Subject of enquiry</li>
+                <li>Message content</li>
+                <li>IP address (for security and spam prevention)</li>
+            </ul>
+
+            <h3 style="color: #ADA228; margin: 1.5rem 0 1rem 0; font-size: 1.3rem;">2.2 Course Bookings</h3>
+            <p style="line-height: 1.8; color: #ffffff;">When you book a course, we collect:</p>
+            <ul style="line-height: 1.8; color: #ffffff; margin-left: 2rem; margin-top: 0.5rem;">
+                <li>Your full name</li>
+                <li>Email address</li>
+                <li>Phone number (optional)</li>
+                <li>Course selection and pricing tier chosen</li>
+                <li>Payment method and payment status</li>
+                <li>Any special requirements or messages you provide</li>
+            </ul>
+
+            <h3 style="color: #ADA228; margin: 1.5rem 0 1rem 0; font-size: 1.3rem;">2.3 Payment Information</h3>
+            <p style="line-height: 1.8; color: #ffffff;">
+                Payment card details are NOT stored on our servers. All payment processing is handled securely by Stripe, our payment processor. We only receive confirmation of successful payments and transaction references. For more information on how Stripe processes your data, please see their <a href="https://stripe.com/gb/privacy" target="_blank" rel="noopener noreferrer" style="color: #ADA228; text-decoration: underline;">privacy policy</a>.
+            </p>
+
+            <h3 style="color: #ADA228; margin: 1.5rem 0 1rem 0; font-size: 1.3rem;">2.4 Cookies and Technical Data</h3>
+            <p style="line-height: 1.8; color: #ffffff;">We collect minimal technical data including:</p>
+            <ul style="line-height: 1.8; color: #ffffff; margin-left: 2rem; margin-top: 0.5rem;">
+                <li>Session cookies (essential for website functionality)</li>
+                <li>CSRF tokens (security measure to protect forms)</li>
+                <li>IP address (for security, spam prevention, and rate limiting)</li>
+            </ul>
+            <p style="line-height: 1.8; color: #ffffff; margin-top: 1rem;">
+                <strong>We do NOT use tracking cookies, analytics cookies, or advertising cookies.</strong> Our website only uses essential cookies required for basic functionality and security.
+            </p>
+        </div>
+
+        <!-- Legal Basis -->
+        <div style="margin-bottom: 3rem;">
+            <h2 style="color: #ADA228; margin-bottom: 1.5rem; font-size: 1.8rem;">3. Legal Basis for Processing Your Data</h2>
+            <p style="line-height: 1.8; color: #ffffff;">Under UK GDPR, we process your personal data under the following legal bases:</p>
+
+            <div style="margin: 1.5rem 0;">
+                <h3 style="color: #ADA228; margin: 1rem 0; font-size: 1.2rem;">Contract Performance</h3>
+                <p style="line-height: 1.8; color: #ffffff;">
+                    When you book a course, we process your data to fulfill our contract with you - delivering the course you've paid for and communicating important course information.
+                </p>
+            </div>
+
+            <div style="margin: 1.5rem 0;">
+                <h3 style="color: #ADA228; margin: 1rem 0; font-size: 1.2rem;">Legitimate Interests</h3>
+                <p style="line-height: 1.8; color: #ffffff;">
+                    For contact form enquiries, we process your data based on our legitimate business interests to respond to your queries and potential future course bookings.
+                </p>
+            </div>
+
+            <div style="margin: 1.5rem 0;">
+                <h3 style="color: #ADA228; margin: 1rem 0; font-size: 1.2rem;">Legal Obligation</h3>
+                <p style="line-height: 1.8; color: #ffffff;">
+                    We retain certain records to comply with UK tax law and accounting requirements.
+                </p>
+            </div>
+        </div>
+
+        <!-- How We Use Data -->
+        <div style="margin-bottom: 3rem;">
+            <h2 style="color: #ADA228; margin-bottom: 1.5rem; font-size: 1.8rem;">4. How We Use Your Personal Data</h2>
+            <p style="line-height: 1.8; color: #ffffff;">We use your personal data to:</p>
+            <ul style="line-height: 1.8; color: #ffffff; margin-left: 2rem; margin-top: 0.5rem;">
+                <li>Process and confirm your course bookings</li>
+                <li>Send you course confirmation emails and payment receipts</li>
+                <li>Communicate important course updates, dates, and logistics</li>
+                <li>Respond to your contact form enquiries</li>
+                <li>Send payment reminders (for instalment payment plans)</li>
+                <li>Manage our business operations and record-keeping</li>
+                <li>Comply with legal obligations (tax, accounting)</li>
+                <li>Prevent fraud and maintain website security</li>
+            </ul>
+            <p style="line-height: 1.8; color: #ffffff; margin-top: 1rem;">
+                <strong>We will NEVER:</strong>
+            </p>
+            <ul style="line-height: 1.8; color: #ffffff; margin-left: 2rem; margin-top: 0.5rem;">
+                <li>Sell your personal data to third parties</li>
+                <li>Send you marketing emails unless you have explicitly opted in</li>
+                <li>Share your data with third parties except as described in section 5</li>
+                <li>Use your data for purposes other than those stated in this policy</li>
+            </ul>
+        </div>
+
+        <!-- Third Party Sharing -->
+        <div style="margin-bottom: 3rem;">
+            <h2 style="color: #ADA228; margin-bottom: 1.5rem; font-size: 1.8rem;">5. Who We Share Your Data With</h2>
+            <p style="line-height: 1.8; color: #ffffff;">We share your personal data only with trusted third-party service providers who help us deliver our services:</p>
+
+            <div style="margin: 1.5rem 0;">
+                <h3 style="color: #ADA228; margin: 1rem 0; font-size: 1.2rem;">Stripe (Payment Processing)</h3>
+                <p style="line-height: 1.8; color: #ffffff;">
+                    We use Stripe to securely process payments. Stripe is PCI-DSS compliant and meets the highest security standards for payment processing. View their privacy policy: <a href="https://stripe.com/gb/privacy" target="_blank" rel="noopener noreferrer" style="color: #ADA228; text-decoration: underline;">stripe.com/gb/privacy</a>
+                </p>
+            </div>
+
+            <div style="margin: 1.5rem 0;">
+                <h3 style="color: #ADA228; margin: 1rem 0; font-size: 1.2rem;">SendGrid (Email Delivery)</h3>
+                <p style="line-height: 1.8; color: #ffffff;">
+                    We use SendGrid to send transactional emails (booking confirmations, payment receipts, course updates). View their privacy policy: <a href="https://www.twilio.com/legal/privacy" target="_blank" rel="noopener noreferrer" style="color: #ADA228; text-decoration: underline;">twilio.com/legal/privacy</a>
+                </p>
+            </div>
+
+            <div style="margin: 1.5rem 0;">
+                <h3 style="color: #ADA228; margin: 1rem 0; font-size: 1.2rem;">Render (Website Hosting)</h3>
+                <p style="line-height: 1.8; color: #ffffff;">
+                    Our website and database are hosted on Render's secure servers located in the EU/UK. View their privacy policy: <a href="https://render.com/privacy" target="_blank" rel="noopener noreferrer" style="color: #ADA228; text-decoration: underline;">render.com/privacy</a>
+                </p>
+            </div>
+
+            <p style="line-height: 1.8; color: #ffffff; margin-top: 1.5rem;">
+                All third-party providers are carefully selected and contractually bound to protect your data in accordance with UK GDPR requirements.
+            </p>
+        </div>
+
+        <!-- Data Retention -->
+        <div style="margin-bottom: 3rem;">
+            <h2 style="color: #ADA228; margin-bottom: 1.5rem; font-size: 1.8rem;">6. How Long We Keep Your Data</h2>
+
+            <div style="margin: 1.5rem 0;">
+                <h3 style="color: #ADA228; margin: 1rem 0; font-size: 1.2rem;">Course Bookings</h3>
+                <p style="line-height: 1.8; color: #ffffff;">
+                    We retain booking and payment records for <strong>7 years</strong> from the date of the course to comply with UK tax and accounting regulations (HMRC requirements).
+                </p>
+            </div>
+
+            <div style="margin: 1.5rem 0;">
+                <h3 style="color: #ADA228; margin: 1rem 0; font-size: 1.2rem;">Contact Form Enquiries</h3>
+                <p style="line-height: 1.8; color: #ffffff;">
+                    Contact form submissions are retained for <strong>2 years</strong> unless you request earlier deletion. This allows us to maintain context for ongoing or potential future enquiries.
+                </p>
+            </div>
+
+            <div style="margin: 1.5rem 0;">
+                <h3 style="color: #ADA228; margin: 1rem 0; font-size: 1.2rem;">Technical Data</h3>
+                <p style="line-height: 1.8; color: #ffffff;">
+                    IP addresses used for security and rate limiting are retained for <strong>30 days</strong> maximum.
+                </p>
+            </div>
+        </div>
+
+        <!-- Your Rights -->
+        <div style="margin-bottom: 3rem;">
+            <h2 style="color: #ADA228; margin-bottom: 1.5rem; font-size: 1.8rem;">7. Your Data Protection Rights</h2>
+            <p style="line-height: 1.8; color: #ffffff;">Under UK GDPR, you have the following rights:</p>
+
+            <div style="margin: 1.5rem 0;">
+                <h3 style="color: #ADA228; margin: 1rem 0; font-size: 1.2rem;">Right of Access</h3>
+                <p style="line-height: 1.8; color: #ffffff;">
+                    You can request a copy of all personal data we hold about you.
+                </p>
+            </div>
+
+            <div style="margin: 1.5rem 0;">
+                <h3 style="color: #ADA228; margin: 1rem 0; font-size: 1.2rem;">Right to Rectification</h3>
+                <p style="line-height: 1.8; color: #ffffff;">
+                    You can ask us to correct any inaccurate or incomplete data.
+                </p>
+            </div>
+
+            <div style="margin: 1.5rem 0;">
+                <h3 style="color: #ADA228; margin: 1rem 0; font-size: 1.2rem;">Right to Erasure ("Right to be Forgotten")</h3>
+                <p style="line-height: 1.8; color: #ffffff;">
+                    You can request deletion of your personal data, except where we have a legal obligation to retain it (e.g., tax records).
+                </p>
+            </div>
+
+            <div style="margin: 1.5rem 0;">
+                <h3 style="color: #ADA228; margin: 1rem 0; font-size: 1.2rem;">Right to Restriction of Processing</h3>
+                <p style="line-height: 1.8; color: #ffffff;">
+                    You can ask us to limit how we use your data in certain circumstances.
+                </p>
+            </div>
+
+            <div style="margin: 1.5rem 0;">
+                <h3 style="color: #ADA228; margin: 1rem 0; font-size: 1.2rem;">Right to Data Portability</h3>
+                <p style="line-height: 1.8; color: #ffffff;">
+                    You can request your data in a structured, machine-readable format to transfer to another service.
+                </p>
+            </div>
+
+            <div style="margin: 1.5rem 0;">
+                <h3 style="color: #ADA228; margin: 1rem 0; font-size: 1.2rem;">Right to Object</h3>
+                <p style="line-height: 1.8; color: #ffffff;">
+                    You can object to processing based on legitimate interests.
+                </p>
+            </div>
+
+            <div style="margin: 1.5rem 0;">
+                <h3 style="color: #ADA228; margin: 1rem 0; font-size: 1.2rem;">Right to Withdraw Consent</h3>
+                <p style="line-height: 1.8; color: #ffffff;">
+                    Where we process data based on consent, you can withdraw that consent at any time.
+                </p>
+            </div>
+
+            <p style="line-height: 1.8; color: #ffffff; margin-top: 2rem; background: rgba(173, 162, 40, 0.1); padding: 1.5rem; border-left: 4px solid #ADA228;">
+                <strong>To exercise any of these rights, please contact us at hannah@hortuscognitor.co.uk</strong><br>
+                We will respond to your request within <strong>one month</strong> as required by UK GDPR.
+            </p>
+        </div>
+
+        <!-- Data Security -->
+        <div style="margin-bottom: 3rem;">
+            <h2 style="color: #ADA228; margin-bottom: 1.5rem; font-size: 1.8rem;">8. How We Protect Your Data</h2>
+            <p style="line-height: 1.8; color: #ffffff;">We implement industry-standard security measures to protect your personal data:</p>
+            <ul style="line-height: 1.8; color: #ffffff; margin-left: 2rem; margin-top: 0.5rem;">
+                <li><strong>HTTPS/SSL encryption</strong> - All data transmitted between your browser and our website is encrypted</li>
+                <li><strong>Secure password storage</strong> - Admin passwords are hashed using Django's secure password hashing</li>
+                <li><strong>CSRF protection</strong> - All forms are protected against Cross-Site Request Forgery attacks</li>
+                <li><strong>Rate limiting</strong> - We prevent spam and brute-force attacks through rate limiting</li>
+                <li><strong>Input validation</strong> - All user inputs are validated and sanitized to prevent injection attacks</li>
+                <li><strong>PCI-DSS compliance</strong> - Payment data is processed by Stripe (we never see your card details)</li>
+                <li><strong>Regular security updates</strong> - We keep all software dependencies up to date</li>
+                <li><strong>Access controls</strong> - Only authorized personnel can access your personal data</li>
+            </ul>
+        </div>
+
+        <!-- International Transfers -->
+        <div style="margin-bottom: 3rem;">
+            <h2 style="color: #ADA228; margin-bottom: 1.5rem; font-size: 1.8rem;">9. International Data Transfers</h2>
+            <p style="line-height: 1.8; color: #ffffff;">
+                Our website hosting (Render) stores data on servers located in the EU/UK. Some of our service providers (Stripe, SendGrid) may process data in the USA, but they have appropriate safeguards in place including Standard Contractual Clauses (SCCs) and EU-US Data Privacy Framework certification to ensure your data remains protected to UK GDPR standards.
+            </p>
+        </div>
+
+        <!-- Children's Privacy -->
+        <div style="margin-bottom: 3rem;">
+            <h2 style="color: #ADA228; margin-bottom: 1.5rem; font-size: 1.8rem;">10. Children's Privacy</h2>
+            <p style="line-height: 1.8; color: #ffffff;">
+                Our services are intended for adults aged 18 and over. We do not knowingly collect personal data from children under 16. If you believe we have inadvertently collected data from a child, please contact us immediately and we will delete it.
+            </p>
+        </div>
+
+        <!-- Automated Decision Making -->
+        <div style="margin-bottom: 3rem;">
+            <h2 style="color: #ADA228; margin-bottom: 1.5rem; font-size: 1.8rem;">11. Automated Decision Making</h2>
+            <p style="line-height: 1.8; color: #ffffff;">
+                We do not use automated decision making or profiling that has legal or similarly significant effects on you. All booking decisions and communications are reviewed by humans.
+            </p>
+        </div>
+
+        <!-- Changes to Policy -->
+        <div style="margin-bottom: 3rem;">
+            <h2 style="color: #ADA228; margin-bottom: 1.5rem; font-size: 1.8rem;">12. Changes to This Privacy Policy</h2>
+            <p style="line-height: 1.8; color: #ffffff;">
+                We may update this privacy policy from time to time to reflect changes in our practices or legal requirements. The "Last updated" date at the top of this page shows when the policy was last revised. We encourage you to review this policy periodically.
+            </p>
+            <p style="line-height: 1.8; color: #ffffff; margin-top: 1rem;">
+                If we make significant changes that affect how we use your personal data, we will notify you by email (if you have provided one) or by placing a prominent notice on our website.
+            </p>
+        </div>
+
+        <!-- Complaints -->
+        <div style="margin-bottom: 3rem;">
+            <h2 style="color: #ADA228; margin-bottom: 1.5rem; font-size: 1.8rem;">13. How to Complain</h2>
+            <p style="line-height: 1.8; color: #ffffff;">
+                If you have concerns about how we handle your personal data, please contact us first at hannah@hortuscognitor.co.uk and we will do our best to resolve the issue.
+            </p>
+            <p style="line-height: 1.8; color: #ffffff; margin-top: 1rem;">
+                You also have the right to lodge a complaint with the UK Information Commissioner's Office (ICO):
+            </p>
+            <div style="background: rgba(173, 162, 40, 0.1); padding: 1.5rem; margin-top: 1rem; border-left: 4px solid #ADA228;">
+                <p style="line-height: 1.8; color: #ffffff; margin: 0;">
+                    <strong>Information Commissioner's Office (ICO)</strong><br>
+                    Website: <a href="https://ico.org.uk/make-a-complaint/" target="_blank" rel="noopener noreferrer" style="color: #ADA228; text-decoration: underline;">ico.org.uk/make-a-complaint</a><br>
+                    Telephone: 0303 123 1113<br>
+                    Address: Wycliffe House, Water Lane, Wilmslow, Cheshire, SK9 5AF
+                </p>
+            </div>
+        </div>
+
+        <!-- Contact -->
+        <div style="margin-bottom: 3rem; background: rgba(173, 162, 40, 0.15); padding: 2rem; border-radius: 8px; border: 2px solid #ADA228;">
+            <h2 style="color: #ADA228; margin-bottom: 1.5rem; font-size: 1.8rem;">14. Contact Us</h2>
+            <p style="line-height: 1.8; color: #ffffff;">
+                If you have any questions about this privacy policy or how we handle your personal data, please contact us:
+            </p>
+            <div style="margin-top: 1rem;">
+                <p style="line-height: 1.8; color: #ffffff; margin: 0.5rem 0;">
+                    <strong>Email:</strong> hannah@hortuscognitor.co.uk
+                </p>
+                <p style="line-height: 1.8; color: #ffffff; margin: 0.5rem 0;">
+                    <strong>Website:</strong> hortuscognitor.co.uk
+                </p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}

@@ -37,6 +37,13 @@ def home(request):
 def about(request):
     return render(request, 'about.html')
 
+def privacy_policy(request):
+    """Display the privacy policy page"""
+    from datetime import datetime
+    return render(request, 'privacy_policy.html', {
+        'last_updated': 'January 2026'
+    })
+
 def regenerative_movement_course(request):
     return render(request, 'regenerative_movement_course.html')
 

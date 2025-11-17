@@ -67,6 +67,10 @@ def contact(request):
                 phone=phone,
                 message=f"Subject: {subject}\n\n{message}",
             )
+
+            # Send email notification to Hannah
+            send_contact_form_notification(booking, subject)
+
             messages.success(request, 'Thank you for your message! We will get back to you within 24-48 hours.')
             return redirect('contact')
         except Exception as e:
@@ -339,6 +343,67 @@ def send_admin_booking_notification(course_payment):
 
     except Exception as e:
         logger.error(f"Error sending admin booking notification: {str(e)}")
+
+
+def send_contact_form_notification(booking, subject):
+    """
+    Send notification email to Hannah when a contact form is submitted.
+
+    Args:
+        booking: Booking instance (with course=None for contact forms)
+        subject: The subject line from the contact form
+    """
+    try:
+        # Email context
+        context = {
+            'booking': booking,
+            'subject': subject,
+        }
+
+        # Render email content
+        email_body = f"""HORTUS COGNITOR
+Contact Form Submission
+
+A new contact form message has been received.
+
+CONTACT DETAILS
+----------------
+Name: {booking.full_name}
+Email: {booking.email}
+Phone: {booking.phone or 'Not provided'}
+Submitted: {booking.created_at.strftime('%d %B %Y, %H:%M')}
+
+SUBJECT
+-------
+{subject}
+
+MESSAGE
+-------
+{booking.message.replace(f'Subject: {subject}', '').strip()}
+
+---
+View in Admin Panel: https://hortuscognitor.onrender.com/admin/courses/booking/{booking.id}/change/
+Hortus Cognitor Contact Form Notification
+"""
+
+        # Create email
+        subject_line = f'New Contact Form - {subject}'
+        from_email = settings.DEFAULT_FROM_EMAIL
+        to_email = 'hannah@hortuscognitor.co.uk'
+
+        email = EmailMultiAlternatives(
+            subject=subject_line,
+            body=email_body,
+            from_email=from_email,
+            to=[to_email],
+        )
+
+        # Send email
+        email.send(fail_silently=False)
+        logger.info(f"Contact form notification sent to {to_email} for booking #{booking.id}")
+
+    except Exception as e:
+        logger.error(f"Error sending contact form notification: {str(e)}")
 
 
 def payment_success(request):

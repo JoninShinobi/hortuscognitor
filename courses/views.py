@@ -636,14 +636,3 @@ def stripe_webhook(request):
         logger.info(f"Unhandled webhook event type: {event_type}")
 
     return HttpResponse(status=200)
-
-
-def instagram_course_poster(request, slug):
-    """
-    Render Instagram poster for course announcement.
-    Access at /instagram/course/{slug}/
-    """
-    course = get_object_or_404(Course, slug=slug)
-    return render(request, 'instagram/course_announcement.html', {
-        'course': course
-    })
